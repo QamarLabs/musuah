@@ -92,6 +92,10 @@ input {
   font-family: "Roboto Serif", serif;
 }
 
+.mw-normal {
+  font-size: 1rem;
+}
+
 .mw-small {
   font-size: 75%;
 }
@@ -129,10 +133,21 @@ input {
   margin: 1em !important;
 }
 
+.mw-subheader-subtitle-sm {
+  font-size: 0.9em !important;
+  font-weight: lighter;
+  padding: 0;
+}
+
 .mw-bold-small-header {
   font-size: 125% !important;
   font-weight: bolder;
   padding: 0;
+}
+
+
+#tools {
+  justify-content: center !important;
 }
 
 #tools>.tool-item:hover {
@@ -210,6 +225,15 @@ input {
     height: 150px !important;
   }
 
+  #language-links {
+    padding-left: 2.75rem !important;
+  }
+
+  #tools {
+    justify-content: start !important;
+    padding-left: 2.75rem !important;
+  }
+
   /* .lng-item {
     position: absolute;
   } */
@@ -220,22 +244,6 @@ input {
   .lng-item:nth-child(5) { left: 20%; top: 0% } */
 }
 
-
-@media (prefers-color-scheme: dark) {
-  .dark {
-    display: none;
-    /* Hide light logo in light mode */
-  }
-}
-
-
-
-@media (prefers-color-scheme: light) {
-  .light {
-    display: none;
-    /* Hide dark logo in dark mode */
-  }
-}
 
 
 @keyframes logo-spin {

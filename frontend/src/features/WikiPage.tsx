@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
-import { Flex, FlexItem } from "@wordpress/components";
-import { Divider, StackDivider } from '@chakra-ui/layout';
-import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import {  FlexItem } from "@wordpress/components";
+import { StackDivider } from '@chakra-ui/layout';
+// import { useTranslation } from "react-i18next";
 import { useStore } from "../store";
 import { useParams } from "react-router";
 import ResponsiveContainer, { CommonWikiPageTextContainer, CommonWikiPageGridBox } from "../common/ResponsiveContainer";
@@ -9,13 +9,15 @@ import { Grid, GridItem } from "@chakra-ui/react";
 
 
 export default function WikiPage() {
-  const { t } = useTranslation(["common", "errors"]);
+  // const { t } = useTranslation(["common", "errors"]);
   const { wikiPageStore } = useStore();
   const { pageId } = useParams();
   const { loadWikiPage, currentWikiPage, clearWikiPage } = wikiPageStore;
   const [articleSentences, setArticleSentences] = useState<string[] | undefined>(undefined);
   const [summarySentences, setSummarySentences] = useState<string[] | undefined>(undefined);
-  const [pageFetched, setPageFetched] = useState<boolean>(false);
+  const [
+    pageFetched, 
+    setPageFetched] = useState<boolean>(false);
 
   // useEffect(() => {
   //   document.title = t("not_found", { ns: "errors" });
@@ -40,6 +42,7 @@ export default function WikiPage() {
   );
 
   console.log('currentWikiPage on component:', currentWikiPage)
+  console.log('pageFetched:', pageFetched);
   if (currentWikiPage)
     return (
       <CommonWikiPageTextContainer>

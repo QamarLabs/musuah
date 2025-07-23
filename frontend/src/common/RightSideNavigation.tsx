@@ -1,6 +1,6 @@
 import { ExternalLink, Flex, FlexItem } from "@wordpress/components";
 import { NavItem } from "../models/common";
-import { Button, IconButton, Popover, Portal } from "@chakra-ui/react";
+import { IconButton, Popover, Portal } from "@chakra-ui/react";
 import { FaToolbox } from "react-icons/fa6";
 
 
@@ -61,7 +61,7 @@ export function RightSideNavigationToggler({ leftNavOpen, rightNavOpen, toggleLe
 }
 
 export default function RightSideNavigation(
-  { isMobile, rightNavOpen, toggleRightNav, otherClassNames }: Props) {
+  { isMobile, rightNavOpen, otherClassNames }: Props) {
 
 
     const rightNavItems: NavItem[] = [

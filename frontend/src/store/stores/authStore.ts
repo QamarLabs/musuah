@@ -1,13 +1,34 @@
-import { makeAutoObservable, reaction, runInAction } from "mobx";
+import { 
+  makeAutoObservable, 
+  // reaction, 
+  runInAction 
+} from "mobx";
+import { clearPersistedStore, makePersistable } from 'mobx-persist-store';
 import agent from "../../api/agent";
 import { store } from "../";
-import { AccessLevel, ClientStatus, SignUpFormValues, User, UserChangePassword, UserForgotPassword, UserFormValues, UserLogin } from "../../models/auth";
+import { 
+  // AccessLevel, 
+  // ClientStatus, 
+  // SignUpFormValues, 
+  // User, 
+  UserChangePassword, 
+  UserForgotPassword, 
+  UserFormValues, 
+  UserLogin 
+} from "../../models/auth";
 import Auth from "../../common/util/auth";
+import { DEFAULT_REGISTER_FORM, DEFAULT_REGISTRATION_SUBMITTED_CONFIG, EXPIRE_TIME_AUTH_STORE, EXPIRE_TIME_SUBMITTED_REGISTRATION } from "../../common/constants/form";
+import { MuslimWikiSession, RegistrationForm, RegistrationUserDto } from "../../typings.d";
+import { setExpirationDate } from "../../common/util/format";
 // import { DropdownItemProps } from "semantic-ui-react";
 // import { router } from "../router/Routes";
 
 export default class AuthStore {
-  user: User | null = null;
+  userSession: MuslimWikiSession | null = null;
+  
+  setUserSession = (authUserSession: MuslimWikiSession) => {
+    this.userSession = authUserSession;
+  }
   loadingInitial = true;
   refreshTokenTimeout: any;
   clientId: string | null = null;
@@ -19,38 +40,37 @@ export default class AuthStore {
 
   forgotPasswordReset = false;
 
-  registrationValues: SignUpFormValues = {
-    email: '',
-    firstName: '',
-    lastName: '',
-    sect: undefined,
-    countryOfOrigin: undefined,
-    preferredMadhab: undefined,
-    facebookUrl: '',
-    linkedinUrl: '',
-    twitterUrl: '',
-    websiteUrl: '',
-    password: '',
-    confirmPassword: '',
-    ipAddress: '', // This might be auto-populated
-    error: undefined,
-    id: undefined
-};
-
+  submittingRegister: boolean = false;
+  registrationValues: RegistrationForm = DEFAULT_REGISTER_FORM;
   registrationStep: number = 0;
+  registrationSubmitted: {submitted: boolean, expires: Date | undefined } = DEFAULT_REGISTRATION_SUBMITTED_CONFIG;
+  setSubmittingRegister = (val: boolean) => {
+    this.submittingRegister = val;
+  }
+  setRegistrationStep = (step: number) => {
+    this.registrationStep = step;
+  };
+  setRegistrationValues = (values: RegistrationForm) => {
+    this.registrationValues = values;
+  }
+  setRegistrationSubmitted = (val: {submitted: boolean, expires: Date | undefined }) => {
+    this.registrationSubmitted = val;
+  }
 
   constructor() {
     makeAutoObservable(this);
-    reaction(
-      () => {},
-      () => {
-      }
-    );
+    makePersistable(this, 
+      { 
+        name: 'AuthStore', 
+        properties: ['registrationStep', 'registrationValues', 'userSession'], 
+        storage: window.localStorage,
+        expireIn: EXPIRE_TIME_AUTH_STORE,
+      });
   }
 
 
   get isLoggedIn() {
-    return !!this.user;
+    return !!this.userSession;
   }
 
 //   ipCheck = async () => {
@@ -89,7 +109,7 @@ export default class AuthStore {
       window.sessionStorage.clear();
       this.stopRefreshTokenTimer();
       store.commonStore.setToken(undefined);
-      this.user = null;
+      this.userSession = null;
       new Auth().clearToken();
 
       const user = await agent.auth.login(credentials);
@@ -98,7 +118,7 @@ export default class AuthStore {
     //   this.startRefreshTokenTimer(user);
 
       runInAction(() => {
-        this.user = user;
+        this.userSession = user;
       });
 
       // router.navigate("/");
@@ -112,7 +132,7 @@ export default class AuthStore {
     changePassword: UserChangePassword,
     isChange: boolean,
     id: string | undefined,
-    token: string | undefined
+    // token: string | undefined
   ) => {
     try {
       if (isChange) {
@@ -151,7 +171,7 @@ export default class AuthStore {
     try {
       // router.navigate("/");
       store.commonStore.setToken(undefined);
-      this.user = null;
+      this.userSession = null;
       window.localStorage.removeItem("jwt");
       localStorage.clear();
       window.sessionStorage.clear();
@@ -193,69 +213,66 @@ export default class AuthStore {
 //     }
 //   };
 
-  signUp = async (
-    credentials: SignUpFormValues,
-    token: string,
-    ip?: string
+  register = async (
+    registration: RegistrationForm,
+    language?: string | undefined
+    // token: string,
+    // ip?: string
   ) => {
+    this.setSubmittingRegister(true);
     try {
-      credentials.ipAddress = ip;
-    //   const user = await agent.Account.signUp(credentials, token);
-    //   store.commonStore.setToken(user.token);
-    //   this.startRefreshTokenTimer(user);
-    //   runInAction(() => {
-    //     this.user = user;
-    //     this.resetRegistration();
-    //   });
-      // if (user.status && user.status === ClientStatus.PreTrial)
-      //   router.navigate("/settings", { replace: true });
-      // else router.navigate("/trials", { replace: true });
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  };
-
-  resetRegistration = () => {
-    this.registrationValues = {
-        email: '',
-        firstName: '',
-        lastName: '',
-        sect: undefined,
-        countryOfOrigin: undefined,
-        preferredMadhab: undefined,
-        facebookUrl: '',
-        linkedinUrl: '',
-        twitterUrl: '',
-        websiteUrl: '',
-        password: '',
-        confirmPassword: '',
-        ipAddress: '', // This might be auto-populated
-        error: undefined,
-        id: undefined
-    };
-
-    this.registrationStep = 0;
-  };
-
-  getUserDetails = async (id: string) => {
-    this.loadingInitial = true;
-    try {
-    //   let user = await agent.Account.getUser(id);
-      runInAction(() => {
-        this.loadingInitial = false;
+      const registerDto = registration as RegistrationUserDto;
+      const authUserSession = await agent.auth.register(registerDto, language);
+      alert(JSON.stringify(authUserSession))
+      this.setRegistrationSubmitted({
+        submitted: true,
+        expires: setExpirationDate(EXPIRE_TIME_SUBMITTED_REGISTRATION, new Date())
       });
-    //   return user;
-    return {};
+      this.setRegistrationStep(0);
+      this.setRegistrationValues(DEFAULT_REGISTER_FORM);
+      this.setUserSession(authUserSession);
     } catch (error) {
       console.log(error);
       throw error;
     } finally {
-      runInAction(() => {
-        this.loadingInitial = false;
-      });
+      this.setSubmittingRegister(false);
     }
   };
+    verifyEmail = async (id: string, token: string) => {
+    try {
+      const verifiedUserSession = await agent.auth.verifyEmail(token, id);
+      this.setUserSession(verifiedUserSession);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
+
+  resetRegistration = async () => {
+    this.registrationValues = DEFAULT_REGISTER_FORM;
+    this.registrationStep = 0;
+    this.registrationSubmitted = DEFAULT_REGISTRATION_SUBMITTED_CONFIG;
+    await clearPersistedStore(this);
+  };
+
+  // getUserDetails = async (id: string) => {
+  //   this.loadingInitial = true;
+  //   try {
+  //   //   let user = await agent.Account.getUser(id);
+  //     runInAction(() => {
+  //       this.loadingInitial = false;
+  //     });
+  //   //   return user;
+  //   return {};
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw error;
+  //   } finally {
+  //     runInAction(() => {
+  //       this.loadingInitial = false;
+  //     });
+  //   }
+  // };
 // TODO: Need to do this when applying admin functionality
 //   createUser = async (credentials: UserFormValues) => {
 //     try {
@@ -420,17 +437,7 @@ export default class AuthStore {
 //     }
 //   };
 
-//   verifyEmail = async (email: string, token: string) => {
-//     try {
-//       var result = await agent.Account.verifyEmail(token, email);
-//       // router.navigate("/", { replace: true });
-//       toast.success(result);
 
-//     } catch (error) {
-//       console.log(error);
-//       throw error;
-//     }
-//   };
 
 //   resendEmail = async () => {
 //     try {
@@ -510,16 +517,16 @@ export default class AuthStore {
 //     }
 //   };
 
-  checkStatus = (clientStatus: ClientStatus): boolean => {
-    let returnValue: boolean = false;
+  // checkStatus = (clientStatus: ClientStatus): boolean => {
+  //   let returnValue: boolean = false;
 
-    if (this.user?.status) returnValue = this.user.status >= clientStatus;
-    return returnValue;
-  };
+  //   if (this.user?.status) returnValue = this.user.status >= clientStatus;
+  //   return returnValue;
+  // };
 
-  checkAccessLevel = (accessLevel: AccessLevel) => {
-    return this.user?.accessLevel && this.user.accessLevel >= accessLevel;
-  };
+  // checkAccessLevel = (accessLevel: AccessLevel) => {
+  //   return this.user?.accessLevel && this.user.accessLevel >= accessLevel;
+  // };
 
 
 //   emulateUser = async (userName?: string) => {
@@ -545,19 +552,19 @@ export default class AuthStore {
 //     }
 //   };
 
-  restoreUser = async (userName?: string) => {
-    try {
-      runInAction(() => {
-        const token = new Auth().getToken("adminjwt") as string;
-        localStorage.clear();
-        window.sessionStorage.clear();
-        this.stopRefreshTokenTimer();
+  // restoreUser = async (userName?: string) => {
+  //   try {
+  //     runInAction(() => {
+  //       const token = new Auth().getToken("adminjwt") as string;
+  //       localStorage.clear();
+  //       window.sessionStorage.clear();
+  //       this.stopRefreshTokenTimer();
 
-        store.commonStore.setToken(token);
-        // this.refreshToken();
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //       store.commonStore.setToken(token);
+  //       // this.refreshToken();
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 }

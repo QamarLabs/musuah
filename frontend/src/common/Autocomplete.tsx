@@ -35,10 +35,10 @@ const SearchArticleAutocomplete = observer(({
     language 
   } = commonStore;
 
-  const loadingAutocomplete = useMemo(() => {
-    if(autocompleteType === AutocompleteType.Navbar) return commonStore.autoCompleteLoading;
-    return searchStore.autoCompleteLoading;
-  }, [searchStore.autoCompleteLoading, commonStore.autoCompleteLoading]);
+  // const loadingAutocomplete = useMemo(() => {
+  //   if(autocompleteType === AutocompleteType.Navbar) return commonStore.autoCompleteLoading;
+  //   return searchStore.autoCompleteLoading;
+  // }, [searchStore.autoCompleteLoading, commonStore.autoCompleteLoading]);
 
   const autocompleteSearchQry = useMemo(() => {
     if(autocompleteType === AutocompleteType.Navbar) return commonStore.navbarSearchQry;
@@ -65,7 +65,7 @@ const SearchArticleAutocomplete = observer(({
   const [currentValue, setCurrentValue] = useState<string>(autocompleteSearchQry ?? '');
   // const [loading, setLoading] = useState<boolean>(false);
   const [selected, setSelected] = useState<QueriedAutocompleteOption>();
-  const [currentItems, setCurrentItems] = useState<any[]>([]);
+  const [currentItems] = useState<any[]>([]);
 
   // useEffect(() => {
   //   setCurrentItems(autocompleteOptions);

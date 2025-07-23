@@ -1,4 +1,7 @@
-import { Card, CardBody, Flex } from '@wordpress/components';
+import { Box, Card } from '@chakra-ui/react';
+import { 
+    // Card, CardBody,
+     Flex } from '@wordpress/components';
 import React from 'react';
 
 export default function ResponsiveContainer({ children, extraClasses }: React.PropsWithChildren<any>) {
@@ -30,13 +33,29 @@ export function CommonWikiPageTextContainer({ children, ...containerProps }: Rea
     );
 }
 
+export function CommonWikiPageInputContainer({ children, ...props }: React.PropsWithChildren<any>) {
+    return (
+        <Box 
+            maxHeight="5rem"
+            justifyContent='start'
+            alignItems="start"
+            w='full'
+            mb={2}
+            {...props}
+        >
+            {children}
+        </Box>
+    );
+}
+
+
 export function CommonWikiPageGridBox({ children, ...containerProps }: React.PropsWithChildren<any>) {
     return (
-        <Card {...containerProps}>
-            <CardBody className='containerWikiPageGridBox'>
+        <Card.Root w='full' {...containerProps}>
+            <Card.Body w='full' className='mw-wiki-page-grid-box'>
                 {children}
 
-            </CardBody>
-        </Card>
+            </Card.Body>
+        </Card.Root>
     );
 }

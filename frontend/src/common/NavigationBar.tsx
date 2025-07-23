@@ -1,4 +1,4 @@
-import { Flex, Box, IconButton, Image, Button } from '@chakra-ui/react';
+import { Flex, Box, Image, Button } from '@chakra-ui/react';
 import { FaEllipsis  } from 'react-icons/fa6';
 import Autocomplete from './Autocomplete';
 import { useTranslation } from 'react-i18next';

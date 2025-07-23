@@ -27,9 +27,9 @@ export interface SignUpFormValues {
   email: string;
   firstName: string;
   lastName: string;
-  sect?: "Shia" | "Sunni";
+  // sect?: ;
   countryOfOrigin?: Country;
-  preferredMadhab?: 'Hanafi' | "Shafi'i" | 'Maliki' | 'Hanbali' | "Salafi" | 'Ja\'fari' | 'Ismaili' | 'Zaydi';
+  // preferredMadhab?: ;
   facebookUrl?: string;
   linkedinUrl?: string;
   twitterUrl?: string;

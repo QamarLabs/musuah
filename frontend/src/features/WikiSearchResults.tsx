@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React
+// { useState, useEffect, useMemo } 
+from 'react';
 import { FlexItem } from '@wordpress/components';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
@@ -7,9 +9,9 @@ import { useStore } from '../store';
 import { useNavigate } from 'react-router';
 import { AutocompleteType } from '../models/common';
 
-interface SearchResultsProps {
-    initialQuery?: string;
-}
+// interface SearchResultsProps {
+//     initialQuery?: string;
+// }
 
 
 export default observer(function WikiSearchResults() {
@@ -63,7 +65,7 @@ export default observer(function WikiSearchResults() {
                         <div className="results-list">
                             <h2>Search Results for "{searchQry}"</h2>
                             <ul>
-                                {searchResults.map((itm, index) => (
+                                {searchResults.map((itm) => (
                                     <li key={itm.id} className="result-item">
                                         <h3
                                             className='cursor-pointer'

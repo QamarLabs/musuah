@@ -1,9 +1,9 @@
 import { ExternalLink, Flex, FlexItem } from "@wordpress/components";
 import { NavItem } from "../models/common";
-import { Button, IconButton, Popover, Portal } from "@chakra-ui/react";
+import { IconButton, Popover, Portal } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa6";
 
-import { useState } from "react";
+
 
 type TogglerProps = {
   leftNavOpen: boolean;
@@ -60,7 +60,7 @@ export function LeftSideNavigationToggler({ leftNavOpen, rightNavOpen, toggleLef
 }
 
 export default function LeftSideNavigation(
-  { isMobile, leftNavOpen, toggleLeftNav, otherClassNames }: Props) {
+  { isMobile, leftNavOpen, otherClassNames }: Props) {
   // Mock navigation data
   const leftNavItems: NavItem[] = [
     {

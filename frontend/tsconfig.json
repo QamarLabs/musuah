@@ -22,6 +22,9 @@
     "paths": {
       "@util/*":  [
         "/src/common/util/*"
+      ],
+      "@components/*": [
+        "/src/components/*"
       ]
     }
   },

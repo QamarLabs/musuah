@@ -9,6 +9,7 @@ import HomePage from "../HomePage";
 import WikiSearchResults from "../features/WikiSearchResults";
 import WikiPage from "../features/WikiPage";
 import Collaborate from "../features/Collaborate";
+import VerifyAccount from "../features/VerifyAccount";
 
 export const routes: RouteObject[] = [
   {
@@ -106,6 +107,7 @@ export const routes: RouteObject[] = [
       { path: "search", element: <WikiSearchResults /> },
       { path: "wikipages/:pageId", element: <WikiPage /> },
       { path: "accessDenied", element: <AccessDenied /> },
+      { path: "verify-account/:userId", element: <VerifyAccount /> },
       { path: "*", element: <NotFound /> },
       { path: "server-error", element: <ServerError /> },
       { path: "validation-error", element: <ServerError /> },

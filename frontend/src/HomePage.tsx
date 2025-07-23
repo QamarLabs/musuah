@@ -48,10 +48,11 @@ export default observer(function HomePage() {
                 <h2 className="mw-text mw-header">Muslim Wiki</h2>
                 <h5 className="mw-text mw-subheader">The Free Encyclopedia</h5>
                 <img
-                  src="muslimwiki-globe.svg"
-                  className="logo genezio light"
+                  src="/muslimwiki-globe.svg"
+                  className='logo genezio'
                   alt="Genezio Logo"
-                />
+
+                  />
               </Flex>
             </FlexBlock>
             <FlexItem className='autocompleteContainer'>
@@ -63,7 +64,7 @@ export default observer(function HomePage() {
             </FlexItem>
           </Flex>
           <CardDivider />
-          <Flex justify='space-between' className="w-100" wrap={true}>
+          <Flex id='language-links' justify='space-between' className="w-100" wrap={true}>
             <FlexItem className="lng-item">
               <ExternalLink className="mw-body mw-link" href="/es">{t("links.es")}</ExternalLink>
             </FlexItem>
@@ -104,7 +105,7 @@ export default observer(function HomePage() {
             </FlexItem>
           </Flex>
           <StackDivider p='0' backgroundColor='black' border='solid 1px var(--global-color-border, currentColor)' />
-          <Flex className='px-5' id='tools'>
+          <Flex className='pr-5' id='tools'>
             <FlexItem className='tool-item' onClick={() => navigate(`collaborate`, { replace: true })}>
 
               <JigSawIcon />

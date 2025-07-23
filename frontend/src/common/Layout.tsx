@@ -3,7 +3,7 @@ import LeftSideNavigation, { LeftSideNavigationToggler } from "./LeftSideNavigat
 import RightSideNavigation, { RightSideNavigationToggler } from "./RightSideNavigation";
 import { Flex } from "@wordpress/components";
 import { useLocation } from "react-router";
-import { Box, useMediaQuery } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/react";
 import NavigationBar from "./NavigationBar";
 
 type Props = {}
@@ -26,7 +26,7 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
         setRightNavOpen(!rightNavOpen);
         if (leftNavOpen) setLeftNavOpen(false);
     };
-
+    console.log("isTablet:", isTablet);
     const routesToShowLayout = useMemo(() => [
         /search/i,
         /articles/i,
