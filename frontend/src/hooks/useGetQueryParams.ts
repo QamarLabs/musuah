@@ -16,8 +16,9 @@ export default function useGetQueryParams(
             const qryValue = urlParams.get(key);
             if(!qryValue && currentValue)
                 setValue("");
-            else if(qryValue)
+            else if(qryValue) {
                 setValue(qryValue);
+            }
         
         },  
         []

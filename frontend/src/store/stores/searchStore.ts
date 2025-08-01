@@ -2,18 +2,25 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { Pagination, PagingParams } from '../../models/common';
 import { QueriedAutocompleteOption, WikiPageSearchResult } from '../../models/search';
 import agent from '../../api/agent';
+import React from 'react';
 export default class SearchStore {
     constructor() {
-        makeAutoObservable(this);
+        makeAutoObservable(this,{
+            inputRef: false, // mark as non-observable
+        });
     }
 
-    pagingParams: PagingParams = new PagingParams(1, 25);
+    pagingParams: PagingParams = new PagingParams(1, 10);
     autocompletePagingParams: PagingParams = new PagingParams(1, 10);
 
     autocompletePagination: Pagination | undefined = undefined;
     pagination: Pagination | undefined = undefined;
 
     searchQry: string | undefined = undefined;
+    inputRef: React.RefObject<HTMLInputElement | null> | null = null;
+    setInputRef(ref: React.RefObject<HTMLInputElement | null> | null) {
+        this.inputRef = ref;
+    }
     setPagingParams = (value: PagingParams) => {
         this.pagingParams = value;
     }
@@ -76,11 +83,11 @@ export default class SearchStore {
         this.setSearchLoading(true);
         this.setSearchQry(qry);
         try {
+            this.clearSearch();
             const params = this.axiosParams;
             params.append('qry', qry);
             const { results } = await agent.search.search(params);
 
-            this.clearSearch();
             console.log('results:', results)
             results.data.forEach(sr => this.setSearchedWikiPage(sr));
             runInAction(() => {
@@ -95,13 +102,13 @@ export default class SearchStore {
         this.setAutoCompleteLoading(true);
         this.setSearchQry(qry);
         try {
+            this.clearAutoCompleteOptions();
             const params = this.autocompleteAxiosParams;
             params.append('qry', qry);
+
             const { results } = await agent.search.autocompleteSearch(params);
 
-            this.clearAutoCompleteOptions();
             results.data.forEach(aC => this.setQueriedAutocompleteOption(aC));  
-
             runInAction(() => {
                 this.setAutocompletePagination(results.pagination);
             });

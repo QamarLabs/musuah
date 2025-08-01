@@ -1,5 +1,5 @@
 import React from "react";
-import { Loader } from "@chakra-ui/react";
+import { Loader, Text } from "@chakra-ui/react";
 import { PrivacyPolicyBox } from "./PrivacyPolicyBox";
 import { PrivacyPolicyIntroduction } from "./PrivacyPolicyIntroduction";
 import { lazyLoad } from "../../common/util/format";
@@ -33,6 +33,7 @@ export const PrivacyPolicyImportantInfo = lazyLoad(
 export default function PrivacyPolicy() {
     return (
         <>
+            <Text className='mw-text' fontSize="1.2rem" mb={2}>Privacy Policy And Terms</Text>
             <PrivacyPolicyBox />
             <PrivacyPolicyIntroduction />
             <React.Suspense fallback={<Loader />}>

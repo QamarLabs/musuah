@@ -60,10 +60,10 @@ export interface UserFormValues {
 }
 
 export interface UserLogin {
-  login: string;
+  email: string;
   password: string;
   ipAddress: string;
-  location: string;
+  location?: string;
 }
 
 export interface ChangePasswordValues {
@@ -298,4 +298,9 @@ export enum Country {
   Zambia = "Zambia",
   Zimbabwe = "Zimbabwe",
   PreferNotToDisclose = "Prefer Not To Disclose",
+}
+
+
+export interface UploadProfilePictureDto {
+  profilePicture: string;
 }

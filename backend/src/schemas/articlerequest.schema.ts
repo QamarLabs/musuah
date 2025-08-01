@@ -6,7 +6,10 @@ import { Document } from 'mongoose';
 })
 export class ArticleRequest extends Document {
   @Prop({ required: true })
-  title: string;
+  newTitle: string;
+
+  @Prop({ required: false })
+  oldTitle: string;
   
   @Prop({ required: true, unique: true })
   pageid: number;
@@ -15,22 +18,31 @@ export class ArticleRequest extends Document {
   revid: number;
   
   @Prop({ required: true })
-  newtext: string;
+  newText: string;
 
+  @Prop({ required: false })
+  oldText: string;
+  
   @Prop({ required: true })
-  oldtext: string;
+  newSummary: string;
   
-  @Prop()
-  newsummary: string;
-  
-  @Prop()
-  oldsummary: string;
+  @Prop({ required: false })
+  oldSummary: string;
 
   @Prop({ required: true })
   new_word_count: number;
 
+  @Prop({ type: Object, required: false })
+  newAttributes: {[key:string]: any}
+
+  @Prop({ type: Object, required: false })
+  oldAttributes: {[key:string]: any}
+
   @Prop({ required: true })
-  contributors: string[];
+  submitByUserId: string;
+
+  @Prop({ type: [Object], required: true })
+  contributors: {userId: string, userName: string }[];
 
   @Prop({ required: true })
   status: string;

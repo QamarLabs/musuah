@@ -8,6 +8,7 @@ import Autocomplete from '../common/Autocomplete';
 import { useStore } from '../store';
 import { useNavigate } from 'react-router';
 import { AutocompleteType } from '../models/common';
+import useLoadDataFromGetQueryParams from '../hooks/useLoadDataFromQueryParams';
 
 // interface SearchResultsProps {
 //     initialQuery?: string;
@@ -23,38 +24,40 @@ export default observer(function WikiSearchResults() {
     const { commonStore, searchStore } = useStore();
     const { language } = commonStore;
     const { searchQry, searchResults, loadSearchWikiPages } = searchStore;
+    
 
     // const [query, setQuery] = useState(initialQuery);
     // const [results, setResults] = useState<string[]>([]);
 
-    const handleSearch = async (e: React.FormEvent) => {
+    
+    const handleSubmitSearch = (setOpen: Function) => async (e: React.MouseEvent) => {
         e.preventDefault();
         // Simulate search results
         if (searchQry) {
             loadSearchWikiPages(searchQry)
                 .then(searchedItems => {
-                    navigate(`/${language}/search?title=${searchQry}`);
-                    console.log('searchResults', searchedItems);
+                    setOpen(false);
+                    window.location.search = `/search?title=${searchQry}`;
                 })
         }
     };
 
+    useLoadDataFromGetQueryParams({key: "title", loadData: loadSearchWikiPages});
 
     return (
         <div className="layout-main-content-container">
             {/* Header with search bar */}
             <header className="search-header">
-                <form onSubmit={handleSearch} className="search-form">
-                    <FlexItem className='autocompleteContainer'>
-                        <Autocomplete
-                            placeholder={t("searchPlaceholder")}
-                            autocompleteType={AutocompleteType.Search}
-                            buttonType="submit"
-                            hasButton={true}
-                        />
-                    </FlexItem>
-                </form>
-
+                <FlexItem className='autocompleteContainer'>
+                    <Autocomplete
+                        id='search-results-autocomplete'
+                        key="search-results-autocomplete"
+                        placeholder={t("searchPlaceholder")}
+                        autocompleteType={AutocompleteType.Search}
+                        handleSubmitSearch={handleSubmitSearch}
+                        hasButton={true}
+                    />
+                </FlexItem>
             </header>
 
             <div className="main-content">

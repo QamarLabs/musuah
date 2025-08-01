@@ -12,6 +12,7 @@ import { AutocompleteType } from "./models/common";
 import JigSawIcon from "./icons/JigSawIcon";
 import ChatbotIcon from "./icons/ChatbotIcon";
 import EBooksIcon from "./icons/EBooksIcon";
+import axios from "axios";
 
 
 export default observer(function HomePage() {
@@ -21,11 +22,12 @@ export default observer(function HomePage() {
   } = useTranslation("common");
   const navigate = useNavigate();
   const { lang } = useParams();
-  const { commonStore } = useStore();
+  const { commonStore, searchStore } = useStore();
+  const { searchQry, loadAutocompleteOptions, loadSearchWikiPages } = searchStore;
   const { setLanguage, language } = commonStore;
 
+
   useEffect(() => {
-    // alert(lang)
     if (!lang) {
       i18n.changeLanguage('en');
       setLanguage('en');
@@ -35,6 +37,16 @@ export default observer(function HomePage() {
       setLanguage(lang as "ar" | "al" | "ba" | "cn" | "de" | "en" | "es" | "fa" | "fr" | "hi" | "jp" | "ru" | "tr" | "ur");
     }
   }, [lang]);
+
+  const handleSubmitSearch = (setOpen: Function) => async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (searchQry) {
+      await loadSearchWikiPages(searchQry);
+      navigate(`/${language}/search?title=${searchQry}`);
+
+      setOpen(false);
+    }
+  }
 
   return (
     <>
@@ -52,14 +64,16 @@ export default observer(function HomePage() {
                   className='logo genezio'
                   alt="Genezio Logo"
 
-                  />
+                />
               </Flex>
             </FlexBlock>
             <FlexItem className='autocompleteContainer'>
               <Autocomplete
+                id='homepage-autocomplete'
                 placeholder={t("searchPlaceholder")}
                 autocompleteType={AutocompleteType.Search}
                 hasButton={true}
+                handleSubmitSearch={handleSubmitSearch}
               />
             </FlexItem>
           </Flex>
@@ -107,17 +121,16 @@ export default observer(function HomePage() {
           <StackDivider p='0' backgroundColor='black' border='solid 1px var(--global-color-border, currentColor)' />
           <Flex className='pr-5' id='tools'>
             <FlexItem className='tool-item' onClick={() => navigate(`collaborate`, { replace: true })}>
-
               <JigSawIcon />
               <p className='mw-text mw-small'>Collaborate</p>
             </FlexItem>
-            <FlexItem className='tool-item'>
+            <FlexItem className='tool-item' onClick={() => navigate(`ai-assistant`, { replace: true })}>
               <ChatbotIcon />
               <p className='mw-text mw-small'>Use AI</p>
             </FlexItem>
-            <FlexItem className='tool-item'>
+            <FlexItem className='tool-item' onClick={() => navigate(`searchBooks`, { replace: true })}>
               <EBooksIcon />
-              <p className='mw-text mw-small'>Muslim Wiki Books</p>
+              <p className='mw-text mw-small'>Muslim Wiki Books<br /> And Studies</p>
             </FlexItem>
           </Flex>
         </>

@@ -4,9 +4,13 @@ import { isRouteErrorResponse, Outlet } from 'react-router'
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router/index.tsx'
+import { store } from './store/index.ts'
 
+store.authStore.initializeFromStorage()
+  .then(() => console.log("Store initialized"))
 
 export default function Root() {
+
   return <Outlet />;
 }
 

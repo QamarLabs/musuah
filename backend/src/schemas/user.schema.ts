@@ -65,7 +65,6 @@ export class User extends Document {
   mfaSecret: string | undefined;
   @Prop({ default: false })
   isMfaEnabled: boolean;
-
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

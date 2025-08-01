@@ -8,7 +8,7 @@ import { MWFileUpload } from "../../common/FileUpload";
 
 export function PersonalInfo() {
     const [profilePictureField] = useField("profilePicture");
-    const [nationalIdCountryField, nationalIdCountryMeta, countryHelpers] = useField<Country>('countryOfResidence');
+    const [nationalIdCountryField, nationalIdCountryMeta, countryHelpers] = useField<Country | undefined>('countryOfResidence');
     // const [nationalIdPictureField] = useField("nationalIdPicture");
     return (
         <VStack w='full'>
@@ -66,6 +66,9 @@ export function PersonalInfo() {
                     countryError={nationalIdCountryMeta.error}
                     handleSelectCountry={(ctry: Country) => {
                         countryHelpers.setValue(ctry);
+                    }}
+                    handleClear={() => {
+                        countryHelpers.setValue(undefined);
                     }}
                 />
 

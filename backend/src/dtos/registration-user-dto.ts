@@ -5,7 +5,6 @@ export class RegistrationUserDto implements RegistrationUser {
   familyName: string;
   email: string;
   password: string;
-  profilePicture: string;
   nationalId: string | undefined;
   countryOfOrigin: string;
   nationalIdPicture: string | undefined;

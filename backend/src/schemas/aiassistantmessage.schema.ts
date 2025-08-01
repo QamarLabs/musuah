@@ -4,7 +4,7 @@ import { Document } from 'mongoose';
 @Schema({
   timestamps: true, // Adds createdAt and updatedAt fields automatically
 })
-export class AiAssistentMessage extends Document {
+export class AiAssistantMessage extends Document {
   @Prop({ required: true, default: "", unique: true })
   previousMessage: string | undefined;
 
@@ -21,4 +21,4 @@ export class AiAssistentMessage extends Document {
   timestamp: Date; // Changed from 'any' to Date type for better typing
 }
 
-export const AiAssistentMessageSchema = SchemaFactory.createForClass(AiAssistentMessage);
+export const AiAssistantMessageSchema = SchemaFactory.createForClass(AiAssistantMessage);

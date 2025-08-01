@@ -3,8 +3,8 @@ import { FieldHookConfig, FieldHelperProps, useField } from "formik";
 import React, { useCallback, useMemo, useState } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { CommonWikiPageInputContainer } from "./ResponsiveContainer";
-import { nationalIdPatterns, validateNationalId } from "./util/form";
 import { Country } from "../typings.d";
+import { nationalIdPatterns, validateNationalId } from './constants/nationalIdPatterns';
 
 export type MWInputProps = {
     label?: string;
@@ -35,7 +35,7 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                 )}
                 {headerChildren && headerChildren}
                 <div className='position-relative'>
-                    {props.handleBlur  
+                    {props.handleBlur
                         ? (
                             <input
                                 type={props.type ? props.type : "text"}
@@ -45,13 +45,13 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                                 value={field.value}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     const newValue = e.target.value;
-                                    if(props.handleChange)
+                                    if (props.handleChange)
                                         props.handleChange(helpers, newValue);
                                     else
                                         helpers.setValue(newValue);
                                 }}
                                 onBlur={() => {
-                                    if(props.handleBlur)
+                                    if (props.handleBlur)
                                         props.handleBlur(helpers, field.value);
                                 }}
                                 disabled={disabled}
@@ -67,7 +67,7 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                                 value={field.value}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     const newValue = e.target.value;
-                                    if(props.handleChange)
+                                    if (props.handleChange)
                                         props.handleChange(helpers, newValue);
                                     else
                                         helpers.setValue(newValue);
@@ -76,20 +76,20 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                                 className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
                             />
                         )}
-                    {!isInputEmpty 
+                    {!isInputEmpty
                         && (
-                        <button 
-                            onClick={handleClear()}
-                            className={`position-absolute right-0 border-none h-100 bg-transparent`}
-                        >
-                            <RiCloseLargeLine style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
-                        </button>
-                    )}
+                            <button
+                                onClick={handleClear()}
+                                className={`position-absolute right-0 border-none h-100 bg-transparent`}
+                            >
+                                <RiCloseLargeLine style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
+                            </button>
+                        )}
                 </div>
-                {meta.error 
-                    ?  (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{meta.error}</Text>)
+                {meta.error
+                    ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{meta.error}</Text>)
                     : props.error ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{props.error}</Text>)
-                    : null}
+                        : null}
             </CommonWikiPageInputContainer>
         </>
     );
@@ -97,9 +97,9 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
 
 
 export function MWEmailInput({ ...props }: MWInputProps) {
-    console.log({...props})
+    console.log({ ...props })
     return (
-        <MWTextInput 
+        <MWTextInput
             {...props}
             label={props.label}
             type="email"
@@ -115,19 +115,21 @@ export function MWEmailInput({ ...props }: MWInputProps) {
 }
 
 type MWNationalIdInputProps = {
-    country: Country;
+    country: Country | undefined;
     countryError: string | undefined;
     handleSelectCountry: (country: Country) => void;
+    handleClear: () => void;
 } & MWInputProps;
 
 
-export function MWNationalIdInput({ 
-    disabled, 
-    placeholder, 
+export function MWNationalIdInput({
+    disabled,
+    placeholder,
     country,
     countryError,
-    handleSelectCountry, 
-    ...props 
+    handleSelectCountry,
+    handleClear,
+    ...props
 }: MWNationalIdInputProps) {
     const [showCountrySelect, setShowCountrySelect] = useState(false);
 
@@ -139,7 +141,7 @@ export function MWNationalIdInput({
 
     const handleInputChange = (helpers: FieldHelperProps<any>, val: string) => {
         // Apply mask if available
-        if (nationalIdPatterns[country]?.mask) {
+        if (country && nationalIdPatterns[country]?.mask) {
             val = nationalIdPatterns[country].mask!(val);
         } else {
             // For unmasked patterns, just clean the input
@@ -152,16 +154,16 @@ export function MWNationalIdInput({
     return (
         <MWTextInput
             {...props}
-            placeholder={nationalIdPatterns[country]?.label || placeholder}
-            pattern={nationalIdPatterns[country]?.regex?.source ?? undefined}
+            placeholder={country && nationalIdPatterns[country]?.label ? nationalIdPatterns[country]?.label : placeholder}
+            pattern={country && nationalIdPatterns[country]?.regex?.source ? nationalIdPatterns[country]?.regex?.source : undefined}
             handleBlur={(helpers: FieldHelperProps<any>, val: string) => {
-                    helpers.setTouched(true);
-                    helpers.setError(validateNationalId(country, val) || '');
+                helpers.setTouched(true);
+                helpers.setError(country ? validateNationalId(country, val) : '');
             }}
             handleChange={handleInputChange}
             headerChildren={
                 <Box className="position-relative mb-2 mw-text mw-sm" w='full'>
-                    <Button 
+                    <Button
                         type="button"
                         bg="white"
                         borderColor="gray.800"
@@ -171,20 +173,32 @@ export function MWNationalIdInput({
                         onClick={() => setShowCountrySelect(!showCountrySelect)}
                     >
                         <Span float='left' w='full' textAlign='left' fontSize='0.75rem'>
-                            {nationalIdPatterns[country]?.label ?? "Select Country Of Residence"} ▼
+                            {country ? nationalIdPatterns[country]?.label : "Select Country Of Residence"} ▼
                         </Span>
+                        {country && (
+                            <RiCloseLargeLine
+                                onClick={e => {
+                                    e.stopPropagation();
+                                    handleClear();
+                                }}
+                                style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }}
+                            />
+                        )}
+
                     </Button>
                     {showCountrySelect && (
                         <>
                             <Box
-                                id="nationalIdCountry" 
+                                id="nationalIdCountry"
                                 className="position-absolute mw-text mw-sm bg-white border rounded mt-1 z-10"
                                 borderColor={countryError ? 'red.500' : 'initial'}
                                 w='full'
+                                maxH="10rem"
+                                overflowY="auto"
                                 zIndex={9999}
                             >
                                 {Object.entries(nationalIdPatterns).map(([code, config]) => (
-                                    <Box 
+                                    <Box
                                         key={code}
                                         className="mw-text p-2 hover-bg-light"
                                         _hover={{
@@ -203,7 +217,7 @@ export function MWNationalIdInput({
                     )}
                 </Box>
             }
-            title={`Please enter a valid ${nationalIdPatterns[country]?.label ?? "Country"} (e.g. ${nationalIdPatterns[country]?.label ?? "Jordan"})`}
+            title={`Please enter a valid ${country ? nationalIdPatterns[country]?.label : "Country"} (e.g. ${country ? nationalIdPatterns[country]?.label : "Jordan"})`}
         />
     );
 }

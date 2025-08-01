@@ -1,4 +1,5 @@
-import { Option, RegistrationForm, YesOrNo } from "../../typings.d";
+import { UserLogin } from "../../models/auth";
+import { AiAssistantMessageForm, LoginForm, Option, RegistrationForm, YesOrNo } from "../../typings.d";
 import { RadioOption } from "../Checkboxes";
 
 
@@ -49,6 +50,12 @@ export const PART_OF_GOVERNMENT_AGENCY_OPTIONS: RadioOption[] = [
   { value: YesOrNo.Yes, label: "Yes", desc: "Yes you have been part of a government agency" },
 ];
 
+export const DEFAULT_LOGIN_FORM: UserLogin = {
+  email: '',
+  password: '',
+  ipAddress: ''
+}
+
 export const DEFAULT_REGISTER_FORM: RegistrationForm = {
   firstName: '',
   familyName: '',
@@ -78,3 +85,11 @@ export const DEFAULT_REGISTRATION_SUBMITTED_CONFIG: { submitted: boolean, expire
 
 export const EXPIRE_TIME_SUBMITTED_REGISTRATION = (1000 * 60) * 30;
 export const EXPIRE_TIME_AUTH_STORE = (1000 * 60) * 60 * 24 * 14;
+
+export const DEFAULT_AI_ASSISTANT_FORM: AiAssistantMessageForm = {
+    previousMessage: "",
+    message: "",
+    userCountryOfOrigin: "Jordan"
+};
+
+export const FILE_UPLOAD_MAX_SIZE = (1024 * 1024 * 2);

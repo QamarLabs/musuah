@@ -23,7 +23,7 @@ export function MWTextArea({ disabled, placeholder, ...props }: MWTextAreaProps)
     const isInputEmpty = useMemo(() => !field.value, [field.value]);
 
     return (
-        <CommonWikiPageInputContainer justify="start" center="start" maxHeight="10rem">
+        <CommonWikiPageInputContainer className='mw-text mw-normal' justify="start" center="start" maxHeight="10rem">
             {props.label && (
                 <label aria-label={props.label} htmlFor={field.name}>{props.label}</label>
             )}

@@ -13,3 +13,19 @@ export interface WikiPage {
 export interface ListResults<T> {
   results: T[];
 }
+
+
+export interface CreateDeleteArticleRequest {
+  articleId: string;
+  reasonToDelete: string;
+}
+
+export interface ApproveDeleteArticleRequest {
+  id: string;
+  reasonToApproveDelete: string;
+}
+
+export interface DenyDeleteArticleRequest {
+  id: string;
+  reasonToDenyDelete: string;
+}

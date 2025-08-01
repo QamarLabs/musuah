@@ -10,7 +10,7 @@ import { Country, RegistrationForm, YesOrNo } from "../typings.d";
 import { DEFAULT_REGISTER_FORM, DEFAULT_REGISTRATION_SUBMITTED_CONFIG } from "../common/constants/form";
 import { PersonalInfo } from "./CollaborateForm/PersonalInfo";
 import { OtherInfo } from "./CollaborateForm/OtherInfo";
-import { Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import Review, { ReviewFieldOfFocus, ReviewOtherInfo, ReviewPersonalInfo } from "./CollaborateForm/Review";
 import { LoginInfo } from "./CollaborateForm/LoginInfo";
 import { LuArrowLeft, LuArrowRight, LuMail } from "react-icons/lu";
@@ -21,6 +21,7 @@ function Collaborate() {
   const { commonStore, authStore } = useStore();
   const {
     userSession,
+    userSessionToken,
     resetRegistration,
     registrationStep,
     registrationSubmitted,
@@ -103,7 +104,7 @@ function Collaborate() {
     wasInGovernmentAgency: Yup.mixed<YesOrNo>().notRequired(),
     infoIsCorrect: Yup.boolean().when([], {
       is: () => registrationStep >= 2,
-      then: (schema) => schema.oneOf([true], 'You must swear that your info is correct to collaborate with us.').required(),
+      then: (schema) => schema.oneOf([true], 'You must swear that your info is correct to collaborate with us.').required('You must swear that your info is correct to collaborate with us.'),
       otherwise: (schema) => schema.notRequired()
     }),
     whyContribute: Yup.string().when([], {
@@ -114,7 +115,7 @@ function Collaborate() {
     // .required('You must explain why you want to contribute to us.'),
     agreeToTerms: Yup.boolean().when([], {
       is: () => registrationStep >= 2,
-      then: (schema) => schema.oneOf([true], 'You must agree to terms of collaboration').required(),
+      then: (schema) => schema.oneOf([true], 'You must agree to terms of collaboration').required('You must agree to terms of collaboration'),
       otherwise: (schema) => schema.notRequired()
     })
     // .oneOf([true], 'You must agree to terms of collaboration').required()
@@ -147,31 +148,32 @@ function Collaborate() {
   const showReviewForm = useMemo(() => mounted && registrationStep === 3, [registrationStep, mounted]);
 
   return (
-    <CommonWikiPageTextContainer style={{ minHeight: "100vh", textAlign: 'left', minWidth: '60vw', maxWidth: '60vw' }}>
-      <FlexItem>
-        <h3 className='w-100 mw-text mw-subheader m-1' >
+    <CommonWikiPageTextContainer 
+      justify='start'
+      style={{ minHeight: "100vh", textAlign: 'left', minWidth: '60vw', maxWidth: '60vw' }}
+    >
+      <VStack>
+        <h3 className='w-100 mw-text mw-subheader my-1' >
           Collaborate
         </h3>
-      </FlexItem>
-      <FlexItem>
         <h5 className='w-100 mw-text mw-subheader-subtitle m-1' >
           Register to Collaborate with Us! 😊
         </h5>
-      </FlexItem>
-      <FlexItem className='w-100'>
+      </VStack>
+      <Box className='w-100'>
         {
           registrationSubmitted.submitted && registrationSubmitted.expires && !isDateExpired(registrationSubmitted.expires)
             ? (
               <VStack color="gray.900" align='center'>
                 <Text className='w-100 mw-text mw-normal m-1' >
-                  Please check your email at {userSession?.userInfo?.email ?? ''} for a verification email.
+                  Please check your email at {userSession?.email ?? ''} for a verification email.
                 </Text>
                 <LuMail size={150} />
               </VStack>
             )
             : (
               <ResponsiveContainer extraClasses="wikipage w-100">
-                <FlexItem className='w-100'>
+                <Box className='w-100'>
                   <CommonWikiPageGridBox>
 
                     <Formik<RegistrationForm>
@@ -313,11 +315,11 @@ function Collaborate() {
                       )}
                     </Formik>
                   </CommonWikiPageGridBox>
-                </FlexItem>
+                </Box>
               </ResponsiveContainer>
             )
         }
-      </FlexItem>
+      </Box>
     </CommonWikiPageTextContainer>
   );
 }

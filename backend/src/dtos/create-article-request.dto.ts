@@ -1,12 +1,13 @@
 
 export class CreateArticleRequestDto {
+  articleId: string;
+  
   title: string;
 
   pageid: number;
 
   revid: number;
 
-  url: string;
 
   text: string;
 
@@ -14,5 +15,6 @@ export class CreateArticleRequestDto {
 
   word_count: number;
 
-  timestamp: Date;
+  attributes: {[key:string]: any};
+
 }

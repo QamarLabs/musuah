@@ -14,7 +14,6 @@ export function OtherInfo() {
         <VStack w="full">
             <Text className='mw-text' fontSize="1.2rem" mb={3}>Other Info</Text>
             <VStack>
-                <h6 className="mw-subheader-subtitle">Social Media Handles</h6>
                 <MWTextInput
                     label="Facebook"
                     name="facebook"
@@ -65,7 +64,7 @@ export function OtherInfo() {
 
                 <MWCheckbox 
                     label="Do you agree to the terms and conditions"
-                    termsLink={`${import.meta.env.BASE_URL}/collaborateTerms`}
+                    termsLink={`${import.meta.env.BASE_URL}/privacy-policy`}
                     disabled={false}
                     name='agreeToTerms'
                 />

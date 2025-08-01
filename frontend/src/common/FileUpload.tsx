@@ -7,10 +7,12 @@ import {
   useFileUploadContext,
   CloseButton,
   HStack,
+  Text
 } from "@chakra-ui/react";
 
 import { useField, FieldHookConfig } from "formik";
 import { LuFileUp, LuX } from "react-icons/lu";
+import { FILE_UPLOAD_MAX_SIZE } from "./constants/form";
 
 type MWFileUploadProps = {
   name: string;
@@ -84,6 +86,13 @@ export function MWFileUpload({
             reader.readAsDataURL(file);
           }
         }}
+        onFileReject={(details) => {
+          if(details.files && details.files.length && details.files[0].errors.some(e => e === 'FILE_TOO_LARGE'))
+            helpers.setError("File size must be lower than 2MB")
+          else
+            helpers.setError('');
+        }}
+        maxFileSize={FILE_UPLOAD_MAX_SIZE}
         accept={accept ?? ["image/jpeg", "image/png", "image/webp", "image/svg+xml"]}
       >
         <FileUpload.HiddenInput />
@@ -112,6 +121,11 @@ export function MWFileUpload({
             </FileUpload.Trigger>
           </Input>
         </InputGroup>
+        {meta.error && (
+          <Text className='mw-text' fontSize="0.75rem" color="red.600" mt={1}>
+            {meta.error}
+          </Text>
+        )}
       </FileUpload.Root>
     </>
   );

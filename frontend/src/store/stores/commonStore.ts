@@ -21,6 +21,7 @@ export default class CommonStore {
     navbarSearchQry: string | undefined = undefined;
 
     language: "ar" | "al" | "ba" | "cn" | "de" | "en" | "es" | "fa" | "fr" | "hi" | "jp" | "ru" | "tr" | "ur"  = "en";
+    ipAddress: string | undefined = undefined;
     private setAutoCompleteLoading = (loading: boolean) => {
         this.autoCompleteLoading = loading;
     }
@@ -41,6 +42,9 @@ export default class CommonStore {
     }
     get navbarAutocompleteOptions() {
         return Array.from(this.navbarAutocompleteRegistry.values());
+    }
+    setIpAddress = (ipAddress: string) => {
+        this.ipAddress = ipAddress;
     }
 
     setError = (value: Error | undefined) => {

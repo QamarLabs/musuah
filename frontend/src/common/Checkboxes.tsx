@@ -2,7 +2,16 @@ import { FieldHookConfig, useField } from "formik";
 import React from "react";
 import { CommonWikiPageInputContainer } from "./ResponsiveContainer";
 import { YesOrNo } from "../typings.d";
-import { RadioCard , Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Checkbox,
+  HStack,
+  Link,
+  RadioCard,
+  Stack,
+  Text
+} from "@chakra-ui/react";
+import { router } from "../router";
 
 type MWTermsCheckboxProps = {
   label: React.ReactNode;
@@ -22,40 +31,51 @@ export function MWCheckbox({
 
   return (
     <CommonWikiPageInputContainer>
-      <div className={`form-check ${className || ''}`}>
-        <input
-          type="checkbox"
+      <Box px={0}>
+        <Checkbox.Root
+
           id={field.name}
-          name={field.name} 
-          onChange={(e) => {
-            helpers.setValue(e.target.checked ?? false);
-          }}
+          name={field.name}
           checked={field.value}
-          aria-checked={field.value}
+          onCheckedChange={(e) => helpers.setValue(!!e.checked)}
           disabled={disabled}
-          className={`form-check-input ${meta.touched && meta.error ? 'is-invalid' : ''}`}
-        />
-        
-        <label htmlFor={field.name} className="form-check-label ms-2">
-          {label} 
-          {termsLink && (
-            <a 
-              href={termsLink} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="ms-1"
-              onClick={(e) => e.stopPropagation()} // Prevent checkbox toggle when clicking link
-            >
-              (view terms)
-            </a>
+          borderColor={meta.error ? "red.600" : "gray.200"}
+          className={meta.touched && meta.error ? 'is-invalid' : ''}
+        >
+          <Checkbox.HiddenInput />
+          <HStack className='mw-text mw-sm'>
+
+            <Checkbox.Control />
+            <Stack gap="1">
+              <Checkbox.Label>
+                {label}
+              </Checkbox.Label>
+              <Box textStyle="sm" color="fg.muted">
+                {termsLink && (
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ml={1}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(termsLink, "_blank");
+                    }}
+                  >
+                    (view terms)
+                  </Link>
+                )}
+              </Box>
+            </Stack>
+          </HStack>
+
+          {meta.error && (
+            <Text fontSize="0.75rem" color="red.600" mt={1}>
+              {meta.error}
+            </Text>
           )}
-        </label>
-        
-        {meta.touched && meta.error && (
-          <div className="invalid-feedback d-block">{meta.error}</div>
-        )}
-      </div>
-    </CommonWikiPageInputContainer>
+        </Checkbox.Root>
+      </Box>
+    </CommonWikiPageInputContainer >
   );
 }
 
@@ -82,19 +102,19 @@ export function MWRadioBox({
   // description,
   options,
   // ...props
-}: MWRadioProps) {  
+}: MWRadioProps) {
   const [field, meta, helpers] = useField(name);
   console.log('meta:', meta.error)
   return (
-    <Stack gap="8">
-      <RadioCard.Root  size="md" defaultValue={options[0].value}>
+    <Stack gap="8" className='mw-text mw-sm'>
+      <RadioCard.Root size="md" defaultValue={options[0].value}>
         <RadioCard.Label>{label}</RadioCard.Label>
         <Stack align="stretch" flexDir={{ base: 'column', md: 'row' }}>
           {options.map((option) => (
-            <RadioCard.Item 
-              key={option.value} 
-              value={option.value} 
-              onChange={e =>  {
+            <RadioCard.Item
+              key={option.value}
+              value={option.value}
+              onChange={e => {
                 e.preventDefault();
                 helpers.setValue(option.value);
               }}
@@ -111,7 +131,7 @@ export function MWRadioBox({
               </RadioCard.ItemControl>
             </RadioCard.Item>
           ))}
-      </Stack>
+        </Stack>
       </RadioCard.Root>
     </Stack>
   );

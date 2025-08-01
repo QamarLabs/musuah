@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { Pagination, PagingParams } from '../../models/common';
-// import { QueriedAutocompleteOption, WikiPageSearchResult } from '../../models/search';
 import agent from '../../api/agent';
 import { WikiPageRecord } from '../../models/wikipage';
+
 export default class WikiPageStore {
     constructor() {
         makeAutoObservable(this);

@@ -10,32 +10,42 @@ export class SearchService {
 
   constructor(@InjectModel(Article.name) private articleModel: Model<Article>) {}
     
-  async autocomplete(
-    qry: string,
-    page: number = 1,
-    limit: number = 10
-  ): Promise<ServerPaginatedResult<QueriedAutoCompleteValue<number>[]>> {
-    const query = { title: { $regex: qry, $options: 'i' } };
-    
-    const [results, total] = await Promise.all([
-      this.articleModel
-        .find(query)
-        .skip((page - 1) * limit)
-        .limit(limit)
-        .exec(),
-      this.articleModel.countDocuments(query).exec(),
-    ]);
+async autocomplete(
+  qry: string,
+  page: number = 1,
+  limit: number = 10
+): Promise<ServerPaginatedResult<QueriedAutoCompleteValue<number>[]>> {
+  // Use text search if query is long enough, otherwise use anchored regex
+  const query = qry.length > 2 
+    ? { $text: { $search: qry } } 
+    : { title: { $regex: `^${qry}`, $options: 'i' } };
+  
+  const [results, total] = await Promise.all([
+    this.articleModel
+      .find(query)
+      .sort('field +title')
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .lean() // Faster response by returning plain JS objects
+      .exec(),
+    this.articleModel.countDocuments(query).exec(),
+  ]);
 
-    const data: QueriedAutoCompleteValue<number>[] = results.map(itm => ({ text: itm.title, value: itm.pageid, timestamp: itm.timestamp }));
-    const pagination: ServerPagination = {
-      currentPage: page,
-      itemsPerPage: limit,
-      totalItems: total,
-      totalPages: Math.round(total/limit)
-    }
+  const data: QueriedAutoCompleteValue<number>[] = results.map(itm => ({
+    text: itm.title, 
+    value: itm.pageid, 
+    timestamp: itm.timestamp 
+  }));
+  
+  const pagination: ServerPagination = {
+    currentPage: page,
+    itemsPerPage: limit,
+    totalItems: total,
+    totalPages: Math.ceil(total/limit) // Fixed: use ceil instead of round
+  };
 
-    return new ServerPaginatedResult<QueriedAutoCompleteValue<number>[]>(data, pagination);
-  }
+  return new ServerPaginatedResult(data, pagination);
+}
 
   
   async wikipages(
@@ -43,31 +53,40 @@ export class SearchService {
     page: number = 1,
     limit: number = 25 // More for the search results page
   ): Promise<ServerPaginatedResult<WikiPageSearchResult[]>> {
-    const query = { title: { $regex: qry, $options: 'i' } };
-    console.log('search qry:', qry)
-    const [results, total] = await Promise.all([
-      this.articleModel
-        .find(query)
-        .skip((page - 1) * limit)
-        .limit(limit)
-        .exec(),
-      this.articleModel.countDocuments(query).exec(),
-    ]);
-
-    const data: WikiPageSearchResult[] = results.map(itm => ({ 
-                                          id: itm.id,
-                                          pageid: itm.pageid,
-                                          title: itm.title, 
-                                          summary: itm.summary, 
-                                          timestamp: itm.timestamp 
-                                        }));
-    const pagination: ServerPagination = {
-      currentPage: page,
-      itemsPerPage: limit,
-      totalItems: total,
-      totalPages: Math.round(total/limit)
+    try {
+      // Use text search if query is long enough, otherwise use anchored regex
+      const query = qry.length > 2 
+        ? { $text: { $search: qry } } 
+        : { title: { $regex: `^${qry}`, $options: 'i' } };
+    
+        const [results, total] = await Promise.all([
+          this.articleModel
+              .find(query)
+              .sort('field +title')
+              .skip((page - 1) * limit)
+              .limit(limit)
+              .lean() // Faster response by returning plain JS objects
+              .exec(),
+          this.articleModel.countDocuments(query).exec(),
+        ]);
+    
+        const data: WikiPageSearchResult[] = results.map(itm => ({ 
+                                              id: itm.id,
+                                              pageid: itm.pageid,
+                                              title: itm.title, 
+                                              summary: itm.summary, 
+                                              timestamp: itm.timestamp 
+                                            }));
+        const pagination: ServerPagination = {
+          currentPage: page,
+          itemsPerPage: limit,
+          totalItems: total,
+          totalPages: Math.round(total/limit)
+        }
+    
+        return new ServerPaginatedResult<WikiPageSearchResult[]>(data, pagination);
+    } catch(err) {
+      console.log("Get wikipage data error:", err);
     }
-
-    return new ServerPaginatedResult<WikiPageSearchResult[]>(data, pagination);
   }
 }

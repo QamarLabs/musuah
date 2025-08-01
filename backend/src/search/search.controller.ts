@@ -33,4 +33,5 @@ export class SearchController {
       status: 200
     });
   }
+
 }

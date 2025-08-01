@@ -3,8 +3,10 @@ import { PaginatedResult } from '../models/common';
 import i18n from '../i18n';
 import { router } from '../router';
 import { searchApi } from './searchApi';
+import { wikiBooksApi } from './wikibooksApi';
 import { wikipagesApi } from './wikipagesApi';
 import { authApi } from './authApi';
+import { aiAssistantApi } from './aiAssistantApi';
 
 // import { store } from '../store';
 
@@ -104,9 +106,17 @@ axios.interceptors.response.use(
 );
 
 const agent = {
+  aiAssistant: aiAssistantApi,
   auth: authApi,
   search: searchApi,
+  wikiBooks: wikiBooksApi,
   wikiPages: wikipagesApi
 };
+
+export const getAuthorizationHeader = (token: string) => ({
+      headers: {
+          Authorization: `Bearer ${token}`
+      }
+  })
 
 export default agent;

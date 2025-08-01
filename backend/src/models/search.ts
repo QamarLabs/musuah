@@ -9,5 +9,8 @@ export interface WikiPageSearchResult {
 export interface QueriedAutoCompleteValue<T> {
   text: string;
   value: T;
+  primaryTopic?: string;
+  publicationYear?: number | undefined;
+  author?: string;
   timestamp: any;
 }

@@ -1,24 +1,28 @@
 import axios from "axios";
 // import { PaginatedResult } from "../models/common";
-import { axiosResponseBody } from "./agent";
-import { ChangePasswordValues, User, UserLogin } from "../models/auth";
-import { RegistrationUserDto } from "../typings";
+import { axiosResponseBody, getAuthorizationHeader } from "./agent";
+import { ChangePasswordValues, UploadProfilePictureDto, User, UserLogin } from "../models/auth";
+import { MuslimWikiSession, RegistrationUserDto, SessionUser } from "../typings";
 
 export const authApi = {
+    validateToken: (token: string) =>
+        axios.get<SessionUser>(`/auth/validateToken`, getAuthorizationHeader(token)).then(axiosResponseBody),
     login: (values: UserLogin) =>
-        axios.post<User>(`/auth/login`, { values }).then(axiosResponseBody),
+        axios.post<MuslimWikiSession>(`/auth/login`, { values }).then(axiosResponseBody),
     register: (values: RegistrationUserDto, lang: string | undefined) =>
-        axios.post<User>(`/auth/register?lang=${lang ?? 'en'}`, { values }).then(axiosResponseBody),
+        axios.post<MuslimWikiSession>(`/auth/register?lang=${lang ?? 'en'}`, { values }).then(axiosResponseBody),
+    uploadProfilePicture: (token: string, values: UploadProfilePictureDto) =>
+        axios.patch<MuslimWikiSession>(
+            `/auth/uploadProfilePicture`, 
+            { values },
+            getAuthorizationHeader(token))
+            .then(axiosResponseBody),
     verifyEmail: (token: string, id: string) =>
-        axios.put<User>(
+        axios.put<MuslimWikiSession>(
             `/auth/verifyEmail`, 
             { values: { id } }, 
-            { 
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
+            getAuthorizationHeader(token))
             .then(axiosResponseBody),
     changePassword: (values: ChangePasswordValues) =>
-        axios.post<User>(`/auth/changePassword`, { values }).then(axiosResponseBody),
+        axios.post<MuslimWikiSession>(`/auth/changePassword`, { values }).then(axiosResponseBody),
 }

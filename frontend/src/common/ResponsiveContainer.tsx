@@ -1,4 +1,4 @@
-import { Box, Card } from '@chakra-ui/react';
+import { Box, Card, Flex as ChakraUIFlex } from '@chakra-ui/react';
 import { 
     // Card, CardBody,
      Flex } from '@wordpress/components';
@@ -6,30 +6,33 @@ import React from 'react';
 
 export default function ResponsiveContainer({ children, extraClasses }: React.PropsWithChildren<any>) {
     return (
-        <Flex 
+        <ChakraUIFlex 
             className={"responsiveContainer" + (extraClasses ? ` ${extraClasses}` : "")} 
             align="center" 
-            justify="center" 
-            wrap={true} 
-            expanded={false}
+            justify={{ sm: 'center', md: 'start' }} 
+            wrap="wrap"
+            bg='gold'
+            pl="0"
         >
             {children}
-        </Flex>
+        </ChakraUIFlex>
     );
 }
 
 export function CommonWikiPageTextContainer({ children, ...containerProps }: React.PropsWithChildren<any>) {
     return (
-        <Flex 
-            className='responsiveTextContainer' 
+        <ChakraUIFlex 
+            className='responsiveTextContainer mw-text' 
             direction="column" 
-            align="center" 
+            align={{ base: "center", md: 'start' }} 
             justify="center" 
-            style={{ minHeight: "100vh", textAlign: 'left' }} 
+            minH="100vh"
+            textAlign='left'
+            wordBreak="break-word"
             {...containerProps}
         >
-            {children},
-        </Flex>
+            {children}
+        </ChakraUIFlex>
     );
 }
 
@@ -51,7 +54,7 @@ export function CommonWikiPageInputContainer({ children, ...props }: React.Props
 
 export function CommonWikiPageGridBox({ children, ...containerProps }: React.PropsWithChildren<any>) {
     return (
-        <Card.Root w='full' {...containerProps}>
+        <Card.Root alignSelf='start' w='full' {...containerProps}>
             <Card.Body w='full' className='mw-wiki-page-grid-box'>
                 {children}
 

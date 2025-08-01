@@ -37,7 +37,19 @@ export interface NavItem {
   items: string[];
 }
 
+export interface ChangesMadeRecord {
+  fieldName: string;
+  oldValue: string;
+  newValue: string;
+}
+
 export enum AutocompleteType {
   Navbar = "navbar",
-  Search = "search"
+  Search = "search",
+  SearchBooks = "search-books",
+}
+
+export enum RequestType {
+  Wikipage = "wikipage",
+  Wikibook = "wikibook"
 }
