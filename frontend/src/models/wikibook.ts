@@ -33,6 +33,7 @@ export interface WikiBookRecord {
 }
 
 export interface DeleteWikiBookRequest {
+    _id: string;
     bookId: string | undefined;
     submitByUserId: string | undefined;
     title: string | undefined;
@@ -42,4 +43,20 @@ export interface DeleteWikiBookRequest {
     judgedByUserId: string | undefined;
     judgedByUserName: string | undefined;
     timestamp: Date;
+}
+
+
+export interface CreateDeleteWikiBookRequest {
+    bookId: string;
+    reasonToDelete: string;
+}
+
+export interface ApproveDeleteWikiBookRequest {
+    id: string;
+    reasonToApproveDelete: string;
+}
+
+export interface DenyDeleteWikiBookRequest {
+    id: string;
+    reasonToDenyDelete: string;
 }

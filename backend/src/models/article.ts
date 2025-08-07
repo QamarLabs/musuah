@@ -1,4 +1,5 @@
 export interface WikiPage {
+  _id: string;
   id: string;
   title: string;
   pageid: number;

@@ -56,27 +56,33 @@ export default observer(function WikiBookSearchResults() {
                 {/* Main Content Area */}
                 <main className="results-area">
                     {bookSearchResults && bookSearchResults.length > 0 ? (
-                        <div className="results-list">
-                            <h2>Search Results for "{searchQry}"</h2>
+                        <div className="results-list mw-text">
+                            <h2>{t("searchResultsFor")} "{searchQry}"</h2>
                             <ul>
                                 {bookSearchResults.map((book) => (
                                     <li key={book._id} className="result-item">
-                                        <h3
-                                            className='cursor-pointer'
+                                        <Text
+                                            fontSize="100%"
+                                            className=' mw-link'
+                                            cursor='pointer'
+                                            color='blue.400'
                                             onClick={() => {
-                                                navigate(`/${language}/wikibooks/${book._id}`)
+                                                navigate(`/${language}/wikibooks/${book._id}`, { replace: true })
+                                            }}
+                                            _hover={{
+                                                textDecoration: 'underline'
                                             }}
                                         >
                                             {book.displayName}
-                                        </h3>
+                                        </Text>
                                         <p>{book.description}</p>
                                         <Text>
-                                            <Span>Author: </Span>
+                                            <Span>{t("author")} </Span>
                                             {book.author}
                                         </Text>
                                         <Text>
-                                            <Span>Publication Date: </Span>
-                                            {book.publicationDate.toLocaleDateString()}
+                                            <Span>{t("publicationDate")} </Span>
+                                            {new Date(book.publicationDate).toLocaleDateString()}
                                         </Text>
                                     </li>
                                 ))}
@@ -84,7 +90,7 @@ export default observer(function WikiBookSearchResults() {
                         </div>
                     ) : (
                         <div className="empty-state">
-                            <p>Search books and studies from here.</p>
+                            <p>{t("searchBooksAndStudiesFromHere")}</p>
                         </div>
                     )}
                 </main>

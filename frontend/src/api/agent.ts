@@ -7,6 +7,7 @@ import { wikiBooksApi } from './wikibooksApi';
 import { wikipagesApi } from './wikipagesApi';
 import { authApi } from './authApi';
 import { aiAssistantApi } from './aiAssistantApi';
+import { dashboardApi } from './dashboardApi';
 
 // import { store } from '../store';
 
@@ -68,24 +69,23 @@ axios.interceptors.response.use(
           throw modalStateErrors.flat();
         }
       case 401:
-        router.navigate("/");
+        // debugger;
         // if (store.userStore.user) store.userStore.logout();
         if (myResponse.data === "invalid_token") {
         //   toast.error(i18n.t("expired_session", { ns: "errors" }).toString());
         } else {
-          modalStateErrors.push(i18n.t(myResponse.data, { ns: "errors" }));
-          throw modalStateErrors.flat();
+          throw myResponse.data.message;
+          // throw modalStateErrors.flat();=
         }
         break;
       case 403:
-        router.navigate("/");
         // if (store.userStore.user) store.userStore.logout();
         break;
       case 404:
         router.navigate("/not-found");
         break;
       case 413:
-        modalStateErrors.push(i18n.t("UploadTooLarge", { ns: "errors" }));
+        modalStateErrors.push(i18n.t(myResponse.data.message, { ns: "errors" }));
         throw modalStateErrors.flat();
       case 418:  //I am a teapot!
         //need to update user
@@ -108,6 +108,7 @@ axios.interceptors.response.use(
 const agent = {
   aiAssistant: aiAssistantApi,
   auth: authApi,
+  dashboard: dashboardApi,
   search: searchApi,
   wikiBooks: wikiBooksApi,
   wikiPages: wikipagesApi

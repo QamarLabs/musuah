@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Req, UseGuards, Param, Get, Put, Query, Patch } from '@nestjs/common';
+import { Controller, Post, Body, Req, UseGuards, Param, Get, Put, Query, Patch, HttpException, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { RegistrationUserDto } from 'src/dtos/registration-user-dto';
@@ -89,13 +89,18 @@ export class AuthController {
   @Post('login')
   async login(@Body() { values  }: { values: LoginUserDto}) {
     const user = await this.authService.validateUser(values.email, values.password);
-
+    console.log("logged in user backend:", user);
     if(!user)
-      return new Error("Invalid Login");
-
+      throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
+    
+    const updatedUserJwt = await this.authService.generateJWT({ id: user._id, email: user.email });
+    
     await this.authService.addNewActivityLog(user._id as string, `Logged in from ${values.ipAddress}` );
 
-    return user;
+    return new SessionUserDto({
+      jwt: updatedUserJwt,
+      userInfo: user
+    } as MuslimWikiSession);
   }
 
   // @UseGuards(JwtAuthGuard)
@@ -106,24 +111,4 @@ export class AuthController {
       
   //   return this.authService.changePassword(body.email, body.newPassword);
   // }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('mfa/generate')
-  async generateMfa(@GetUser() userFromRequest) {
-    const user = await this.authService.getUserById(userFromRequest.id);
-    return this.authService.generateMfaSecret(user);
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('mfa/enable')
-  async enableMfa(@Body() body: { userId: string; token: string }) {
-    return this.authService.enableMfa(body.userId, body.token);
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('mfa/verify')
-  async verifyMfa(@Body() body: { userId: string; token: string }) {
-    const user = await this.authService.getUserById(body.userId);
-    return this.authService.verifyMfaToken(user, body.token);
-  }
 }

@@ -43,7 +43,7 @@ export default class WikiPageStore {
 
             const wikipage: WikiPageRecord = await agent.wikiPages.getWikiPage(pageId);
 
-            console.log('wikipage', wikipage);
+            console.log('wikipage:', JSON.stringify(wikipage));
             runInAction(() => {
                 this.setCurrentWikiPage(wikipage)
             })

@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom';
 import Layout from "./common/Layout";
 import { Provider } from "./components/ui/provider";
 import axios from "axios";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 
 export default observer(function App() {

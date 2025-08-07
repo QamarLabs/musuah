@@ -12,7 +12,6 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { MailService } from './mail/mail.service';
 import { AuthController } from './auth/auth.controller';
-import { AiAssistantModule } from './modules/ai-assistant.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { SearchBooksModule } from './modules/searchBooks.module';
 import { SearchBooksController } from './searchBooks/searchBooks.controller';
@@ -22,6 +21,10 @@ import { WikiBookRequestsModule } from './modules/wikibookrequest.module';
 import { WikibookRequestsController } from './wikibookrequests/wikibookrequests.controller';
 import { DashboardModule } from './modules/dashboard.module';
 import { DashboardController } from './dashboard/dashboard.controller';
+import { PaymentsModule } from './modules/payment.module';
+import { PaymentController } from './payment/payment.controller';
+import { DeleteWikibookRequestsController } from './wikibookrequests/deletewikibookrequests.controller';
+import { DeleteWikipagerequestsController } from './wikipagerequests/deletewikipagerequests.controller';
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 @Module({
@@ -32,6 +35,7 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV)
     }),
     CacheModule.register(),
     MongooseModule.forRoot(process.env.MUSLIM_WIKI_DATABASE_URL, {}),
+    PaymentsModule,
     DashboardModule,
     WikiPagesModule,
     WikiBooksModule,
@@ -40,18 +44,20 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV)
     SearchModule,
     SearchBooksModule,
     AuthModule,
-    AiAssistantModule
   ],
   controllers: [
     AppController, 
     AuthController, 
     SearchController, 
     SearchBooksController,
-    DashboardController, 
+    DashboardController,
+    PaymentController,
     WikipagesController, 
     WikibooksController,
     WikibookRequestsController,
-    WikipagerequestsController
+    DeleteWikibookRequestsController,
+    WikipagerequestsController,
+    DeleteWikipagerequestsController
   ],
   providers: [AppService, MailService],
 })

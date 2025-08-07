@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import LeftSideNavigation, { LeftSideNavigationToggler } from "./LeftSideNavigation";
 import RightSideNavigation, { RightSideNavigationToggler } from "./RightSideNavigation";
 import { Flex } from "@wordpress/components";
 import { useLocation } from "react-router";
 import { useMediaQuery } from "@chakra-ui/react";
 import NavigationBar from "./NavigationBar";
+import { store } from "../store";
+import Footer from "./Footer";
 
 type Props = {}
 
@@ -19,7 +21,7 @@ const LayoutContainer = ({ children }: React.PropsWithChildren<any>) => {
             overflowY: 'auto',
             top: 0,
             right: 0,
-            backgroundColor: 'purple'
+            // backgroundColor: 'purple'
         }}>
             {children}
         </Flex>
@@ -37,6 +39,23 @@ const LayoutNavbarContainer = ({ children }: React.PropsWithChildren<any>) => {
     );
 }
 
+const LayoutFooterContainer = ({ children }: React.PropsWithChildren<any>) => {
+    return (
+        <Flex 
+            align="flex-start" 
+            justify="space-between" 
+            style={{
+                width: '100%',
+                boxSizing: 'border-box',
+                position: 'fixed',
+                bottom: 0
+            }}
+        >
+            {children}
+        </Flex>
+    );
+}
+
 export default function Layout({ children }: React.PropsWithChildren<Props>) {
     const { pathname } = useLocation();
     const [isLargerThan1024] = useMediaQuery(['(min-width: 1025px)']);
@@ -44,7 +63,17 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
     const [rightNavOpen, setRightNavOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
+    const renderCount = useRef<number>(0)
+    useEffect(() => {
+        async function checkSession() {
+            await store.authStore.initializeFromStorage();
+            renderCount.current += 1;
+            console.log("current rendercount from init session:", renderCount.current)
+        }
 
+        if(!store.authStore.authUserToken)
+            checkSession()
+    }, [store.authStore.authUserToken, pathname])
 
     const toggleLeftNav = () => {
         setLeftNavOpen(!leftNavOpen);
@@ -77,7 +106,13 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
         /wikipages/i,
         /\/wikipages\b/i,
         /collaborate/i,
-        /\/collaborate\b/i
+        /\/collaborate\b/i,
+        /login/i,
+        /\/login\b/i,
+        /dashboard/i,
+        /\/dashboard\b/i,
+        /youraccount/i,
+        /\/youraccount\b/i
     ], [])
 
     // Handle window resize
@@ -106,6 +141,9 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
                     {children}
                     <div />
                 </Flex>
+                <LayoutFooterContainer>
+                    <Footer />
+                </LayoutFooterContainer>
             </LayoutContainer>
         );
     else if (showLayout)
@@ -154,6 +192,9 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
                         />
                     )}
                 </Flex>
+                <LayoutFooterContainer>
+                    <Footer />
+                </LayoutFooterContainer>
             </LayoutContainer>
         );
     else

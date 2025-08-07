@@ -5,37 +5,39 @@ import { MWCheckbox, MWRadioBox } from "../../common/Checkboxes";
 import { PART_OF_GOVERNMENT_AGENCY_OPTIONS } from "../../common/constants/form";
 import { useField } from "formik";
 import { MWTextArea } from "../../common/TextArea";
+import { useTranslation } from "react-i18next";
 
 
 export function OtherInfo() {
+    const { t } = useTranslation("form")
     const [haveBeenPartOfGovField] = useField('wasInGovernmentAgency');
 
     return (
         <VStack w="full">
-            <Text className='mw-text' fontSize="1.2rem" mb={3}>Other Info</Text>
+            <Text className='mw-text' fontSize="1.2rem" mb={3}>{t("sectionTitles.otherInfo")}</Text>
             <VStack>
                 <MWTextInput
                     label="Facebook"
                     name="facebook"
-                    placeholder="Your Facebook"
+                    placeholder="Facebook"
                     disabled={false}
                 />
                 <MWTextInput
                     label="Linkedin"
                     name="linkedin"
-                    placeholder="Your Linkedin"
+                    placeholder="Linkedin"
                     disabled={false}
                 />
                 <MWTextInput
                     label="Twitter or X"
                     name="twitterOrX"
-                    placeholder="Your Twitter or X"
+                    placeholder="Twitter or X"
                     disabled={false}
                 />
                 <MWTextInput
                     label="Tiktok"
                     name="tiktok"
-                    placeholder="Your Tiktok"
+                    placeholder="Tiktok"
                     disabled={false}
                 />
 
@@ -44,26 +46,27 @@ export function OtherInfo() {
                 <MWRadioBox 
                     value={haveBeenPartOfGovField.value}
                     name='wasInGovernmentAgency'
-                    label="Have you been part of a government agency?"
+                    label={t("inputLabels.wasInGovernmentAgency")}
                     disabled={false}
                     options={PART_OF_GOVERNMENT_AGENCY_OPTIONS}
                 />
 
                 <MWCheckbox 
-                    label="Do you swear your info is correct?"
+                    label={t("inputLabels.infoIsCorrect")}
                     disabled={false}
                     name='infoIsCorrect'
                 />
 
                 <MWTextArea 
+                
                     name="whyContribute"
-                    label="Why would you like to contribute to muslim wiki?"
-                    placeholder="Why do you want to contribute to muslim wiki, we are just curious."
+                    label={t("inputLabels.whyContribute")}
+                    placeholder={t("inputPlaceholders.whyContribute")}
                     disabled={false}
                 />
 
                 <MWCheckbox 
-                    label="Do you agree to the terms and conditions"
+                    label={t("inputLabels.agreeToTerms")}
                     termsLink={`${import.meta.env.BASE_URL}/privacy-policy`}
                     disabled={false}
                     name='agreeToTerms'

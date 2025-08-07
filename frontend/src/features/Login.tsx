@@ -1,126 +1,133 @@
-import { FlexItem } from "@wordpress/components";
-import ResponsiveContainer, { CommonWikiPageGridBox, CommonWikiPageTextContainer } from "../common/ResponsiveContainer";
+import { CommonWikiPageGridBox, CommonWikiPageTextContainer } from "../common/ResponsiveContainer";
 import { Form, Formik, FormikHelpers } from "formik";
-import { LoginForm } from "../typings";
 import { DEFAULT_LOGIN_FORM } from "../common/constants/form";
 import * as Yup from 'yup';
-import { VStack, Text, Button, HStack, Span } from "@chakra-ui/react";
-import { MWEmailInput, MWTextInput } from "../common/Inputs";
+import { VStack, Text, Button, HStack, Span, Box } from "@chakra-ui/react";
+import { MWEmailInput } from "../common/Inputs";
 import { MWLoginPasswordInput } from "../common/PasswordFields";
 import { useStore } from "../store";
 import { UserLogin } from "../models/auth";
 import { router } from "../router";
+import { observer } from "mobx-react-lite";
+import { useState } from "react";
+import { ErrorAlert } from "../common/Alerts";
+import { useTranslation } from "react-i18next";
 
 function Login() {
-    const { authStore, commonStore } = useStore();
-    const { ipAddress } = commonStore;
-    const { login } = authStore;
+  const { t } = useTranslation(["form", "errors"]);
+  const { authStore, commonStore } = useStore();
+  const { ipAddress } = commonStore;
+  const { login } = authStore;
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-    const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Invalid email').required('Email is required'),
-        password: Yup.string()
-            .required()
-            .min(8, 'Password must be at least 8 characters')
-            .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-            .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-            .matches(/[0-9]/, 'Password must contain at least one number')
-            .matches(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
-    });
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email(t("invalidEmail", { ns: "errors" })).required(t("emailRequired", { ns: "errors" })),
+    password: Yup.string()
+      .required()
+      .min(8, t("passwordAtLeast8Characters", { ns: "errors" }))
+      .matches(/[A-Z]/, t("passwordContainAtLeastOneUppercaseLetter", { ns: "errors" }))
+      .matches(/[a-z]/, t("passwordContainAtLeastOneLowercaseLetter", { ns: "errors" }))
+      .matches(/[0-9]/, t("passwordContainAtLeastOneNumber", { ns: "errors" }))
+      .matches(/[^A-Za-z0-9]/, t('passwordContainAtLeastOneSpecialCharacter', { ns: "errors" })),
+  });
 
-      const handleOnSubmit = async (values: UserLogin, formikHelpers: FormikHelpers<any>) => {
-        try {
-        
-          await login({
-            ...values,
-            ipAddress: ipAddress!
-        });
-        } catch(err) {
-          console.log("Error registering you, please contact support!")
-        } finally {
-          formikHelpers.setSubmitting(false);
-        }
-      };
+  const handleOnSubmit = async (values: UserLogin, formikHelpers: FormikHelpers<any>) => {
+    formikHelpers.setSubmitting(true);
+    try {
 
-    return (
-            <CommonWikiPageTextContainer style={{ minHeight: "100vh", textAlign: 'left', minWidth: '60vw', maxWidth: '60vw' }}>
-              <FlexItem>
-                <h3 className='w-100 mw-text mw-subheader m-1' >
-                  Collaborate
-                </h3>
-              </FlexItem>
-              <FlexItem>
+      await login({
+        ...values,
+        ipAddress: ipAddress!
+      });
 
-                     <ResponsiveContainer extraClasses="wikipage w-100">
-                        <FlexItem className='w-100'>
-                          <CommonWikiPageGridBox>
-        
-                            <Formik<UserLogin>
-                              initialValues={DEFAULT_LOGIN_FORM}
-                              validationSchema={validationSchema}
-                              onSubmit={handleOnSubmit}
-                              validateOnBlur={false}
-                            >
-                            {({
-                                isSubmitting,
-                                errors,
-                                values,
-                                handleSubmit
-                            }) => (
-                                <Form className='mw-form' onSubmit={handleSubmit}>
-                                    <VStack w="full">
-                                        <Text className='mw-text' fontSize="1.2rem" mb={3}>Login Info</Text>
-                                        <VStack w={{ base: 'full', md: '2/3', lg: '1/2' }}>
-                                            <MWEmailInput 
-                                                label="Email"
-                                                name="email"
-                                                placeholder="Your Email"
-                                                disabled={false}
-                                            />
-                                            <MWLoginPasswordInput
-                                                label="Password"
-                                                name="password"
-                                                placeholder="Your Password"
-                                                disabled={false}
-                                            />
-                                        </VStack>
-                                        <HStack>
-                                            <Button
-                                            type='submit'
-                                            disabled={Object.values(errors).some(v => !!v) || isSubmitting}
-                                            rounded="full"
-                                            px={{ base: 2, md: 5 }}
-                                            py={2}
-                                            fontWeight="bold"
-                                            color="white"
-                                            _disabled={{
-                                                opacity: 0.4
-                                            }}
-                                            bg="green.800"
-                                            loading={isSubmitting}
-                                            textDecoration="underline"
-                                            className='mw-text'
-                                            >
-                                            Submit
-                                            </Button>
-                                        </HStack>
-                                        <HStack className='mw-text mw-normal'>
-                                            <Text>
-                                              Would like to be a contributer? 
-                                              <Span
-                                                  as="a" 
-                                                  onClick={() => router.navigate('/collaborate')}
-                                              >
-                                                  Join us
-                                              </Span>
-                                            </Text>
-                                        </HStack>
-                                    </VStack>
-                                </Form>)}
-                            </Formik>
-                        </CommonWikiPageGridBox>
-                        </FlexItem>
-                    </ResponsiveContainer>
-              </FlexItem>
-            </CommonWikiPageTextContainer>
-    );
+    } catch (err) {
+      console.log("Error registering you, please contact support!");
+      setErrorMessage(t("errorMessages.login", { ns: "errors" }));
+      // debugger;
+    } finally {
+      formikHelpers.setSubmitting(false);
+    }
+  };
+
+  return (
+    <CommonWikiPageTextContainer style={{ minHeight: "100vh", textAlign: 'left', minWidth: '60vw', maxWidth: '70vw' }} minH="60vh" justify='start'>
+      <Box>
+        <h3 className='w-100 mw-text mw-subheader m-1' >
+          {t("sectionSubtitles.login", { ns: "form" })}
+        </h3>
+      </Box>
+            <CommonWikiPageGridBox>
+
+              <Formik<UserLogin>
+                initialValues={DEFAULT_LOGIN_FORM}
+                validationSchema={validationSchema}
+                onSubmit={handleOnSubmit}
+                validateOnBlur={false}
+              >
+                {({
+                  isSubmitting,
+                  errors,
+                  handleSubmit
+                }) => (
+                  <Form className='mw-form' onSubmit={handleSubmit}>
+                    <VStack w="full">
+                      {errorMessage && (
+                        <ErrorAlert title={t("errorTitle", { ns: "errors" })} description={errorMessage} />
+                      )}
+                      <VStack w={{ base: 'full', md: '2/3', lg: '1/2' }}>
+                        <MWEmailInput
+                          label={t("inputLabels.email", { ns: "form" })}
+                          name="email"
+                          placeholder={t("inputPlaceholders.email", { ns: "form" })}
+                          disabled={false}
+                        />
+                        <MWLoginPasswordInput
+                          label={t("inputLabels.password", { ns: "form" })}
+                          name="password"
+                          placeholder={t("inputPlaceholders.password", { ns: "form" })}
+                          disabled={false}
+                        />
+                      </VStack>
+                      <HStack>
+                        <Button
+                          type='submit'
+                          disabled={Object.values(errors).some(v => !!v) || isSubmitting}
+                          rounded="full"
+                          px={{ base: 2, md: 5 }}
+                          py={2}
+                          fontWeight="bold"
+                          color="white"
+                          _disabled={{
+                            opacity: 0.4
+                          }}
+                          bg="green.800"
+                          loading={isSubmitting}
+                          textDecoration="underline"
+                          className='mw-text'
+                        >
+                          {t("buttons.submit", { ns: "form" })}
+                        </Button>
+                      </HStack>
+                      <HStack className='mw-text mw-normal'>
+                        <Text>
+                          {t("wouldLikeToBeContributor")}
+                          <Span
+                            as="a"
+                            onClick={(e: any) => {
+                              e.stopPropagation();
+                              router.navigate('/collaborate');
+                            }}
+                          >
+                            {t("joinUs", { ns: "form" })}
+                          </Span>
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  </Form>)}
+              </Formik>
+            </CommonWikiPageGridBox>
+    </CommonWikiPageTextContainer>
+  );
 }
+
+export default observer(Login);

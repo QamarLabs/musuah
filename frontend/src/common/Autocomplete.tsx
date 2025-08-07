@@ -6,11 +6,12 @@ import { RiCloseLargeLine, RiSearchLine } from "react-icons/ri";
 import { QueriedAutocompleteOption } from '../models/search';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../store';
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { Flex } from '@wordpress/components';
 import useGetQueryParams from '../hooks/useGetQueryParams';
 import { AutocompleteType } from '../models/common';
 import { useDebounce } from '../hooks/useDebounce';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   id: string;
@@ -27,6 +28,7 @@ const SearchAutocomplete = observer(({
   hasButton,
   handleSubmitSearch
 }: React.PropsWithChildren<Props>) => {
+  const { t } = useTranslation("common");
   const navigate = useNavigate();
   const currentInputRef = useRef<HTMLInputElement | null>(null);
   const { commonStore, searchStore, searchBooksStore } = useStore();
@@ -143,7 +145,7 @@ const SearchAutocomplete = observer(({
       setSelected(itm);
       if (itm) {
         alert(JSON.stringify(itm))
-        isSearchBookAutocomplete ? navigate(`/${language}/wikibooks/${itm.value}`) : navigate(`/${language}/wikipages/${itm.value}`)
+        isSearchBookAutocomplete ? navigate(`/${language}/wikibooks/${itm.value}`, { replace: true }) : navigate(`/${language}/wikipages/${itm.value}`, { replace: true })
       }
     },
     getItemValue: (item: QueriedAutocompleteOption) => item.text,
@@ -241,6 +243,7 @@ const SearchAutocomplete = observer(({
           background: '#fff',
           overflow: 'auto',
           maxHeight: 300,
+          zIndex: 10,
           margin: 0,
           padding: 0
         }}
@@ -281,7 +284,7 @@ const SearchAutocomplete = observer(({
         ) : loadingAutocomplete && !autocompleteOptions.length
           ? <Loader color='black' />
           : (
-            <li>No results</li>
+            <li>{t("noResults")}</li>
           )}
       </ul>
     </div>

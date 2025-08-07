@@ -10,9 +10,10 @@ type MWTextAreaProps = {
     className?: string;
     disabled?: boolean;
     headerChildren?: React.ReactNode;
+    maxLength?: number;
 } & FieldHookConfig<string>;
 
-export function MWTextArea({ disabled, placeholder, ...props }: MWTextAreaProps) {
+export function MWTextArea({ disabled, placeholder, maxLength, ...props }: MWTextAreaProps) {
     const [field, meta, helpers] = useField(props.name);
 
     const handleClear = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,6 +42,7 @@ export function MWTextArea({ disabled, placeholder, ...props }: MWTextAreaProps)
                     resize="none" // Prevent resizing
                     rows={4} // Default rows
                     className={props.className}
+                    maxLength={maxLength ?? 250}
                 />
                 {!isInputEmpty && (
                     <button

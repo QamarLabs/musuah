@@ -23,7 +23,7 @@ export function PrivacyPolicyBox() {
         py={2}
         px={4}
       >
-        Muslim Wiki Foundation Privacy Policy
+        mūsūʿah Privacy Policy
       </Heading>
 
       <Flex justify="flex-end" mr={0}>
@@ -70,7 +70,7 @@ export function PrivacyPolicyBox() {
         </Text>
         <UnorderedList spacing={2}>
           <ListItem>
-            Read, edit, or use any Muslim Wiki Site{" "}
+            Read, edit, or use any mūsūʿah site{" "}
             <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-account-info" target="_blank" rel="noopener noreferrer">
               without registering an account
             </Link>.

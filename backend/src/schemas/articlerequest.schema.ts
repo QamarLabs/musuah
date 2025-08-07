@@ -11,7 +11,7 @@ export class ArticleRequest extends Document {
   @Prop({ required: false })
   oldTitle: string;
   
-  @Prop({ required: true, unique: true })
+  @Prop({ required: true })
   pageid: number;
 
   @Prop({ required: true })

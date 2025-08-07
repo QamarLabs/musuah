@@ -1,0 +1,8 @@
+{
+    "welcome": "Welcome ",
+    "currentWikiPageRequests": "Current Wiki Page Requests",
+    "deniedWikiPageRequests": "Denied Wiki Page Requests",
+    "approvedWikiPageRequests": "Approved Wiki Page Requests",
+    "deleteWikiPageRequests": "Delete Wiki Page Requests",
+    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+}

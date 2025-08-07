@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FlexItem } from "@wordpress/components";
-// import { useTranslation } from "react-i18next";
 import { useStore } from "../store";
 import ResponsiveContainer, { CommonWikiPageTextContainer, CommonWikiPageGridBox } from "../common/ResponsiveContainer";
 import { Formik, Form, FormikHelpers } from 'formik';
@@ -15,13 +13,13 @@ import Review, { ReviewFieldOfFocus, ReviewOtherInfo, ReviewPersonalInfo } from 
 import { LoginInfo } from "./CollaborateForm/LoginInfo";
 import { LuArrowLeft, LuArrowRight, LuMail } from "react-icons/lu";
 import { isDateExpired } from "../common/util/format";
+import { useTranslation } from "react-i18next";
 
 function Collaborate() {
-  // const { t } = useTranslation(["common", "errors"]);
+  const { t } = useTranslation("form");
   const { commonStore, authStore } = useStore();
   const {
     userSession,
-    userSessionToken,
     resetRegistration,
     registrationStep,
     registrationSubmitted,
@@ -123,7 +121,7 @@ function Collaborate() {
 
   const updateRegistrationForm = useCallback(
     (step: number, currentValues: RegistrationForm) => (e: any) => {
-      debugger;
+      // debugger;
       e.stopPropagation();
       setRegistrationStep(step);
       setRegistrationValues(currentValues);
@@ -150,14 +148,15 @@ function Collaborate() {
   return (
     <CommonWikiPageTextContainer 
       justify='start'
+      pb={{ base: '30vh', md: '20vh' }}
       style={{ minHeight: "100vh", textAlign: 'left', minWidth: '60vw', maxWidth: '60vw' }}
     >
       <VStack>
         <h3 className='w-100 mw-text mw-subheader my-1' >
-          Collaborate
+          {t("collaborate")}
         </h3>
         <h5 className='w-100 mw-text mw-subheader-subtitle m-1' >
-          Register to Collaborate with Us! 😊
+          {t("registerToCollaborate")}
         </h5>
       </VStack>
       <Box className='w-100'>
@@ -166,7 +165,7 @@ function Collaborate() {
             ? (
               <VStack color="gray.900" align='center'>
                 <Text className='w-100 mw-text mw-normal m-1' >
-                  Please check your email at {userSession?.email ?? ''} for a verification email.
+                  {t("pleaseCheckYourEmailAt")} {userSession?.email ?? ''} {t("forAVerificationEmail")}
                 </Text>
                 <LuMail size={150} />
               </VStack>
@@ -204,7 +203,6 @@ function Collaborate() {
                         handleSubmit
                       }) => (
                         <Form className='mw-form' onSubmit={handleSubmit}>
-                          {JSON.stringify(Object.values(errors))}
                           {showLoginInfo && (
                             <LoginInfo />
                           )}
@@ -219,17 +217,17 @@ function Collaborate() {
                               sections={[
                                 {
                                   id: 'personal-info',
-                                  title: 'Personal Info',
+                                  title: t("sectionTitles.personalInfo"),
                                   jsx: <ReviewPersonalInfo />
                                 },
                                 {
                                   id: 'field-of-focus',
-                                  title: 'Field of Focus',
+                                  title: t("sectionTitles.fieldOfFocus"),
                                   jsx: <ReviewFieldOfFocus />
                                 },
                                 {
                                   id: 'other-info',
-                                  title: 'Other Info',
+                                  title: t("sectionTitles.otherInfo"),
                                   jsx: <ReviewOtherInfo />
                                 }
                               ]}
@@ -250,7 +248,7 @@ function Collaborate() {
                                 className='mw-text'
                               >
                                 <LuArrowLeft />
-                                Back
+                                {t("buttons.back")}
                               </Button>
                             )}
 
@@ -269,7 +267,7 @@ function Collaborate() {
                                 }}
                                 className='mw-text'
                               >
-                                Review
+                                {t("buttons.review")}
                               </Button>
                             )} 
                             {!showOtherInfo && !showReviewForm && (
@@ -287,7 +285,7 @@ function Collaborate() {
                                 }}
                                 className='mw-text'
                               >
-                                Next
+                                {t("buttons.next")}
                                 <LuArrowRight />
                               </Button>
                             )}
@@ -308,7 +306,7 @@ function Collaborate() {
                               className='mw-text'
                               display={(showReviewForm ? 'initial' : 'none')}
                             >
-                              Submit
+                              {t("buttons.submit")}
                             </Button>
                           </HStack>
                         </Form>

@@ -13,7 +13,7 @@ import { UserActivityLog } from 'src/schemas/useractivitylog.schema';
 @Injectable()
 export class DashboardService {
     constructor(
-      @InjectModel (UserActivityLog.name) private userActivityLogModel: Model<UserActivityLog>,
+      @InjectModel(UserActivityLog.name) private userActivityLogModel: Model<UserActivityLog>,
       @InjectModel(Article.name) private articleModel: Model<Article>,
       @InjectModel(SavedArticle.name) private savedArticleModel: Model<SavedArticle>,
       @InjectModel(SavedBook.name) private savedBookModel: Model<SavedBook>,
@@ -35,32 +35,37 @@ export class DashboardService {
       return { savedByUserId: this.userId }
     }
     async getArticleRequests(userId: string) {
-      this.setUserId(userId);
-      const pendingRequestPromise = this.articleRequestModel
-                                        .find({ ...this.filterBySubmittedUser, status: "pending" })
-                                        .sort(this.sortObj).limit(10);
-      const approvedRequestPromise = this.articleRequestModel
-                                        .find({ ...this.filterBySubmittedUser, status: "approved" })
-                                        .sort(this.sortObj).limit(10);
-      const deniedRequestPromise = this.articleRequestModel
-                                        .find({ ...this.filterBySubmittedUser, status: "deny" })
-                                        .sort(this.sortObj).limit(10);
-      const recentRequestPromise = this.articleRequestModel
-                                        .find(this.filterBySubmittedUser)
-                                        .sort(this.sortObj).limit(10);
-      const [
-        pendingRequests, 
-        approvedRequests, 
-        deniedRequests, 
-        recentRequests
-      ] = await Promise.all([pendingRequestPromise, approvedRequestPromise, deniedRequestPromise, recentRequestPromise])
-                                
-      return {
-        pendingRequests,
-        approvedRequests,
-        deniedRequests,
-        recentRequests
-      };
+      try {
+
+        this.setUserId(userId);
+        const pendingRequestPromise = this.articleRequestModel
+                                          .find({ submitByUserId: this.userId, status: "pending" })
+                                          .sort({ timestamp: 1 }).limit(10);
+        const approvedRequestPromise = this.articleRequestModel
+                                          .find({ submitByUserId: this.userId, status: "approved" })
+                                          .sort({ timestamp: 1 }).limit(10);
+        const deniedRequestPromise = this.articleRequestModel
+                                          .find({ submitByUserId: this.userId, status: "deny" })
+                                          .sort({ timestamp: 1 }).limit(10);
+        const recentRequestPromise = this.articleRequestModel
+                                          .find({ submitByUserId: this.userId })
+                                          .sort({ timestamp: 1 }).limit(10);
+        const [
+          pendingRequests, 
+          approvedRequests, 
+          deniedRequests, 
+          recentRequests
+        ] = await Promise.all([pendingRequestPromise, approvedRequestPromise, deniedRequestPromise, recentRequestPromise])
+                                  
+        return {
+          pendingRequests,
+          approvedRequests,
+          deniedRequests,
+          recentRequests
+        };
+      } catch(err) {
+        throw err;
+      }
     }
     async getSavedArticles(userId: string) {
       this.setUserId(userId);

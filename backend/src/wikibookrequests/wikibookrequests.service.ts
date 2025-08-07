@@ -13,7 +13,15 @@ export class WikibookRequestsService {
       @InjectModel(User.name) private userModel: Model<User>,
       @InjectModel(DeleteBookRequest.name) private deleteBookRequestModel: Model<DeleteBookRequest>,
       @InjectModel(Book.name) private bookRequestModel: Model<Book>) {}
-    
+
+      
+    async usersDeleteRequest(id: string, userId: string): Promise<DeleteBookRequest> {
+      return await this.deleteBookRequestModel.findOne({ 
+          bookId: id,
+          submitByUserId: userId
+      });
+    }
+
     async createDeleteBookRequest(userId: string, deleteBookRequest: CreateDeleteBookRequestDto){
       try {
         const book = await this.bookRequestModel.findById(deleteBookRequest.bookId);
@@ -25,7 +33,8 @@ export class WikibookRequestsService {
           reasonToApproveDelete: '',
           reasonToDenyDelete: '',
           judgedByUserId: '',
-          judgedByUserName: ''
+          judgedByUserName: '',
+          timestamp: new Date()
         });
         await newDeleteBookRequest.save();
   

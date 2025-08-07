@@ -32,7 +32,7 @@ export class MailService {
                         <p style="font-family: 'Roboto Serif', serif;">If you didn't create an account, you can safely ignore this email.</p>
                     </div>
                     <div style="border-top: 1px solid #e0e0e0; padding-top: 20px; text-align: center; color: #6b7280; font-size: 14px; font-family: 'Roboto Serif', serif;">
-                        <p style="font-family: 'Roboto Serif', serif;">© ${new Date().getFullYear()} Muslim Wiki. All rights reserved.</p>
+                        <p style="font-family: 'Roboto Serif', serif;">© ${new Date().getFullYear()} mūsūʿah. All rights reserved.</p>
                     </div>
                 </div>
             </html>

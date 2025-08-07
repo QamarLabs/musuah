@@ -176,7 +176,7 @@ input {
   flex-direction: column !important;
 }
 
-.responsiveContainer.wikipage>*:first-child {
+.wikipage>*:first-child {
   order: 2 !important;
   width: 90%;
 }
@@ -235,7 +235,7 @@ iframe#ai-assistant {
   }
 
   #language-links {
-    padding-left: 2.75rem !important;
+    /* padding-left: 2.75rem !important; */
   }
 
   #tools {
@@ -294,7 +294,9 @@ iframe#ai-assistant {
     max-width: 1000px;
   }
 
-
+  #tools {
+    padding-left: 0rem !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -323,6 +325,20 @@ iframe#ai-assistant {
   }
 }
 
+@media(min-width: 900px), (max-width: 1350px) {
+  .lng-item:last-child, .lng-item:nth-last-child(2) {
+    display: none;
+  }
+  
+}
+
+@media(min-width: 1350px) {
+  .lng-item:last-child, .lng-item:nth-last-child(2) {
+    display: initial;
+  }
+  
+}
+
 @media (min-width: 2200px) {
 
   .responsiveTextContainer {
@@ -341,4 +357,17 @@ iframe#ai-assistant {
   /* iframe#ai-assistant {
     width: 1200px !important;
   } */
+}
+
+#editor {
+  font-family: "Roboto Serif", serif !important;
+  font-weight: normal !important;
+}
+
+#editor > * {
+  color: #000000 !important;
+}
+
+.mw-donation-form {
+  width: 100%;
 }

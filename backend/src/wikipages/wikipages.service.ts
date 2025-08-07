@@ -14,7 +14,8 @@ export class WikipagesService {
     
     const wikiPageResult: WikiPage = await this.articleModel.findOne({ pageid: pageId }).exec() as WikiPage;
     
-    console.log("wikiPageResult:", wikiPageResult);
+    
+    // console.log("wikiPageResult:", wikiPageResult);
     
     return wikiPageResult;
   }

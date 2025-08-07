@@ -5,6 +5,4 @@ import { WikibookRequestsService } from './wikibookrequests.service';
 export class WikibookRequestsController {
     constructor(
         private readonly wikibookRequestsService: WikibookRequestsService) { }
-
-
 }

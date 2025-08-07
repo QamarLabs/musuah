@@ -6,7 +6,7 @@ import { Document } from 'mongoose';
 })
 export class UserActivityLog extends Document {
 
-    @Prop({ required: true, unique: true })
+    @Prop({ required: true })
     userId: string;
  
     @Prop({ required: true })

@@ -1,4 +1,4 @@
-import { Box, Button, Span, Text } from '@chakra-ui/react';
+import { Box, Button, Input, InputGroup, Span, Text } from '@chakra-ui/react';
 import { FieldHookConfig, FieldHelperProps, useField } from "formik";
 import React, { useCallback, useMemo, useState } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
@@ -34,10 +34,22 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                     <label className='mw-text mw-sm' aria-label={props.label} htmlFor={field.name}>{props.label}</label>
                 )}
                 {headerChildren && headerChildren}
-                <div className='position-relative'>
+                <InputGroup 
+                    endElement={
+                        !isInputEmpty
+                        ? (
+                            <button
+                                onClick={handleClear()}
+                                className={`border-none h-100 bg-transparent`}
+                            >
+                                <RiCloseLargeLine style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
+                            </button>
+                        ) : null
+                    }
+                >
                     {props.handleBlur
                         ? (
-                            <input
+                            <Input
                                 type={props.type ? props.type : "text"}
                                 name={field.name}
                                 placeholder={placeholder}
@@ -59,7 +71,7 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                             />
                         )
                         : (
-                            <input
+                            <Input
                                 type={props.type ? props.type : "text"}
                                 name={field.name}
                                 placeholder={placeholder}
@@ -76,16 +88,7 @@ export function MWTextInput({ prefix, disabled, headerChildren, placeholder, ...
                                 className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
                             />
                         )}
-                    {!isInputEmpty
-                        && (
-                            <button
-                                onClick={handleClear()}
-                                className={`position-absolute right-0 border-none h-100 bg-transparent`}
-                            >
-                                <RiCloseLargeLine style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
-                            </button>
-                        )}
-                </div>
+                </InputGroup>
                 {meta.error
                     ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{meta.error}</Text>)
                     : props.error ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{props.error}</Text>)
@@ -219,5 +222,90 @@ export function MWNationalIdInput({
             }
             title={`Please enter a valid ${country ? nationalIdPatterns[country]?.label : "Country"} (e.g. ${country ? nationalIdPatterns[country]?.label : "Jordan"})`}
         />
+    );
+}
+
+
+export function MWDecimalInput({ prefix, disabled, headerChildren, placeholder, ...props }: MWInputProps) {
+    const [field, meta, helpers] = useField(props.name);
+
+    const handleClear = useCallback(() => (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        helpers.setValue('');
+    }, []);
+
+    const isInputEmpty = useMemo(() => !field.value, [field.value]);
+
+    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.value;
+        
+        // Only allow numbers and decimal points
+        if (/^[0-9]*\.?[0-9]*$/.test(newValue) || newValue === '') {
+            if (props.handleChange) {
+                props.handleChange(helpers, newValue);
+            } else {
+                helpers.setValue(newValue);
+            }
+        }
+    }, [helpers, props.handleChange]);
+
+    return (
+        <>
+            <CommonWikiPageInputContainer maxHeight={headerChildren ? '10rem' : '5rem'}>
+                {props.label && (
+                    <label className='mw-text mw-sm' aria-label={props.label} htmlFor={field.name}>{props.label}</label>
+                )}
+                {headerChildren && headerChildren}
+                <InputGroup 
+                    endElement={
+                        !isInputEmpty
+                        ? (
+                            <button
+                                onClick={handleClear()}
+                                className={`border-none h-100 bg-transparent`}
+                            >
+                                <RiCloseLargeLine style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
+                            </button>
+                        ) : null
+                    }
+                >
+                    {props.handleBlur
+                        ? (
+                            <Input
+                                type="number"
+                                step="any"
+                                name={field.name}
+                                placeholder={placeholder}
+                                aria-placeholder={placeholder}
+                                value={field.value}
+                                onChange={handleChange}
+                                onBlur={() => {
+                                    if (props.handleBlur)
+                                        props.handleBlur(helpers, field.value);
+                                }}
+                                disabled={disabled}
+                                className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
+                            />
+                        )
+                        : (
+                            <Input
+                                type="number"
+                                step="any"
+                                name={field.name}
+                                placeholder={placeholder}
+                                aria-placeholder={placeholder}
+                                value={field.value}
+                                onChange={handleChange}
+                                disabled={disabled}
+                                className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
+                            />
+                        )}
+                </InputGroup>
+                {meta.error
+                    ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{meta.error}</Text>)
+                    : props.error ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{props.error}</Text>)
+                        : null}
+            </CommonWikiPageInputContainer>
+        </>
     );
 }

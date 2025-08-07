@@ -1,5 +1,5 @@
 import { UserLogin } from "../../models/auth";
-import { AiAssistantMessageForm, LoginForm, Option, RegistrationForm, YesOrNo } from "../../typings.d";
+import { AiAssistantMessageForm, Option, RegistrationForm, YesOrNo } from "../../typings.d";
 import { RadioOption } from "../Checkboxes";
 
 
@@ -93,3 +93,9 @@ export const DEFAULT_AI_ASSISTANT_FORM: AiAssistantMessageForm = {
 };
 
 export const FILE_UPLOAD_MAX_SIZE = (1024 * 1024 * 2);
+
+export const DEFAULT_DONATE_FORM = {
+  amount: 0.0,
+  paymentNote: '',
+  donate: ''
+}

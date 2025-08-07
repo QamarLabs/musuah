@@ -1,9 +1,11 @@
-import { ExternalLink, Flex, FlexItem } from "@wordpress/components";
+import { Flex, FlexItem } from "@wordpress/components";
 import { NavItem } from "../models/common";
 import { IconButton, Popover, Portal } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa6";
-
-
+import { useNavigate } from "react-router";
+import { NavigationBarLink } from "./NavigationBar";
+import { store } from '../store/';
+import { useTranslation } from "react-i18next";
 
 type TogglerProps = {
   leftNavOpen: boolean;
@@ -61,17 +63,27 @@ export function LeftSideNavigationToggler({ leftNavOpen, rightNavOpen, toggleLef
 
 export default function LeftSideNavigation(
   { isMobile, leftNavOpen, otherClassNames }: Props) {
+   const navigate = useNavigate();
+   const { t } = useTranslation("common");
   // Mock navigation data
   const leftNavItems: NavItem[] = [
     {
       id: 'navigation',
-      title: 'Navigation',
-      items: ['Main page', 'Contents', 'Current events', 'Random article', 'About Wikipedia']
+      title: t("leftSideNav.navigation"),
+      // Titles after V2
+      // items: ['Main page', 'Contents', 'Current events', 'Random article', 'About MuslimWiki']
+      items: [
+        {text: t("leftSideNav.mainPage"), link: `${store.commonStore.language}/`}
+      ]
     },
     {
       id: 'contribute',
-      title: 'Contribute',
-      items: ['Help', 'Learn to edit', 'Community portal', 'Recent changes', 'Upload file']
+      title: t("leftSideNav.contribute"),
+      items: [
+        {text: t("leftSideNav.help"), link: `${store.commonStore.language}/collaborate`}
+      ]
+      // Titles after V2
+      // items: ['Help', 'Learn to edit', 'Community portal', 'Recent changes', 'Upload file']
     }
   ];
 
@@ -86,7 +98,12 @@ export default function LeftSideNavigation(
           <Flex as="ul" direction="column">
             {section.items.map((item: any, index: number) => (
               <FlexItem key={index}>
-                <ExternalLink className="mw-body mw-link" href="/tr">{item}</ExternalLink>
+                <NavigationBarLink 
+                  className="mw-body mw-link" 
+                  onClick={() => navigate(item.link, { replace: true })}
+                >
+                  {item.text}
+                </NavigationBarLink>
               </FlexItem>
             ))}
           </Flex>

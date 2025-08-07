@@ -1,5 +1,3 @@
-import { Country, NationalIdPatterns } from "../../typings.d";
-
 
 export const validateEmail = (value: string) => {
     // Basic email validation regex

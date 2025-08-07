@@ -36,6 +36,19 @@ export class WikipagerequestsService {
         return { results, total };
     }
 
+    async usersRequest(pageId: string, userId: string): Promise<ArticleRequest> {
+        return await this.articleRequestModel.findOne({ 
+            pageid: pageId,
+            submitByUserId: userId
+        });
+    }
+
+    async usersDeleteRequest(pageId: string, userId: string): Promise<DeleteArticleRequest> {
+        return await this.deleteArticleRequestModel.findOne({ 
+            pageid: pageId,
+            submitByUserId: userId
+        });
+    }
 
     async create(userId: string, articleId: string, createArticleRequestDto: CreateArticleRequestDto) {
         try {
@@ -59,7 +72,8 @@ export class WikipagerequestsService {
                     userId: userId,
                     userName: `${user.firstName} ${user.familyName}`
                 }],
-                status: 'pending'
+                status: 'pending',
+                timestamp: new Date()
             }
             const newArticleRequest = new this.articleRequestModel(createdArticleRequest);
             await newArticleRequest.save();
@@ -96,7 +110,8 @@ export class WikipagerequestsService {
                         }
                     ]).values()
                 ),
-                status: updateArticleRequestDto.status
+                status: updateArticleRequestDto.status,
+                timestamp: new Date()
             };
 
             await this.articleRequestModel.updateOne(
@@ -136,7 +151,8 @@ export class WikipagerequestsService {
                 reasonToApproveDelete: '',
                 reasonToDenyDelete: '',
                 judgedByUserId: '',
-                judgedByUserName: ''
+                judgedByUserName: '',
+                timestamp: new Date(),
             });
 
             await newArticleDeleteRequest.save();

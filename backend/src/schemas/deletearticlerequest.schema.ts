@@ -6,10 +6,10 @@ import { Document } from 'mongoose';
 })
 export class DeleteArticleRequest extends Document {
 
-    @Prop({ required: true, unique: true })
+    @Prop({ required: true })
     pageid: number;
 
-    @Prop({ required: true, unique: true })
+    @Prop({ required: true })
     submitByUserId: string;
     
     @Prop({ required: true })

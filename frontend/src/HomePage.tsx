@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import ResponsiveContainer from './common/ResponsiveContainer';
 import { FlexBlock, FlexItem, Flex, ExternalLink, CardDivider } from "@wordpress/components";
 import { StackDivider } from '@chakra-ui/layout';
@@ -12,7 +12,9 @@ import { AutocompleteType } from "./models/common";
 import JigSawIcon from "./icons/JigSawIcon";
 import ChatbotIcon from "./icons/ChatbotIcon";
 import EBooksIcon from "./icons/EBooksIcon";
-import axios from "axios";
+import SignInIcon from "./icons/SignInIcon";
+import LogoutIcon from "./icons/LogoutIcon";
+import YourAccountIcon from "./icons/YourAccountIcon";
 
 
 export default observer(function HomePage() {
@@ -22,8 +24,9 @@ export default observer(function HomePage() {
   } = useTranslation("common");
   const navigate = useNavigate();
   const { lang } = useParams();
-  const { commonStore, searchStore } = useStore();
-  const { searchQry, loadAutocompleteOptions, loadSearchWikiPages } = searchStore;
+  const { authStore, commonStore, searchStore } = useStore();
+  const { searchQry, loadSearchWikiPages } = searchStore;
+  const { userSession, userSessionToken, logout } = authStore;
   const { setLanguage, language } = commonStore;
 
 
@@ -47,6 +50,10 @@ export default observer(function HomePage() {
       setOpen(false);
     }
   }
+  const logoutUser = useCallback(async () => {
+    await logout();
+  }, [userSession]);
+  const userLoggedIn = useMemo(() => userSessionToken, [userSession, userSessionToken])
 
   return (
     <>
@@ -57,13 +64,12 @@ export default observer(function HomePage() {
             <FlexBlock>
               <Flex direction='column' align="center">
 
-                <h2 className="mw-text mw-header">Muslim Wiki</h2>
+                <h2 className="mw-text mw-header">mūsūʿah</h2>
                 <h5 className="mw-text mw-subheader">The Free Encyclopedia</h5>
                 <img
                   src="/muslimwiki-globe.svg"
                   className='logo genezio'
                   alt="Genezio Logo"
-
                 />
               </Flex>
             </FlexBlock>
@@ -88,11 +94,9 @@ export default observer(function HomePage() {
             <FlexItem className="lng-item">
               <ExternalLink className="mw-body mw-link" href="/ar">{t("links.ar")}</ExternalLink>
             </FlexItem>
-            {/* <FlexItem className="lng-item"><ExternalLink href="/ba">{t("links.ba")}</ExternalLink></FlexItem> */}
             <FlexItem className="lng-item">
               <ExternalLink className="mw-body mw-link" href="/tr">{t("links.tr")}</ExternalLink>
             </FlexItem>
-            {/* <FlexItem className="lng-item"><ExternalLink href="/al">{t("links.al")}</ExternalLink></FlexItem> */}
             <FlexItem className="lng-item">
               <ExternalLink className="mw-body mw-link" href="/fr">{t("links.fr")}</ExternalLink>
             </FlexItem>
@@ -120,54 +124,43 @@ export default observer(function HomePage() {
           </Flex>
           <StackDivider p='0' backgroundColor='black' border='solid 1px var(--global-color-border, currentColor)' />
           <Flex className='pr-5' id='tools'>
-            <FlexItem className='tool-item' onClick={() => navigate(`collaborate`, { replace: true })}>
-              <JigSawIcon />
-              <p className='mw-text mw-small'>Collaborate</p>
-            </FlexItem>
+            {userLoggedIn
+              ? (
+                <>
+                  <FlexItem className='tool-item' onClick={() => navigate(`youraccount`, { replace: true })}>
+                    <YourAccountIcon />
+                    <p className='mw-text mw-small'>{t("mainLinks.yourAccount")}</p>
+                  </FlexItem>
+                  <FlexItem className='tool-item' onClick={logoutUser}>
+                    <LogoutIcon />
+                    <p className='mw-text mw-small'>{t("logout")}</p>
+                  </FlexItem>
+                </>
+              )
+              : (
+                <>
+                  <FlexItem className='tool-item' onClick={() => navigate(`collaborate`, { replace: true })}>
+                    <JigSawIcon />
+                    <p className='mw-text mw-small'>{t("mainLinks.collaborate")}</p>
+                  </FlexItem>
+                  <FlexItem className='tool-item' onClick={() => navigate(`login`, { replace: true })}>
+                    <SignInIcon />
+                    <p className='mw-text mw-small'>{t("login")}</p>
+                  </FlexItem>
+                </>
+              )
+            }
             <FlexItem className='tool-item' onClick={() => navigate(`ai-assistant`, { replace: true })}>
               <ChatbotIcon />
-              <p className='mw-text mw-small'>Use AI</p>
+              <p className='mw-text mw-small'>{t("mainLinks.useAI")}</p>
             </FlexItem>
             <FlexItem className='tool-item' onClick={() => navigate(`searchBooks`, { replace: true })}>
               <EBooksIcon />
-              <p className='mw-text mw-small'>Muslim Wiki Books<br /> And Studies</p>
+              <p className='mw-text mw-small'>{t("mainLinks.booksAndStudiesPart1")}<br /> {t("mainLinks.booksAndStudiesPart2")}</p>
             </FlexItem>
           </Flex>
         </>
-
-        {/* <FlexItem style={{backgroundColor: 'orange'}}>TEST3</FlexItem> */}
-        {/* <FlexItem><button>{t('buttons.submit')}</button></FlexItem> */}
       </ResponsiveContainer>
-      {/* <a href="https://genezio.com" target="_blank">
-          <img
-            src="https://raw.githubusercontent.com/Genez-io/graphics/main/svg/Logo_Genezio_White.svg"
-            className="logo genezio light"
-            alt="Genezio Logo"
-          />
-          <img
-            src="https://raw.githubusercontent.com/Genez-io/graphics/main/svg/Logo_Genezio_Black.svg"
-            className="logo genezio dark"
-            alt="Genezio Logo"
-          />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Genezio + React = ❤️</h1>
-      <div className="card">
-        <input
-          type="text"
-          className="input-box"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
-        />
-        <br />
-        <br />
-
-        <button onClick={() => sayHello()}>Say Hello</button>
-        <p className="read-the-docs">{response}</p> */}
-      {/* </div> */}
     </>
   );
 })

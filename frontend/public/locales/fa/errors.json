@@ -1,8 +1,9 @@
 {
-    "welcome": "Mirësevini në aplikacionin tonë",
-    "buttons": {
-      "submit": "Dërgo",
-      "cancel": "Anulo"
-    }
-  }
-  
+  "welcome": "Mirësevini në aplikacionin tonë",
+  "buttons": {
+    "submit": "Dërgo",
+    "cancel": "Anulo"
+  },
+    "Invalid credentials": "Invalid login, please try again."
+
+}

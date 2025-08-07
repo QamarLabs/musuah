@@ -13,7 +13,8 @@ import VerifyAccount from "../features/VerifyAccount";
 import AIAssistant from "../features/AIAssistant";
 import WikiBooksSearchResults from "../features/WikiBooksSearchResults";
 import WikiBookPage from "../features/WikiBookPage";
-import PrivacyPolicy from "../features/PrivacyPolicySections/PrivacyPolicy";
+import CollaborateDashboard from "../features/CollaborateDashboard";
+import Login from "../features/Login";
 
 export const routes: RouteObject[] = [
   {
@@ -108,6 +109,8 @@ export const routes: RouteObject[] = [
     //   },
       { index: true, element: <HomePage /> },
       { path: "collaborate", element: <Collaborate /> },
+      { path: "login", element: <Login /> },
+      { path: "youraccount", element: <CollaborateDashboard /> },
       { path: "search", element: <WikiSearchResults /> },
       { path: "searchBooks", element: <WikiBooksSearchResults /> },
       { path: "ai-assistant", element: <AIAssistant /> },
@@ -115,7 +118,7 @@ export const routes: RouteObject[] = [
       { path: "wikibooks/:bookId", element: <WikiBookPage /> },
       { path: "accessDenied", element: <AccessDenied /> },
       { path: "verify-account/:userId", element: <VerifyAccount /> },
-      { path: "privacy-policy", element: <PrivacyPolicy /> },
+      // { path: "privacyPolicy", element: <PrivacyPolicy /> },
       { path: "*", element: <NotFound /> },
       { path: "server-error", element: <ServerError /> },
       { path: "validation-error", element: <ServerError /> },

@@ -11,7 +11,6 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react";
-import { router } from "../router";
 
 type MWTermsCheckboxProps = {
   label: React.ReactNode;

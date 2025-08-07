@@ -77,7 +77,7 @@ export const ReviewOtherInfo = observer(() => {
             <Divider mb={2} />
 
             <ReviewRow key="Has been part of a government agency" fieldKey="Has been part of a government agency" fieldValue={registrationValues.wasInGovernmentAgency ? "Yes" : "No"} isYesOrNo={true} />
-            <ReviewRow key="Reasons for contributing to muslim wiki" fieldKey="Reasons for contributing to muslim wiki" fieldValue={registrationValues.whyContribute} />
+            <ReviewRow key="Reasons for contributing to mūsūʿah" fieldKey="Reasons for contributing to mūsūʿah" fieldValue={registrationValues.whyContribute} />
 
         </Stack>
     );

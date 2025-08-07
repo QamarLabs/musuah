@@ -1,7 +1,6 @@
 import axios from "axios";
-// import { PaginatedResult } from "../models/common";
 import { axiosResponseBody, getAuthorizationHeader } from "./agent";
-import { ChangePasswordValues, UploadProfilePictureDto, User, UserLogin } from "../models/auth";
+import { ChangePasswordValues, UploadProfilePictureDto, UserLogin } from "../models/auth";
 import { MuslimWikiSession, RegistrationUserDto, SessionUser } from "../typings";
 
 export const authApi = {

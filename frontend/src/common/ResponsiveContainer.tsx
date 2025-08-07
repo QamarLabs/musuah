@@ -1,7 +1,4 @@
 import { Box, Card, Flex as ChakraUIFlex } from '@chakra-ui/react';
-import { 
-    // Card, CardBody,
-     Flex } from '@wordpress/components';
 import React from 'react';
 
 export default function ResponsiveContainer({ children, extraClasses }: React.PropsWithChildren<any>) {
@@ -11,8 +8,7 @@ export default function ResponsiveContainer({ children, extraClasses }: React.Pr
             align="center" 
             justify={{ sm: 'center', md: 'start' }} 
             wrap="wrap"
-            bg='gold'
-            pl="0"
+            px={{ base: "0.5rem" }}
         >
             {children}
         </ChakraUIFlex>
@@ -26,7 +22,7 @@ export function CommonWikiPageTextContainer({ children, ...containerProps }: Rea
             direction="column" 
             align={{ base: "center", md: 'start' }} 
             justify="center" 
-            minH="100vh"
+            minH="15vh"
             textAlign='left'
             wordBreak="break-word"
             {...containerProps}

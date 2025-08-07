@@ -2,6 +2,8 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { QueriedAutocompleteOption } from '../../models/search';
 import { Pagination, PagingParams } from '../../models/common';
 import agent from '../../api/agent';
+import { CapturePaymentInfo, SetupCustomerPaymentInfo, SubmitCustomerPaymentInfo } from '../../models/payment';
+import { paymentApi } from '../../api/paymentApi';
 
 export default class CommonStore {
     constructor() {
@@ -22,6 +24,26 @@ export default class CommonStore {
 
     language: "ar" | "al" | "ba" | "cn" | "de" | "en" | "es" | "fa" | "fr" | "hi" | "jp" | "ru" | "tr" | "ur"  = "en";
     ipAddress: string | undefined = undefined;
+    paymentCustomerId: string | undefined = undefined;
+    setPaymentCustomerId = (val: string | undefined) => {
+        this.paymentCustomerId = val;
+    }
+    paymentClientSecret: string | undefined = undefined;
+    setPaymentClientSecret = (val: string | undefined) => {
+        this.paymentClientSecret = val;
+    }
+    initializing: boolean = false;
+    setInitializing = (val: boolean) => {
+        this.initializing = val;
+    }
+    capturingDonation: boolean = false;
+    setCaptureDonation = (val: boolean) => {
+        this.capturingDonation = val;
+    }
+    donating: boolean = false;
+    setDonating = (val: boolean) => {
+        this.donating = val;
+    }
     private setAutoCompleteLoading = (loading: boolean) => {
         this.autoCompleteLoading = loading;
     }
@@ -62,7 +84,46 @@ export default class CommonStore {
         return params;
     }
 
-    loadAutocompleteOptions = async (qry: string) => {
+    initializeDonation = async (values: SetupCustomerPaymentInfo) => {
+        this.setInitializing(false);
+        let sessionResponse: any | undefined = undefined;
+        try {
+            sessionResponse = await paymentApi.initializeSession(values);
+            console.log("SESSION RESPONSE:", sessionResponse)
+        } catch(err) {
+            console.log("Error submitting donation", err);
+        } finally {
+            this.setInitializing(false);
+            return sessionResponse;
+        }
+
+    }
+    donatePayment = async(values: SubmitCustomerPaymentInfo) => {
+        this.setDonating(true)
+        try {
+
+            return await paymentApi.submitPayment(values);
+
+        } catch (err) {
+
+        } finally {
+            this.setDonating(false)
+        }
+    }
+    capturePayment = async (values: CapturePaymentInfo) => {
+        this.setCaptureDonation(true)
+        try {
+            console.log('values:', values);
+            return await paymentApi.capturePayment(values);
+
+        } catch (err) {
+
+        } finally {
+            this.setCaptureDonation(false)
+        }
+    }
+
+    loadAutocompleteOptions = async (qry: string) => { 
         this.setAutoCompleteLoading(true);
         this.setNavbarSearchQry(qry);
         try {

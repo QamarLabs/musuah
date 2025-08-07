@@ -50,3 +50,31 @@ export function MWCommonButton({ children, submitting, errors, ...props}: React.
         </ChakraUIButton>
     );
 }
+
+
+
+export function MWIconButton({ children, submitting, errors, ...props}: React.PropsWithChildren<MWCommonButtonProps>){
+    return (
+        <ChakraUIButton
+            disabled={Object.values(errors ?? {}).some(v => !!v) || submitting}
+            rounded="full"
+            px={{ base: 2, md: 5 }}
+            py={2}
+            fontWeight="bold"
+            _disabled={{
+                opacity: 0.4
+            }}
+            _hover={{
+                opacity: 0.9
+            }}
+            variant="solid"
+            bg="gray.100"
+            color="gray.900"
+            loading={submitting}
+            className='mw-text'
+            {...props}
+        >
+            {children}
+        </ChakraUIButton>
+    );
+}

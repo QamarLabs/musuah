@@ -1,5 +1,6 @@
 export interface WikiPageRecord {
   id: string;
+  _id: string;
   title: string;
   pageid: number;
   revid: number;
@@ -13,6 +14,7 @@ export interface WikiPageRecord {
 
 
 export interface WikiPageRequestRecord {
+  _id: string;
   newTitle: string;
   oldTitle: string;
   pageid: number;
@@ -24,12 +26,24 @@ export interface WikiPageRequestRecord {
   new_word_count: number;
   newAttributes: { [key: string]: any }
   oldAttributes: { [key: string]: any }
-  contributors: string[];
+  contributors: object[];
   status: string;
   timestamp: Date; // Changed from 'any' to Date type for better typing
 }
 
+export interface UpsertWikiPageRequest {
+  articleId: string;
+  title: string;
+  pageid: number;
+  revid: number;
+  text: string;
+  summary?: string;
+  word_count: number;
+  attributes: {[key:string]: any};
+}
+
 export interface DeleteWikiPageRequestRecord {
+    _id: string;
     pageid: number;
     submitByUserId: string;
     title: string;

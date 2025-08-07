@@ -1,7 +1,7 @@
 import { Loader, Text, VStack } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../store";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { MuslimWikiSession } from "../typings";
 import { MWCommonButton } from "../common/Buttons";

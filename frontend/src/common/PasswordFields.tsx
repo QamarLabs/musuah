@@ -1,9 +1,8 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldHelperProps, useField } from "formik";
 import { MWInputProps, MWTextInput } from "./Inputs"; // Assuming this is your base component
-import { Accordion, Span, VStack, Text, Box } from "@chakra-ui/react";
+import { Accordion, Span, VStack, Text, Box, InputGroup, Input } from "@chakra-ui/react";
 import { CommonWikiPageInputContainer } from "./ResponsiveContainer";
-import { RiCloseLargeLine } from "react-icons/ri";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 
 type MWPasswordInputProps = {
@@ -127,16 +126,18 @@ export function MWLoginPasswordInput({ prefix, disabled, headerChildren, placeho
     const [field, meta, helpers] = useField(props.name);
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleClear = useCallback(() => (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        helpers.setValue('');
-    }, []);
+    // const handleClear = useCallback(() => (e: React.MouseEvent<HTMLButtonElement>) => {
+    //     e.preventDefault();
+    //     helpers.setValue('');
+    // }, []);
 
-    const togglePasswordVisibility = useCallback(() => {
+    const togglePasswordVisibility = useCallback((e: any) => {
+        e.preventDefault()
+        e.stopPropagation();
         setShowPassword(prev => !prev);
     }, []);
 
-    const isInputEmpty = useMemo(() => !field.value, [field.value]);
+    // const isInputEmpty = useMemo(() => !field.value, [field.value]);
     return (
         <>
             <CommonWikiPageInputContainer maxHeight={headerChildren ? '10rem' : '5rem'}>
@@ -144,61 +145,61 @@ export function MWLoginPasswordInput({ prefix, disabled, headerChildren, placeho
                     <label className='mw-text mw-sm' aria-label={props.label} htmlFor={field.name}>{props.label}</label>
                 )}
                 {headerChildren && headerChildren}
-                <div className='position-relative'>
-                    {props.handleBlur
-                        ? (
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                name={field.name}
-                                placeholder={placeholder}
-                                aria-placeholder={placeholder}
-                                value={field.value}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    const newValue = e.target.value;
-                                    if (props.handleChange)
-                                        props.handleChange(helpers, newValue);
-                                    else
-                                        helpers.setValue(newValue);
-                                }}
-                                onBlur={() => {
-                                    if (props.handleBlur)
-                                        props.handleBlur(helpers, field.value);
-                                }}
-                                disabled={disabled}
-                                className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
-                            />
-                        )
-                        : (
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                name={field.name}
-                                placeholder={placeholder}
-                                aria-placeholder={placeholder}
-                                value={field.value}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    const newValue = e.target.value;
-                                    if (props.handleChange)
-                                        props.handleChange(helpers, newValue);
-                                    else
-                                        helpers.setValue(newValue);
-                                }}
-                                disabled={disabled}
-                                className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
-                            />
+                {/* <div className='position-relative'> */}
+                <InputGroup endElement={
+                    <button
+                        onClick={togglePasswordVisibility}
+                        className='border-none bg-transparent'
+                    >
+                        {showPassword ? (
+                            <LuEyeOff style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
+                        ) : (
+                            <LuEye style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
                         )}
-                    <div className='position-absolute right-0 h-100 d-flex align-items-center'>
-                        <button
-                            onClick={togglePasswordVisibility}
-                            className='border-none bg-transparent'
-                        >
-                            {showPassword ? (
-                                <LuEyeOff style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
-                            ) : (
-                                <LuEye style={{ backgroundColor: 'white', color: 'rgb(69, 69, 69)', padding: '0.25em', width: '3em', height: '1.25em' }} />
-                            )}
-                        </button>
-                    </div>
-                </div>
+                    </button>
+                }>
+                    {props.handleBlur
+                    ? (
+                        <Input
+                            type={showPassword ? "text" : "password"}
+                            name={field.name}
+                            placeholder={placeholder}
+                            aria-placeholder={placeholder}
+                            value={field.value}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                const newValue = e.target.value;
+                                if (props.handleChange)
+                                    props.handleChange(helpers, newValue);
+                                else
+                                    helpers.setValue(newValue);
+                            }}
+                            onBlur={() => {
+                                if (props.handleBlur)
+                                    props.handleBlur(helpers, field.value);
+                            }}
+                            disabled={disabled}
+                            className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
+                        />
+                    )
+                    : (
+                        <Input
+                            type={showPassword ? "text" : "password"}
+                            name={field.name}
+                            placeholder={placeholder}
+                            aria-placeholder={placeholder}
+                            value={field.value}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                const newValue = e.target.value;
+                                if (props.handleChange)
+                                    props.handleChange(helpers, newValue);
+                                else
+                                    helpers.setValue(newValue);
+                            }}
+                            disabled={disabled}
+                            className='w-100 mw-sm p-2 px-0 bg-transparent text-dark mw-autocomplete'
+                        />
+                    )}
+                </InputGroup>
                 {meta.error
                     ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{meta.error}</Text>)
                     : props.error ? (<Text className='mw-text' fontSize="0.75rem" color='red.600'>{props.error}</Text>)

@@ -13,7 +13,7 @@ export function lazyLoad<
 }
 
 export function isDateExpired(date: Date | string | number): boolean {
-    debugger;
+    // debugger;
     // Convert input to Date object
     const inputDate = new Date(date);
 

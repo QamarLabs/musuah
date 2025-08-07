@@ -4,21 +4,23 @@ import { Country } from "../../typings.d";
 import { useField } from "formik";
 import { CountrySelect, MultiSelect } from "../../common/Selects";
 import { MWFileUpload } from "../../common/FileUpload";
+import { useTranslation } from "react-i18next";
 
 
 export function PersonalInfo() {
+    const { t } = useTranslation("form");
     const [profilePictureField] = useField("profilePicture");
     const [nationalIdCountryField, nationalIdCountryMeta, countryHelpers] = useField<Country | undefined>('countryOfResidence');
     // const [nationalIdPictureField] = useField("nationalIdPicture");
     return (
         <VStack w='full'>
-            <Text className='mw-text' fontSize="1.2rem" mb={3}>Personal Info</Text>
+            <Text className='mw-text' fontSize="1.2rem" mb={3}>{t("sectionTitles.personalInfo")}</Text>
             <VStack w='full' alignItems='start'>
                 <Box>
                       <Image
                         rounded="md"
-                        h="20rem"
-                        w="22rem"
+                        h={{ base: "15rem", md: "20rem"}}
+                        w={{ base: "17rem", md: "22rem"}}
                         fit="contain"
                         src={profilePictureField.value}
                     />
@@ -26,7 +28,7 @@ export function PersonalInfo() {
                 {/** Profile Picture Upload */}
                 <MWFileUpload
                     name="profilePicture"
-                    label="Upload your profile picture"
+                    label={t("inputLabels.profilePicture")}
                     maxFiles={1}
                     previewImage={false}
                     disabled={false}
@@ -34,34 +36,34 @@ export function PersonalInfo() {
 
                 <Stack w='full' flexDir={{ base: 'column', md: 'row' }}>
                     <MWTextInput 
-                        label="First Name"
+                        label={t("inputLabels.firstName")}
                         name="firstName"
-                        placeholder="Your First Name, and other names"
+                        placeholder={t("inputPlaceholders.firstName")}
                         disabled={false}
                     />
                     <MWTextInput 
-                        label="Family Name"
+                        label={t("inputLabels.familyName")}
                         name="familyName"
-                        placeholder="Family Name or Last Name"
+                        placeholder={t("inputPlaceholders.familyName")}
                         disabled={false}
                     />
                 </Stack>
 
                 <MWEmailInput 
-                    label="Email"
+                    label={t("inputLabels.email")}
                     name="email"
-                    placeholder="Your Email"
+                    placeholder={t("inputPlaceholders.email")}
                     disabled={true}
                 />
 
                 <CountrySelect 
-                    label="Country of Origin"
+                    label={t("inputLabels.countryOfOrigin")}
                     name="countryOfOrigin"
                 />
                 <MWNationalIdInput
-                    label="National ID"
+                    label={t("inputLabels.nationalId")}
                     name="nationalId"
-                    placeholder="Your id for your country of residence"
+                    placeholder={t("inputPlaceholders.nationalId")}
                     country={nationalIdCountryField.value}
                     countryError={nationalIdCountryMeta.error}
                     handleSelectCountry={(ctry: Country) => {
@@ -74,14 +76,14 @@ export function PersonalInfo() {
 
                 <MWFileUpload
                     name="nationalIdPicture"
-                    label="Upload your national Id"
+                    label={t("inputLabels.nationalIdPicture")}
                     maxFiles={3}
                     previewImage={true}
                     disabled={false}
                 />
 
                 <MultiSelect
-                    label="Field of Focus"
+                    label={t("inputLabels.fieldOfFocus")}
                     name="fieldOfFocus"
                     maxSelections={10}
                 />

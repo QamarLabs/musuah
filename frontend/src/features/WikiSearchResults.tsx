@@ -1,19 +1,13 @@
-import React
-// { useState, useEffect, useMemo } 
-from 'react';
+import React from 'react';
 import { FlexItem } from '@wordpress/components';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
+import { Text } from '@chakra-ui/react';
 import Autocomplete from '../common/Autocomplete';
 import { useStore } from '../store';
 import { useNavigate } from 'react-router';
 import { AutocompleteType } from '../models/common';
 import useLoadDataFromGetQueryParams from '../hooks/useLoadDataFromQueryParams';
-
-// interface SearchResultsProps {
-//     initialQuery?: string;
-// }
-
 
 export default observer(function WikiSearchResults() {
     const {
@@ -35,7 +29,7 @@ export default observer(function WikiSearchResults() {
         // Simulate search results
         if (searchQry) {
             loadSearchWikiPages(searchQry)
-                .then(searchedItems => {
+                .then(() => {
                     setOpen(false);
                     window.location.search = `/search?title=${searchQry}`;
                 })
@@ -63,19 +57,27 @@ export default observer(function WikiSearchResults() {
             <div className="main-content">
 
                 {/* Main Content Area */}
-                <main className="results-area">
+                <main className="results-area mw-text">
                     {searchResults && searchResults.length > 0 ? (
                         <div className="results-list">
-                            <h2>Search Results for "{searchQry}"</h2>
+                            <h2>{t("searchResultsFor")} "{searchQry}"</h2>
                             <ul>
                                 {searchResults.map((itm) => (
                                     <li key={itm.id} className="result-item">
-                                        <h3
-                                            className='cursor-pointer'
+                                        <Text
+                                            fontSize="100%"
+                                            className=' mw-link'
+                                            cursor='pointer'
+                                            color='blue.400'
                                             onClick={() => {
                                                 navigate(`/${language}/wikipages/${itm.pageid}`)
                                             }}
-                                        >{itm.title}</h3>
+                                            _hover={{
+                                                textDecoration: 'underline'
+                                            }}
+                                        >
+                                            {itm.title}
+                                        </Text>
                                         <p>{itm.summary}</p>
                                     </li>
                                 ))}
@@ -83,7 +85,7 @@ export default observer(function WikiSearchResults() {
                         </div>
                     ) : (
                         <div className="empty-state">
-                            <p>Search articles from here.</p>
+                            <p>{t("searchPagesFromHere")}</p>
                         </div>
                     )}
                 </main>

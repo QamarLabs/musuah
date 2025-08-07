@@ -1,10 +1,21 @@
 {
     "welcome": "Welcome to MuslimWiki",
+    "welcomePrefix": "Welcome ",
+    "noResults": "No results",
     "searchPlaceholder": "Take a look...",
-    "searchNavbarPlaceholder": "Search Muslim Wiki",
+    "searchNavbarPlaceholder": "Search mawsūʿah...",
     "donate": "Donate",
     "createAccount": "Create Account",
     "login": "Login",
+    "logout": "Logout",
+    "privacyPolicy": "Privacy Policy",
+    "mainLinks": {
+        "yourAccount": "Your Account",
+        "collaborate": "Collaborate",
+        "useAI": "Use AI",
+        "booksAndStudiesPart1": "Books",
+        "booksAndStudiesPart2": "And Studies"
+    },
     "links": {
         "es": "Español",
         "en": "English",
@@ -24,5 +35,44 @@
     "buttons": {
         "submit": "Submit",
         "cancel": "Cancel"
+    },
+    "leftSideNav": {
+        "contribute": "Contribute",
+        "mainPage": "Main Page",
+        "navigation": "Navigation",
+        "help": "Help"
+    },
+    "rightSideNav": {
+        "languages": "Languages",
+        "tools": "Tools"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "Has pending delete request",
+        "pendingDeleteRequestDesc": "You already submitted a delete request for this wikipage",
+        "pendingDeleteRequestWikibookDesc": "You already submitted a delete request for this wikibook",
+        "pendingChangeRequestTitle": "Has pending change request",
+        "pendingChangeRequestDesc": "You already submitted a change request for this wikipage"
+    },
+    "searchResultsFor": "Search Results for ",
+    "searchBooksAndStudiesFromHere": "Search books and studies from here.",
+    "searchPagesFromHere": "Search pages from here.",
+    "publicationYear": "Publication Year:",
+    "publicationDate": "Publication Date:",
+    "title": "Title:",
+    "primaryTopic": "Primary Topic:",
+    "concepts": "Concepts:",
+    "authors": "Authors:",
+    "nameOfInstitution": "Name of Institution",
+    "countryCode": "Country Code",
+    "noAuthorWithInstitution":"Author not associated to institution when publishing this book",
+    "name": "Name",
+    "orgName": "Org Name",
+    "sourceUrl": "Source Url",
+    "whereYouCanFindThis": "Where you can find this:",
+    "author": "Author:",
+    "donateModal": {
+        "title": "Donate to continue this project",
+        "successLine1": "Donation Retrieved",
+        "successLine2": "Thank you for your contribution" 
     }
 }

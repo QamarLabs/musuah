@@ -1,0 +1,76 @@
+{
+    "collaborate": "Collaborate",
+    "registerToCollaborate": "Register to Collaborate with Us! 😊",
+    "pleaseCheckYourEmailAt": "Please check your email at ",
+    "forAVerificationEmail": " for a verification email.",
+    "sectionTitles": {
+        "personalInfo": "Personal Info",
+        "fieldOfFocus": "Field of Focus",
+        "otherInfo": "Other Info"
+    },
+    "wouldLikeToBeContributor": "Would like to be a contributer?",
+    "joinUs": "Join us",
+    "inputLabels": {
+        "email": "Email",
+        "password": "Password",
+        "profilePicture": "Upload your profile picture",
+        "firstName": "First Name",
+        "familyName": "Family Name",
+        "countryOfOrigin": "Country of Origin",
+        "nationalId": "National ID",
+        "nationalIdPicture":  "Upload your national Id",
+        "fieldOfFocus": "Field Of Focus",
+        "wasInGovernmentAgency": "Have you been part of a government agency?",
+        "infoIsCorrect": "Do you swear your info is correct?",
+        "whyContribute": "Why would you like to contribute to mūsūʿah?",
+        "agreeToTerms": "Do you agree to the terms and conditions",
+        "amountToDonate": "Amount to Donate in USD",
+        "paymentNote": "Payment Note"
+    },
+    "inputPlaceholders": {
+        "email": "Your Email",
+        "password": "Your Password",
+        "confirmPassword": "Confirm Password",
+        "firstName": "Your First Name, and other names",
+        "familyName": "Family Name or Last Name",
+        "nationalId": "Your id for your country of residence",
+        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
+        "amountToDonate": "Payment Amount",
+        "paymentNote": "Your Payment Note"
+    },
+    "passwordRequirements": {
+        "line1": " characters minimum",
+        "line2": "At least one uppercase letter",
+        "line3": "At least one lowercase letter",
+        "line4": "At least one number",
+        "line5": "At least one special character",
+        "passwordsMatch": "✓ Passwords match",
+        "passwordsDoNotMatch": "✗ Passwords do not match",
+        "hidePasswords": "Hide Passwords",
+        "showPasswords": "Show Passwords"
+    },
+    "sectionSubtitles": {
+        "loginInfo": "Login Info",
+        "login": "Login"
+    },
+    "buttons": {
+        "save": "Save",
+        "edit": "Edit",
+        "cancel": "Cancel",
+        "requestToDelete": "Request To Delete",
+        "back": "Back",
+        "review": "Review",
+        "next": "Next",
+        "submit": "Submit",
+        "yesIConfirm": "Yes, I Confirm"
+    },
+    "confirmation": {
+        "deleteTitle": "You are about to submit this title ",
+        "forDeletion": " for deletion",
+        "reasonLabel": "Reasoning to make this decision.",
+        "reasonPlaceholder": "Reason to make this decision"
+    },
+    "wikipages": {
+        "summary": "Summary"
+    }
+}

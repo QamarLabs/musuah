@@ -34,7 +34,7 @@ export class PagingParams {
 export interface NavItem {
   id: string;
   title: string;
-  items: string[];
+  items: { text: string, link: string }[];
 }
 
 export interface ChangesMadeRecord {

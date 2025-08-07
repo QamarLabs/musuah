@@ -1,12 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { useStore } from "../store";
 import { VStack } from "@chakra-ui/react";
 
 
 const AIAssistant = observer(() => {
-    const { aiAssistantStore } = useStore();
-    const { sendMessage } = aiAssistantStore;
-
 
     return (
         <VStack>
@@ -17,7 +13,6 @@ const AIAssistant = observer(() => {
                 width="1200"
                 height="900"
             ></iframe>
-
         </VStack>
     );
 });
