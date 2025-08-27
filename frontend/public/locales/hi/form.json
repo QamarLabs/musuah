@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "सहयोग करें",
+    "registerToCollaborate": "हमारे साथ सहयोग करने के लिए पंजीकरण करें! 😊",
+    "pleaseCheckYourEmailAt": "कृपया अपना ईमेल जाँचें ",
+    "forAVerificationEmail": " सत्यापन ईमेल के लिए।",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "व्यक्तिगत जानकारी",
+        "fieldOfFocus": "ध्यान का क्षेत्र",
+        "otherInfo": "अन्य जानकारी"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "क्या आप योगदानकर्ता बनना चाहेंगे?",
+    "joinUs": "हमसे जुड़ें",
     "inputLabels": {
-        "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "email": "ईमेल",
+        "password": "पासवर्ड",
+        "profilePicture": "अपनी प्रोफ़ाइल तस्वीर अपलोड करें",
+        "firstName": "पहला नाम",
+        "familyName": "परिवार का नाम",
+        "countryOfOrigin": "मूल देश",
+        "nationalId": "राष्ट्रीय पहचान पत्र",
+        "nationalIdPicture": "अपना राष्ट्रीय पहचान पत्र अपलोड करें",
+        "fieldOfFocus": "ध्यान का क्षेत्र",
+        "wasInGovernmentAgency": "क्या आप किसी सरकारी एजेंसी का हिस्सा रहे हैं?",
+        "infoIsCorrect": "क्या आप शपथ लेते हैं कि आपकी जानकारी सही है?",
+        "whyContribute": "आप मूसूअह में योगदान क्यों देना चाहेंगे?",
+        "agreeToTerms": "क्या आप नियम और शर्तों से सहमत हैं?",
+        "amountToDonate": "USD में दान राशि",
+        "paymentNote": "भुगतान नोट"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "आपका ईमेल",
+        "password": "आपका पासवर्ड",
+        "confirmPassword": "पासवर्ड की पुष्टि करें",
+        "firstName": "आपका पहला नाम और अन्य नाम",
+        "familyName": "परिवार का नाम या अंतिम नाम",
+        "nationalId": "आपके निवास देश का पहचान पत्र",
+        "whyContribute": "आप मूसूअह में योगदान क्यों देना चाहते हैं, हम बस जानना चाहते हैं।",
+        "amountToDonate": "भुगतान राशि",
+        "paymentNote": "आपका भुगतान नोट"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " न्यूनतम वर्ण",
+        "line2": "कम से कम एक बड़ा अक्षर",
+        "line3": "कम से कम एक छोटा अक्षर",
+        "line4": "कम से कम एक संख्या",
+        "line5": "कम से कम एक विशेष वर्ण",
+        "passwordsMatch": "✓ पासवर्ड मेल खाते हैं",
+        "passwordsDoNotMatch": "✗ पासवर्ड मेल नहीं खाते",
+        "hidePasswords": "पासवर्ड छुपाएँ",
+        "showPasswords": "पासवर्ड दिखाएँ"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "लॉगिन जानकारी",
+        "login": "लॉगिन"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "सहेजें",
+        "edit": "संपादित करें",
+        "cancel": "रद्द करें",
+        "requestToDelete": "हटाने का अनुरोध",
+        "back": "वापस",
+        "review": "समीक्षा",
+        "next": "अगला",
+        "submit": "जमा करें",
+        "yesIConfirm": "हाँ, मैं पुष्टि करता हूँ",
+        "normalView": "साधारण दृश्य",
+        "councilMemberView": "काउंसिल सदस्य दृश्य"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "आप इस शीर्षक को हटाने के लिए प्रस्तुत करने वाले हैं ",
+        "forDeletion": " हटाने के लिए",
+        "reasonLabel": "यह निर्णय लेने का कारण।",
+        "reasonPlaceholder": "यह निर्णय लेने का कारण"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "सारांश"
     }
 }

@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "Сотрудничать",
+    "registerToCollaborate": "Зарегистрируйтесь, чтобы сотрудничать с нами! 😊",
+    "pleaseCheckYourEmailAt": "Пожалуйста, проверьте ваш email на ",
+    "forAVerificationEmail": " для письма с подтверждением.",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "Личная информация",
+        "fieldOfFocus": "Область фокуса",
+        "otherInfo": "Другая информация"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "Хотите быть участником?",
+    "joinUs": "Присоединяйтесь к нам",
     "inputLabels": {
-        "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "email": "Электронная почта",
+        "password": "Пароль",
+        "profilePicture": "Загрузите фото профиля",
+        "firstName": "Имя",
+        "familyName": "Фамилия",
+        "countryOfOrigin": "Страна происхождения",
+        "nationalId": "Национальный идентификатор",
+        "nationalIdPicture": "Загрузите ваш национальный ID",
+        "fieldOfFocus": "Область фокуса",
+        "wasInGovernmentAgency": "Вы работали в государственном учреждении?",
+        "infoIsCorrect": "Вы подтверждаете, что информация верна?",
+        "whyContribute": "Почему вы хотите внести вклад в мūsūʿah?",
+        "agreeToTerms": "Вы соглашаетесь с условиями и положениями?",
+        "amountToDonate": "Сумма пожертвования в USD",
+        "paymentNote": "Примечание к оплате"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "Ваш email",
+        "password": "Ваш пароль",
+        "confirmPassword": "Подтвердите пароль",
+        "firstName": "Ваше имя и другие имена",
+        "familyName": "Фамилия или отчество",
+        "nationalId": "Ваш ID для вашей страны проживания",
+        "whyContribute": "Почему вы хотите внести вклад в мūsūʿah, нам просто любопытно.",
+        "amountToDonate": "Сумма платежа",
+        "paymentNote": "Ваше примечание к оплате"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " минимальное количество символов",
+        "line2": "По крайней мере одна заглавная буква",
+        "line3": "По крайней мере одна строчная буква",
+        "line4": "По крайней мере одна цифра",
+        "line5": "По крайней мере один специальный символ",
+        "passwordsMatch": "✓ Пароли совпадают",
+        "passwordsDoNotMatch": "✗ Пароли не совпадают",
+        "hidePasswords": "Скрыть пароли",
+        "showPasswords": "Показать пароли"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "Информация для входа",
+        "login": "Вход"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "Сохранить",
+        "edit": "Редактировать",
+        "cancel": "Отмена",
+        "requestToDelete": "Запрос на удаление",
+        "back": "Назад",
+        "review": "Обзор",
+        "next": "Далее",
+        "submit": "Отправить",
+        "yesIConfirm": "Да, я подтверждаю",
+        "normalView": "Обычный вид",
+        "councilMemberView": "Вид для членов совета"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "Вы собираетесь отправить этот заголовок ",
+        "forDeletion": " для удаления",
+        "reasonLabel": "Причина принятия этого решения.",
+        "reasonPlaceholder": "Причина принятия этого решения"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "Резюме"
     }
 }

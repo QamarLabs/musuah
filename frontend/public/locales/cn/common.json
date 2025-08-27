@@ -1,6 +1,21 @@
 {
-    "welcome": "欢迎来到穆斯林百科",
-    "searchPlaceholder": "看看吧……",
+    "welcome": "欢迎来到 MuslimWiki",
+    "welcomePrefix": "欢迎 ",
+    "noResults": "没有结果",
+    "searchPlaceholder": "看看吧...",
+    "searchNavbarPlaceholder": "搜索 musūʿah...",
+    "donate": "捐赠",
+    "createAccount": "创建账户",
+    "login": "登录",
+    "logout": "退出",
+    "privacyPolicy": "隐私政策",
+    "mainLinks": {
+        "yourAccount": "你的账户",
+        "collaborate": "协作",
+        "useAI": "使用人工智能",
+        "booksAndStudiesPart1": "书籍",
+        "booksAndStudiesPart2": "与研究"
+    },
     "links": {
         "es": "西班牙语",
         "en": "英语",
@@ -20,5 +35,44 @@
     "buttons": {
         "submit": "提交",
         "cancel": "取消"
+    },
+    "leftSideNav": {
+        "contribute": "贡献",
+        "mainPage": "主页",
+        "navigation": "导航",
+        "help": "帮助"
+    },
+    "rightSideNav": {
+        "languages": "语言",
+        "tools": "工具"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "有待删除请求",
+        "pendingDeleteRequestDesc": "你已经提交了该维基页面的删除请求",
+        "pendingDeleteRequestWikibookDesc": "你已经提交了该维基书的删除请求",
+        "pendingChangeRequestTitle": "有待更改请求",
+        "pendingChangeRequestDesc": "你已经提交了该维基页面的更改请求"
+    },
+    "searchResultsFor": "搜索结果：",
+    "searchBooksAndStudiesFromHere": "从这里搜索书籍和研究。",
+    "searchPagesFromHere": "从这里搜索页面。",
+    "publicationYear": "出版年份：",
+    "publicationDate": "出版日期：",
+    "title": "标题：",
+    "primaryTopic": "主要主题：",
+    "concepts": "概念：",
+    "authors": "作者：",
+    "nameOfInstitution": "机构名称",
+    "countryCode": "国家代码",
+    "noAuthorWithInstitution":"出版此书时作者未关联机构",
+    "name": "名称",
+    "orgName": "组织名称",
+    "sourceUrl": "来源网址",
+    "whereYouCanFindThis": "你可以在这里找到：",
+    "author": "作者：",
+    "donateModal": {
+        "title": "捐赠以继续此项目",
+        "successLine1": "捐赠已收到",
+        "successLine2": "感谢你的贡献"
     }
 }

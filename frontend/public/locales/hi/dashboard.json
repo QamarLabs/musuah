@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "स्वागत है",
+    "recentWikiPageRequests": "हाल ही के विकि पृष्ठ अनुरोध",
+    "deniedWikiPageRequests": "अस्वीकृत विकि पृष्ठ अनुरोध",
+    "approvedWikiPageRequests": "स्वीकृत विकि पृष्ठ अनुरोध",
+    "deleteWikiPageRequests": "हाल ही में हटाए गए विकि पृष्ठ अनुरोध",
+    "deleteWikiPageRequestsApproved": "स्वीकृत हटाए गए विकि पृष्ठ अनुरोध",
+    "deleteWikiPageRequestsDenied": "अस्वीकृत हटाए गए विकि पृष्ठ अनुरोध",
+    "deleteWikiBookRequests": "हाल ही में हटाए गए विकि पुस्तक अनुरोध",
+    "deleteWikiBookRequestsApproved": "स्वीकृत हटाए गए विकि पुस्तक अनुरोध",
+    "deleteWikiBookRequestsDenied": "अस्वीकृत हटाए गए विकि पुस्तक अनुरोध",
+    "wikiPageRequestsToApproveOrDeny": "विकि पृष्ठ अनुरोध जो लंबित हैं",
+    "deleteWikiPageRequestsToApproveOrDeny": "हटाने के लिए लंबित विकि पृष्ठ अनुरोध",
+    "deleteWikiBookRequestsToApproveOrDeny": "हटाने के लिए लंबित विकि पुस्तक अनुरोध"
 }

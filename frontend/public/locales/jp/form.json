@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "協力する",
+    "registerToCollaborate": "私たちと協力するために登録してください！ 😊",
+    "pleaseCheckYourEmailAt": "メールを確認してください ",
+    "forAVerificationEmail": " 確認メールのために。",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "個人情報",
+        "fieldOfFocus": "専門分野",
+        "otherInfo": "その他の情報"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "貢献者になりたいですか？",
+    "joinUs": "参加する",
     "inputLabels": {
-        "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "email": "メール",
+        "password": "パスワード",
+        "profilePicture": "プロフィール写真をアップロード",
+        "firstName": "名",
+        "familyName": "姓",
+        "countryOfOrigin": "出身国",
+        "nationalId": "国民ID",
+        "nationalIdPicture": "国民IDをアップロード",
+        "fieldOfFocus": "専門分野",
+        "wasInGovernmentAgency": "政府機関の一員でしたか？",
+        "infoIsCorrect": "情報が正しいことを誓いますか？",
+        "whyContribute": "なぜmūsūʿahに貢献したいですか？",
+        "agreeToTerms": "利用規約に同意しますか？",
+        "amountToDonate": "寄付額（USD）",
+        "paymentNote": "支払いメモ"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "あなたのメール",
+        "password": "あなたのパスワード",
+        "confirmPassword": "パスワードを確認",
+        "firstName": "あなたの名とその他の名前",
+        "familyName": "姓またはラストネーム",
+        "nationalId": "居住国のID",
+        "whyContribute": "なぜmūsūʿahに貢献したいのか、私たちは興味があります。",
+        "amountToDonate": "支払い額",
+        "paymentNote": "あなたの支払いメモ"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " 最低文字数",
+        "line2": "少なくとも1つの大文字",
+        "line3": "少なくとも1つの小文字",
+        "line4": "少なくとも1つの数字",
+        "line5": "少なくとも1つの特殊文字",
+        "passwordsMatch": "✓ パスワードが一致",
+        "passwordsDoNotMatch": "✗ パスワードが一致しません",
+        "hidePasswords": "パスワードを隠す",
+        "showPasswords": "パスワードを表示"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "ログイン情報",
+        "login": "ログイン"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "保存",
+        "edit": "編集",
+        "cancel": "キャンセル",
+        "requestToDelete": "削除をリクエスト",
+        "back": "戻る",
+        "review": "レビュー",
+        "next": "次へ",
+        "submit": "送信",
+        "yesIConfirm": "はい、確認します",
+        "normalView": "通常表示",
+        "councilMemberView": "評議会メンバー表示"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "このタイトルを削除するために送信しようとしています ",
+        "forDeletion": " 削除のために",
+        "reasonLabel": "この決定を下す理由。",
+        "reasonPlaceholder": "この決定を下す理由"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "要約"
     }
 }

@@ -1,11 +1,26 @@
 {
-    "welcome": "مسلم وکی میں خوش آمدید",
+    "welcome": "مسلم ویکی میں خوش آمدید",
+    "welcomePrefix": "خوش آمدید ",
+    "noResults": "کوئی نتائج نہیں",
     "searchPlaceholder": "دیکھیں...",
+    "searchNavbarPlaceholder": "موسوعہ تلاش کریں...",
+    "donate": "عطیہ کریں",
+    "createAccount": "اکاؤنٹ بنائیں",
+    "login": "لاگ ان",
+    "logout": "لاگ آؤٹ",
+    "privacyPolicy": "رازداری کی پالیسی",
+    "mainLinks": {
+        "yourAccount": "آپ کا اکاؤنٹ",
+        "collaborate": "تعاون کریں",
+        "useAI": "AI استعمال کریں",
+        "booksAndStudiesPart1": "کتابیں",
+        "booksAndStudiesPart2": "اور مطالعے"
+    },
     "links": {
         "es": "ہسپانوی",
         "en": "انگریزی",
         "ar": "عربی",
-        "ba": "بوسنیائی",
+        "ba": "بوسنیا",
         "tr": "ترکی",
         "al": "البانوی",
         "fr": "فرانسیسی",
@@ -20,5 +35,44 @@
     "buttons": {
         "submit": "جمع کریں",
         "cancel": "منسوخ کریں"
+    },
+    "leftSideNav": {
+        "contribute": "شراکت کریں",
+        "mainPage": "مرکزی صفحہ",
+        "navigation": "نیوی گیشن",
+        "help": "مدد"
+    },
+    "rightSideNav": {
+        "languages": "زبانیں",
+        "tools": "آلات"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "حذف کرنے کی درخواست زیر التوا ہے",
+        "pendingDeleteRequestDesc": "آپ نے پہلے ہی اس ویکی صفحہ کے لیے حذف کرنے کی درخواست جمع کرائی ہے",
+        "pendingDeleteRequestWikibookDesc": "آپ نے پہلے ہی اس ویکی بک کے لیے حذف کرنے کی درخواست جمع کرائی ہے",
+        "pendingChangeRequestTitle": "تبدیلی کی درخواست زیر التوا ہے",
+        "pendingChangeRequestDesc": "آپ نے پہلے ہی اس ویکی صفحہ کے لیے تبدیلی کی درخواست جمع کرائی ہے"
+    },
+    "searchResultsFor": "کے لیے تلاش کے نتائج ",
+    "searchBooksAndStudiesFromHere": "یہاں سے کتابیں اور مطالعے تلاش کریں۔",
+    "searchPagesFromHere": "یہاں سے صفحات تلاش کریں۔",
+    "publicationYear": "اشاعت کا سال:",
+    "publicationDate": "اشاعت کی تاریخ:",
+    "title": "عنوان:",
+    "primaryTopic": "اہم موضوع:",
+    "concepts": "تصورات:",
+    "authors": "مصنفین:",
+    "nameOfInstitution": "ادارے کا نام",
+    "countryCode": "ملک کا کوڈ",
+    "noAuthorWithInstitution":"اس کتاب کو شائع کرتے وقت مصنف ادارے سے منسلک نہیں تھا",
+    "name": "نام",
+    "orgName": "ادارے کا نام",
+    "sourceUrl": "ذرائع کا لنک",
+    "whereYouCanFindThis": "آپ اسے یہاں پا سکتے ہیں:",
+    "author": "مصنف:",
+    "donateModal": {
+        "title": "اس منصوبے کو جاری رکھنے کے لیے عطیہ کریں",
+        "successLine1": "عطیہ موصول ہو گیا",
+        "successLine2": "آپ کی شراکت کے لیے شکریہ"
     }
 }

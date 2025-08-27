@@ -1,6 +1,21 @@
 {
-    "welcome": "مرحبًا بك في MuslimWiki",
-    "searchPlaceholder": "ألق نظرة...",
+    "welcome": "مرحباً بك في MuslimWiki",
+    "welcomePrefix": "مرحباً ",
+    "noResults": "لا توجد نتائج",
+    "searchPlaceholder": "ابحث هنا...",
+    "searchNavbarPlaceholder": "ابحث في الموسوعة...",
+    "donate": "تبرع",
+    "createAccount": "إنشاء حساب",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "privacyPolicy": "سياسة الخصوصية",
+    "mainLinks": {
+        "yourAccount": "حسابك",
+        "collaborate": "تعاون",
+        "useAI": "استخدم الذكاء الاصطناعي",
+        "booksAndStudiesPart1": "كتب",
+        "booksAndStudiesPart2": "ودراسات"
+    },
     "links": {
         "es": "الإسبانية",
         "en": "الإنجليزية",
@@ -20,5 +35,44 @@
     "buttons": {
         "submit": "إرسال",
         "cancel": "إلغاء"
+    },
+    "leftSideNav": {
+        "contribute": "ساهم",
+        "mainPage": "الصفحة الرئيسية",
+        "navigation": "التنقل",
+        "help": "مساعدة"
+    },
+    "rightSideNav": {
+        "languages": "اللغات",
+        "tools": "الأدوات"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "لديه طلب حذف قيد الانتظار",
+        "pendingDeleteRequestDesc": "لقد قمت بالفعل بإرسال طلب حذف لهذه الصفحة",
+        "pendingDeleteRequestWikibookDesc": "لقد قمت بالفعل بإرسال طلب حذف لهذا الكتاب",
+        "pendingChangeRequestTitle": "لديه طلب تعديل قيد الانتظار",
+        "pendingChangeRequestDesc": "لقد قمت بالفعل بإرسال طلب تعديل لهذه الصفحة"
+    },
+    "searchResultsFor": "نتائج البحث عن ",
+    "searchBooksAndStudiesFromHere": "ابحث عن الكتب والدراسات من هنا.",
+    "searchPagesFromHere": "ابحث عن الصفحات من هنا.",
+    "publicationYear": "سنة النشر:",
+    "publicationDate": "تاريخ النشر:",
+    "title": "العنوان:",
+    "primaryTopic": "الموضوع الرئيسي:",
+    "concepts": "المفاهيم:",
+    "authors": "المؤلفون:",
+    "nameOfInstitution": "اسم المؤسسة",
+    "countryCode": "رمز الدولة",
+    "noAuthorWithInstitution": "المؤلف غير مرتبط بأي مؤسسة عند نشر هذا الكتاب",
+    "name": "الاسم",
+    "orgName": "اسم المنظمة",
+    "sourceUrl": "رابط المصدر",
+    "whereYouCanFindThis": "أين يمكنك أن تجد هذا:",
+    "author": "المؤلف:",
+    "donateModal": {
+        "title": "تبرع لمواصلة هذا المشروع",
+        "successLine1": "تم استلام التبرع",
+        "successLine2": "شكراً لمساهمتك"
     }
 }

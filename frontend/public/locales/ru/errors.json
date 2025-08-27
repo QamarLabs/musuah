@@ -1,10 +1,17 @@
 {
-    "welcome": "Mirësevini në aplikacionin tonë",
-    "buttons": {
-      "submit": "Dërgo",
-      "cancel": "Anulo"
-    },
-      "Invalid credentials": "Invalid login, please try again."
-
-  }
-  
+  "Invalid credentials": "Неверный логин, попробуйте снова.",
+  "errorTitle": "О нет, возникла проблема",
+  "errorMessages": {
+    "login": "Ошибка при входе, попробуйте снова",
+    "submittingDonation": "Ошибка при отправке пожертвования, пожалуйста, свяжитесь с поддержкой",
+    "captureDonation": "Что-то пошло не так при подтверждении вашего пожертвования. Пожалуйста, свяжитесь с поддержкой"
+  },
+  "invalidEmail": "Неверный адрес электронной почты",
+  "emailRequired": "Требуется электронная почта",
+  "passwordAtLeast8Characters": "Пароль должен содержать не менее 8 символов",
+  "passwordContainAtLeastOneUppercaseLetter": "Пароль должен содержать хотя бы одну заглавную букву",
+  "passwordContainAtLeastOneLowercaseLetter": "Пароль должен содержать хотя бы одну строчную букву",
+  "passwordContainAtLeastOneNumber": "Пароль должен содержать хотя бы одну цифру",
+  "passwordContainAtLeastOneSpecialCharacter": "Пароль должен содержать хотя бы один специальный символ",
+  "invalidDonationAmount": "Сумма должна быть больше 0,50 USD"
+}

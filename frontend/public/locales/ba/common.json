@@ -1,6 +1,21 @@
 {
     "welcome": "Dobrodošli na MuslimWiki",
-    "searchPlaceholder": "Pogledaj...",
+    "welcomePrefix": "Dobrodošli ",
+    "noResults": "Nema rezultata",
+    "searchPlaceholder": "Pogledajte...",
+    "searchNavbarPlaceholder": "Pretraži musūʿah...",
+    "donate": "Doniraj",
+    "createAccount": "Kreiraj račun",
+    "login": "Prijava",
+    "logout": "Odjava",
+    "privacyPolicy": "Politika privatnosti",
+    "mainLinks": {
+        "yourAccount": "Vaš račun",
+        "collaborate": "Saradnja",
+        "useAI": "Koristi AI",
+        "booksAndStudiesPart1": "Knjige",
+        "booksAndStudiesPart2": "I Studije"
+    },
     "links": {
         "es": "Španski",
         "en": "Engleski",
@@ -15,10 +30,49 @@
         "ru": "Ruski",
         "de": "Njemački",
         "jp": "Japanski",
-        "hi": "Hindu"
+        "hi": "Hindi"
     },
     "buttons": {
         "submit": "Pošalji",
         "cancel": "Otkaži"
+    },
+    "leftSideNav": {
+        "contribute": "Doprinesi",
+        "mainPage": "Glavna stranica",
+        "navigation": "Navigacija",
+        "help": "Pomoć"
+    },
+    "rightSideNav": {
+        "languages": "Jezici",
+        "tools": "Alati"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "Ima zahtjev za brisanje",
+        "pendingDeleteRequestDesc": "Već ste podnijeli zahtjev za brisanje ove wiki stranice",
+        "pendingDeleteRequestWikibookDesc": "Već ste podnijeli zahtjev za brisanje ove wiki knjige",
+        "pendingChangeRequestTitle": "Ima zahtjev za izmjenu",
+        "pendingChangeRequestDesc": "Već ste podnijeli zahtjev za izmjenu ove wiki stranice"
+    },
+    "searchResultsFor": "Rezultati pretrage za ",
+    "searchBooksAndStudiesFromHere": "Pretražujte knjige i studije odavde.",
+    "searchPagesFromHere": "Pretražujte stranice odavde.",
+    "publicationYear": "Godina izdavanja:",
+    "publicationDate": "Datum izdavanja:",
+    "title": "Naslov:",
+    "primaryTopic": "Glavna tema:",
+    "concepts": "Pojmovi:",
+    "authors": "Autori:",
+    "nameOfInstitution": "Naziv institucije",
+    "countryCode": "Kod države",
+    "noAuthorWithInstitution":"Autor nije povezan s institucijom prilikom objavljivanja ove knjige",
+    "name": "Ime",
+    "orgName": "Naziv organizacije",
+    "sourceUrl": "Izvorni URL",
+    "whereYouCanFindThis": "Gdje možete pronaći ovo:",
+    "author": "Autor:",
+    "donateModal": {
+        "title": "Donirajte za nastavak ovog projekta",
+        "successLine1": "Donacija primljena",
+        "successLine2": "Hvala na vašem doprinosu"
     }
 }

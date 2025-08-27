@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "欢迎",
+    "recentWikiPageRequests": "最近的维基页面请求",
+    "deniedWikiPageRequests": "被拒绝的维基页面请求",
+    "approvedWikiPageRequests": "已批准的维基页面请求",
+    "deleteWikiPageRequests": "最近的删除维基页面请求",
+    "deleteWikiPageRequestsApproved": "已批准的删除维基页面请求",
+    "deleteWikiPageRequestsDenied": "被拒绝的删除维基页面请求",
+    "deleteWikiBookRequests": "最近的删除维基书籍请求",
+    "deleteWikiBookRequestsApproved": "已批准的删除维基书籍请求",
+    "deleteWikiBookRequestsDenied": "被拒绝的删除维基书籍请求",
+    "wikiPageRequestsToApproveOrDeny": "待处理的维基页面请求",
+    "deleteWikiPageRequestsToApproveOrDeny": "待处理的删除维基页面请求",
+    "deleteWikiBookRequestsToApproveOrDeny": "待处理的删除维基书籍请求"
 }

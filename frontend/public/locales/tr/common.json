@@ -1,6 +1,21 @@
 {
-    "welcome": "MuslimWiki'ye Hoşgeldiniz",
-    "searchPlaceholder": "Bir göz at...",
+    "welcome": "MuslimWiki'ye Hoş Geldiniz",
+    "welcomePrefix": "Hoş Geldiniz ",
+    "noResults": "Sonuç bulunamadı",
+    "searchPlaceholder": "Göz atın...",
+    "searchNavbarPlaceholder": "Ansiklopedide arayın...",
+    "donate": "Bağış yap",
+    "createAccount": "Hesap Oluştur",
+    "login": "Giriş",
+    "logout": "Çıkış",
+    "privacyPolicy": "Gizlilik Politikası",
+    "mainLinks": {
+        "yourAccount": "Hesabınız",
+        "collaborate": "İşbirliği yap",
+        "useAI": "Yapay Zekayı Kullan",
+        "booksAndStudiesPart1": "Kitaplar",
+        "booksAndStudiesPart2": "ve Araştırmalar"
+    },
     "links": {
         "es": "İspanyolca",
         "en": "İngilizce",
@@ -20,5 +35,44 @@
     "buttons": {
         "submit": "Gönder",
         "cancel": "İptal"
+    },
+    "leftSideNav": {
+        "contribute": "Katkıda Bulun",
+        "mainPage": "Ana Sayfa",
+        "navigation": "Gezinme",
+        "help": "Yardım"
+    },
+    "rightSideNav": {
+        "languages": "Diller",
+        "tools": "Araçlar"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "Bekleyen silme isteği var",
+        "pendingDeleteRequestDesc": "Bu wiki sayfası için zaten silme isteği gönderdiniz",
+        "pendingDeleteRequestWikibookDesc": "Bu wikikitap için zaten silme isteği gönderdiniz",
+        "pendingChangeRequestTitle": "Bekleyen değişiklik isteği var",
+        "pendingChangeRequestDesc": "Bu wiki sayfası için zaten değişiklik isteği gönderdiniz"
+    },
+    "searchResultsFor": "Arama sonuçları: ",
+    "searchBooksAndStudiesFromHere": "Buradan kitapları ve araştırmaları arayın.",
+    "searchPagesFromHere": "Buradan sayfaları arayın.",
+    "publicationYear": "Yayın Yılı:",
+    "publicationDate": "Yayın Tarihi:",
+    "title": "Başlık:",
+    "primaryTopic": "Ana Konu:",
+    "concepts": "Kavramlar:",
+    "authors": "Yazarlar:",
+    "nameOfInstitution": "Kurum Adı",
+    "countryCode": "Ülke Kodu",
+    "noAuthorWithInstitution":"Bu kitap yayımlandığında yazar kurumla ilişkilendirilmemiş",
+    "name": "İsim",
+    "orgName": "Kuruluş Adı",
+    "sourceUrl": "Kaynak URL",
+    "whereYouCanFindThis": "Bunu bulabileceğiniz yer:",
+    "author": "Yazar:",
+    "donateModal": {
+        "title": "Bu projeyi sürdürmek için bağış yapın",
+        "successLine1": "Bağış alındı",
+        "successLine2": "Katkınız için teşekkür ederiz"
     }
 }

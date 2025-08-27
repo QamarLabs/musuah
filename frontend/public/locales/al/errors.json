@@ -1,9 +1,17 @@
 {
-    "welcome": "Mirësevini në aplikacionin tonë",
-    "buttons": {
-      "submit": "Dërgo",
-      "cancel": "Anulo"
-    },
-    "Invalid credentials": "Invalid login, please try again."
-  }
-  
+  "Invalid credentials": "Hyrje e pavlefshme, ju lutem provoni përsëri.",
+  "errorTitle": "Oh jo, ka një problem",
+  "errorMessages": {
+    "login": "Gabim gjatë hyrjes, ju lutem provoni përsëri",
+    "submittingDonation": "Gabim gjatë dërgimit të donacionit, ju lutem kontaktoni mbështetjen",
+    "captureDonation": "Diçka shkoi keq gjatë konfirmimit të donacionit tuaj. Ju lutem kontaktoni mbështetjen"
+  },
+  "invalidEmail": "Email i pavlefshëm",
+  "emailRequired": "Email është i detyrueshëm",
+  "passwordAtLeast8Characters": "Fjalëkalimi duhet të ketë të paktën 8 karaktere",
+  "passwordContainAtLeastOneUppercaseLetter": "Fjalëkalimi duhet të përmbajë të paktën një shkronjë të madhe",
+  "passwordContainAtLeastOneLowercaseLetter": "Fjalëkalimi duhet të përmbajë të paktën një shkronjë të vogël",
+  "passwordContainAtLeastOneNumber": "Fjalëkalimi duhet të përmbajë të paktën një numër",
+  "passwordContainAtLeastOneSpecialCharacter": "Fjalëkalimi duhet të përmbajë të paktën një karakter special",
+  "invalidDonationAmount": "Shuma duhet të jetë më shumë se 0.50 USD"
+}

@@ -1,8 +1,17 @@
 {
-  "welcome": "Mirësevini në aplikacionin tonë",
-  "buttons": {
-    "submit": "Dërgo",
-    "cancel": "Anulo"
+  "Invalid credentials": "अमान्य लॉगिन, कृपया पुनः प्रयास करें।",
+  "errorTitle": "ओह नहीं, कोई समस्या है",
+  "errorMessages": {
+    "login": "लॉगिन करने में त्रुटि, कृपया पुनः प्रयास करें",
+    "submittingDonation": "दान जमा करने में त्रुटि, कृपया समर्थन से संपर्क करें",
+    "captureDonation": "आपके दान की पुष्टि करते समय कुछ गलत हुआ। कृपया समर्थन से संपर्क करें"
   },
-  "Invalid credentials": "Invalid login, please try again."
+  "invalidEmail": "अमान्य ईमेल",
+  "emailRequired": "ईमेल आवश्यक है",
+  "passwordAtLeast8Characters": "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए",
+  "passwordContainAtLeastOneUppercaseLetter": "पासवर्ड में कम से कम एक बड़ा अक्षर होना चाहिए",
+  "passwordContainAtLeastOneLowercaseLetter": "पासवर्ड में कम से कम एक छोटा अक्षर होना चाहिए",
+  "passwordContainAtLeastOneNumber": "पासवर्ड में कम से कम एक संख्या होना चाहिए",
+  "passwordContainAtLeastOneSpecialCharacter": "पासवर्ड में कम से कम एक विशेष अक्षर होना चाहिए",
+  "invalidDonationAmount": "राशि 0.50 USD से अधिक होनी चाहिए"
 }

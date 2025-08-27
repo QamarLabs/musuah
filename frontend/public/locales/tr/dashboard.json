@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "Hoş geldiniz",
+    "recentWikiPageRequests": "Son Wiki Sayfası Talepleri",
+    "deniedWikiPageRequests": "Reddedilen Wiki Sayfası Talepleri",
+    "approvedWikiPageRequests": "Onaylanan Wiki Sayfası Talepleri",
+    "deleteWikiPageRequests": "Son Wiki Sayfası Silme Talepleri",
+    "deleteWikiPageRequestsApproved": "Onaylanan Wiki Sayfası Silme Talepleri",
+    "deleteWikiPageRequestsDenied": "Reddedilen Wiki Sayfası Silme Talepleri",
+    "deleteWikiBookRequests": "Son Wiki Kitap Silme Talepleri",
+    "deleteWikiBookRequestsApproved": "Onaylanan Wiki Kitap Silme Talepleri",
+    "deleteWikiBookRequestsDenied": "Reddedilen Wiki Kitap Silme Talepleri",
+    "wikiPageRequestsToApproveOrDeny": "Beklemede Olan Wiki Sayfası Talepleri",
+    "deleteWikiPageRequestsToApproveOrDeny": "Beklemede Olan Wiki Sayfası Silme Talepleri",
+    "deleteWikiBookRequestsToApproveOrDeny": "Beklemede Olan Wiki Kitap Silme Talepleri"
 }

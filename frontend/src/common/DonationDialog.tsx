@@ -36,7 +36,8 @@ export default observer(({ onClick }: React.PropsWithChildren<DonationDialogProp
         initializing,
         ipAddress,
         paymentCustomerId,
-        setPaymentCustomerId
+        setPaymentCustomerId,
+        setPaymentCustomerSessionSecret
     } = commonStore;
     const { userSession } = authStore;
     const [setupPaymentId, setSetupPaymentId] = useState<string | undefined>(undefined);
@@ -67,6 +68,7 @@ export default observer(({ onClick }: React.PropsWithChildren<DonationDialogProp
         // debugger;
         setSetupPaymentId(responseJson.clientSecret);
         setPaymentCustomerId(responseJson.customerId);
+        setPaymentCustomerSessionSecret(responseJson.customerSessionClientSecret);
     }
 
     function resetModalState() {
@@ -112,7 +114,7 @@ export default observer(({ onClick }: React.PropsWithChildren<DonationDialogProp
                             </Dialog.Title>
                         </Dialog.Header>
                         <Dialog.Body>
-                            <VStack bg='green' px={0}>
+                            <VStack px={0}>
                                 {errorMessage && <ErrorAlert title={t("errorTitle", { ns: 'errors' })} description={errorMessage} />}
                                 {currentStep === 1
                                     ? (

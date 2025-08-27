@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "Saradnja",
+    "registerToCollaborate": "Registrujte se da sarađujete s nama! 😊",
+    "pleaseCheckYourEmailAt": "Molimo provjerite svoj email na ",
+    "forAVerificationEmail": " za verifikacijski email.",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "Lični podaci",
+        "fieldOfFocus": "Oblast fokusa",
+        "otherInfo": "Ostale informacije"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "Želite li biti saradnik?",
+    "joinUs": "Pridružite nam se",
     "inputLabels": {
         "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "password": "Lozinka",
+        "profilePicture": "Otpremite svoju profilnu sliku",
+        "firstName": "Ime",
+        "familyName": "Prezime",
+        "countryOfOrigin": "Zemlja porijekla",
+        "nationalId": "Nacionalni ID",
+        "nationalIdPicture": "Otpremite svoj nacionalni ID",
+        "fieldOfFocus": "Oblast fokusa",
+        "wasInGovernmentAgency": "Da li ste bili dio državne agencije?",
+        "infoIsCorrect": "Da li se zaklinjete da su vaši podaci tačni?",
+        "whyContribute": "Zašto želite doprinijeti mūsūʿah?",
+        "agreeToTerms": "Da li se slažete s uslovima i odredbama?",
+        "amountToDonate": "Iznos donacije u USD",
+        "paymentNote": "Napomena o uplati"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "Vaš email",
+        "password": "Vaša lozinka",
+        "confirmPassword": "Potvrdite lozinku",
+        "firstName": "Vaše ime i druga imena",
+        "familyName": "Prezime",
+        "nationalId": "Vaš ID u zemlji prebivališta",
+        "whyContribute": "Zašto želite doprinijeti mūsūʿah? Samo smo znatiželjni.",
+        "amountToDonate": "Iznos uplate",
+        "paymentNote": "Vaša napomena o uplati"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " minimalno karaktera",
+        "line2": "Najmanje jedno veliko slovo",
+        "line3": "Najmanje jedno malo slovo",
+        "line4": "Najmanje jedan broj",
+        "line5": "Najmanje jedan specijalni znak",
+        "passwordsMatch": "✓ Lozinke se podudaraju",
+        "passwordsDoNotMatch": "✗ Lozinke se ne podudaraju",
+        "hidePasswords": "Sakrij lozinke",
+        "showPasswords": "Prikaži lozinke"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "Prijavni podaci",
+        "login": "Prijava"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "Sačuvaj",
+        "edit": "Uredi",
+        "cancel": "Otkaži",
+        "requestToDelete": "Zahtjev za brisanje",
+        "back": "Nazad",
+        "review": "Pregled",
+        "next": "Sljedeće",
+        "submit": "Pošalji",
+        "yesIConfirm": "Da, potvrđujem",
+        "normalView": "Normalni prikaz",
+        "councilMemberView": "Prikaz člana vijeća"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "Spremate se poslati ovaj naslov ",
+        "forDeletion": " na brisanje",
+        "reasonLabel": "Razlog za ovu odluku.",
+        "reasonPlaceholder": "Razlog za ovu odluku"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "Sažetak"
     }
 }

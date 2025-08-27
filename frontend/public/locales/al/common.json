@@ -1,6 +1,21 @@
 {
     "welcome": "Mirë se vini në MuslimWiki",
-    "searchPlaceholder": "Hidh një sy...",
+    "welcomePrefix": "Mirë se vini ",
+    "noResults": "Nuk ka rezultate",
+    "searchPlaceholder": "Shiko...",
+    "searchNavbarPlaceholder": "Kërko musūʿah...",
+    "donate": "Dhuro",
+    "createAccount": "Krijo llogari",
+    "login": "Hyr",
+    "logout": "Dil",
+    "privacyPolicy": "Politika e privatësisë",
+    "mainLinks": {
+        "yourAccount": "Llogaria juaj",
+        "collaborate": "Bashkëpuno",
+        "useAI": "Përdor AI",
+        "booksAndStudiesPart1": "Libra",
+        "booksAndStudiesPart2": "Dhe Studime"
+    },
     "links": {
         "es": "Spanjisht",
         "en": "Anglisht",
@@ -20,5 +35,44 @@
     "buttons": {
         "submit": "Dërgo",
         "cancel": "Anulo"
+    },
+    "leftSideNav": {
+        "contribute": "Kontribuo",
+        "mainPage": "Faqja kryesore",
+        "navigation": "Navigimi",
+        "help": "Ndihmë"
+    },
+    "rightSideNav": {
+        "languages": "Gjuhët",
+        "tools": "Mjetet"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "Ka kërkesë për fshirje",
+        "pendingDeleteRequestDesc": "Ju tashmë keni dorëzuar një kërkesë për fshirje të kësaj faqeje wiki",
+        "pendingDeleteRequestWikibookDesc": "Ju tashmë keni dorëzuar një kërkesë për fshirje të kësaj wikilibri",
+        "pendingChangeRequestTitle": "Ka kërkesë për ndryshim",
+        "pendingChangeRequestDesc": "Ju tashmë keni dorëzuar një kërkesë për ndryshim të kësaj faqeje wiki"
+    },
+    "searchResultsFor": "Rezultatet e kërkimit për ",
+    "searchBooksAndStudiesFromHere": "Kërkoni libra dhe studime nga këtu.",
+    "searchPagesFromHere": "Kërkoni faqe nga këtu.",
+    "publicationYear": "Viti i botimit:",
+    "publicationDate": "Data e botimit:",
+    "title": "Titulli:",
+    "primaryTopic": "Tema kryesore:",
+    "concepts": "Koncepte:",
+    "authors": "Autorët:",
+    "nameOfInstitution": "Emri i institucionit",
+    "countryCode": "Kodi i shtetit",
+    "noAuthorWithInstitution":"Autori nuk është i lidhur me një institucion gjatë botimit të këtij libri",
+    "name": "Emri",
+    "orgName": "Emri i organizatës",
+    "sourceUrl": "Burimi URL",
+    "whereYouCanFindThis": "Ku mund ta gjeni këtë:",
+    "author": "Autori:",
+    "donateModal": {
+        "title": "Dhuro për të vazhduar këtë projekt",
+        "successLine1": "Donacioni u mor",
+        "successLine2": "Faleminderit për kontributin tuaj"
     }
 }

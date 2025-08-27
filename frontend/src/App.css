@@ -377,6 +377,12 @@ iframe#ai-assistant {
 
 }
 
+@media (min-width: 1512px) {
+  .mw-form {
+    width: 45rem;
+  }
+}
+
 @media (min-width: 2200px) {
 
   .responsiveTextContainer {

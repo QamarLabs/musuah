@@ -1,6 +1,21 @@
 {
     "welcome": "MuslimWikiへようこそ",
-    "searchPlaceholder": "見てみてください...",
+    "welcomePrefix": "ようこそ ",
+    "noResults": "結果がありません",
+    "searchPlaceholder": "見てみる...",
+    "searchNavbarPlaceholder": "ムスーアを検索...",
+    "donate": "寄付する",
+    "createAccount": "アカウント作成",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "privacyPolicy": "プライバシーポリシー",
+    "mainLinks": {
+        "yourAccount": "あなたのアカウント",
+        "collaborate": "協力する",
+        "useAI": "AIを使用する",
+        "booksAndStudiesPart1": "書籍",
+        "booksAndStudiesPart2": "と研究"
+    },
     "links": {
         "es": "スペイン語",
         "en": "英語",
@@ -10,7 +25,7 @@
         "al": "アルバニア語",
         "fr": "フランス語",
         "ur": "ウルドゥー語",
-        "fa": "ペルシャ語",
+        "fa": "ペルシア語",
         "cn": "中国語",
         "ru": "ロシア語",
         "de": "ドイツ語",
@@ -20,5 +35,44 @@
     "buttons": {
         "submit": "送信",
         "cancel": "キャンセル"
+    },
+    "leftSideNav": {
+        "contribute": "貢献する",
+        "mainPage": "メインページ",
+        "navigation": "ナビゲーション",
+        "help": "ヘルプ"
+    },
+    "rightSideNav": {
+        "languages": "言語",
+        "tools": "ツール"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "削除リクエスト保留中",
+        "pendingDeleteRequestDesc": "このウィキページの削除リクエストはすでに提出済みです",
+        "pendingDeleteRequestWikibookDesc": "このウィキブックの削除リクエストはすでに提出済みです",
+        "pendingChangeRequestTitle": "変更リクエスト保留中",
+        "pendingChangeRequestDesc": "このウィキページの変更リクエストはすでに提出済みです"
+    },
+    "searchResultsFor": "の検索結果 ",
+    "searchBooksAndStudiesFromHere": "ここから書籍と研究を検索。",
+    "searchPagesFromHere": "ここからページを検索。",
+    "publicationYear": "出版年:",
+    "publicationDate": "出版日:",
+    "title": "タイトル:",
+    "primaryTopic": "主要トピック:",
+    "concepts": "概念:",
+    "authors": "著者:",
+    "nameOfInstitution": "機関名",
+    "countryCode": "国コード",
+    "noAuthorWithInstitution":"この書籍を出版する際に著者は機関に所属していません",
+    "name": "名前",
+    "orgName": "組織名",
+    "sourceUrl": "ソースURL",
+    "whereYouCanFindThis": "ここで見つけることができます:",
+    "author": "著者:",
+    "donateModal": {
+        "title": "このプロジェクトを続けるために寄付してください",
+        "successLine1": "寄付を受け取りました",
+        "successLine2": "ご協力ありがとうございます"
     }
 }

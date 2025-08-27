@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "خوش آمدید",
+    "recentWikiPageRequests": "درخواست‌های اخیر صفحات ویکی",
+    "deniedWikiPageRequests": "درخواست‌های رد شده صفحات ویکی",
+    "approvedWikiPageRequests": "درخواست‌های تأیید شده صفحات ویکی",
+    "deleteWikiPageRequests": "درخواست‌های اخیر حذف صفحات ویکی",
+    "deleteWikiPageRequestsApproved": "درخواست‌های تأیید شده حذف صفحات ویکی",
+    "deleteWikiPageRequestsDenied": "درخواست‌های رد شده حذف صفحات ویکی",
+    "deleteWikiBookRequests": "درخواست‌های اخیر حذف کتاب‌های ویکی",
+    "deleteWikiBookRequestsApproved": "درخواست‌های تأیید شده حذف کتاب‌های ویکی",
+    "deleteWikiBookRequestsDenied": "درخواست‌های رد شده حذف کتاب‌های ویکی",
+    "wikiPageRequestsToApproveOrDeny": "درخواست‌های صفحات ویکی که در انتظار بررسی هستند",
+    "deleteWikiPageRequestsToApproveOrDeny": "درخواست‌های حذف صفحات ویکی که در انتظار بررسی هستند",
+    "deleteWikiBookRequestsToApproveOrDeny": "درخواست‌های حذف کتاب‌های ویکی که در انتظار بررسی هستند"
 }

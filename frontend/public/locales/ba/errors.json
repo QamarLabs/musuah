@@ -1,8 +1,17 @@
 {
-  "welcome": "Mirësevini në aplikacionin tonë",
-  "buttons": {
-    "submit": "Dërgo",
-    "cancel": "Anulo"
+  "Invalid credentials": "Nevažeći podaci za prijavu, pokušajte ponovo.",
+  "errorTitle": "Oh ne, došlo je do problema",
+  "errorMessages": {
+    "login": "Greška prilikom prijave, pokušajte ponovo",
+    "submittingDonation": "Greška prilikom slanja donacije, kontaktirajte podršku",
+    "captureDonation": "Nešto je pošlo po zlu prilikom potvrđivanja vaše donacije. Kontaktirajte podršku"
   },
-  "Invalid credentials": "Invalid login, please try again."
+  "invalidEmail": "Nevažeći email",
+  "emailRequired": "Email je obavezan",
+  "passwordAtLeast8Characters": "Lozinka mora imati najmanje 8 karaktera",
+  "passwordContainAtLeastOneUppercaseLetter": "Lozinka mora sadržavati barem jedno veliko slovo",
+  "passwordContainAtLeastOneLowercaseLetter": "Lozinka mora sadržavati barem jedno malo slovo",
+  "passwordContainAtLeastOneNumber": "Lozinka mora sadržavati barem jedan broj",
+  "passwordContainAtLeastOneSpecialCharacter": "Lozinka mora sadržavati barem jedan poseban znak",
+  "invalidDonationAmount": "Iznos mora biti veći od 0.50 USD"
 }

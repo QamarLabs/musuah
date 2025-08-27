@@ -1,24 +1,78 @@
 {
-  "welcome": "به MuslimWiki خوش آمدید",
-  "searchPlaceholder": "نگاهی بیندازید...",
-  "links": {
-    "es": "اسپانیایی",
-    "en": "انگلیسی",
-    "ar": "عربی",
-    "ba": "بوسنیایی",
-    "tr": "ترکی",
-    "al": "آلبانیایی",
-    "fr": "فرانسوی",
-    "ur": "اردو",
-    "fa": "فارسی",
-    "cn": "چینی",
-    "ru": "روسی",
-    "de": "آلمانی",
-    "jp": "ژاپنی",
-    "hi": "هندی"
-  },
-  "buttons": {
-    "submit": "ارسال",
-    "cancel": "لغو"
-  }
+    "welcome": "به مسلم ویکی خوش آمدید",
+    "welcomePrefix": "خوش آمدید ",
+    "noResults": "نتیجه‌ای یافت نشد",
+    "searchPlaceholder": "نگاهی بیندازید...",
+    "searchNavbarPlaceholder": "جستجوی موسوعه...",
+    "donate": "اهدا کنید",
+    "createAccount": "ایجاد حساب",
+    "login": "ورود",
+    "logout": "خروج",
+    "privacyPolicy": "سیاست حفظ حریم خصوصی",
+    "mainLinks": {
+        "yourAccount": "حساب شما",
+        "collaborate": "همکاری",
+        "useAI": "استفاده از هوش مصنوعی",
+        "booksAndStudiesPart1": "کتاب‌ها",
+        "booksAndStudiesPart2": "و مطالعات"
+    },
+    "links": {
+        "es": "اسپانیایی",
+        "en": "انگلیسی",
+        "ar": "عربی",
+        "ba": "بوسنیایی",
+        "tr": "ترکی",
+        "al": "آلبانیایی",
+        "fr": "فرانسوی",
+        "ur": "اردو",
+        "fa": "فارسی",
+        "cn": "چینی",
+        "ru": "روسی",
+        "de": "آلمانی",
+        "jp": "ژاپنی",
+        "hi": "هندی"
+    },
+    "buttons": {
+        "submit": "ارسال",
+        "cancel": "لغو"
+    },
+    "leftSideNav": {
+        "contribute": "مشارکت کنید",
+        "mainPage": "صفحه اصلی",
+        "navigation": "ناوبری",
+        "help": "راهنما"
+    },
+    "rightSideNav": {
+        "languages": "زبان‌ها",
+        "tools": "ابزارها"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "درخواست حذف در انتظار",
+        "pendingDeleteRequestDesc": "شما قبلاً درخواست حذف این صفحه ویکی را ارسال کرده‌اید",
+        "pendingDeleteRequestWikibookDesc": "شما قبلاً درخواست حذف این کتاب ویکی را ارسال کرده‌اید",
+        "pendingChangeRequestTitle": "درخواست تغییر در انتظار",
+        "pendingChangeRequestDesc": "شما قبلاً درخواست تغییر این صفحه ویکی را ارسال کرده‌اید"
+    },
+    "searchResultsFor": "نتایج جستجو برای ",
+    "searchBooksAndStudiesFromHere": "جستجوی کتاب‌ها و مطالعات از اینجا.",
+    "searchPagesFromHere": "جستجوی صفحات از اینجا.",
+    "publicationYear": "سال انتشار:",
+    "publicationDate": "تاریخ انتشار:",
+    "title": "عنوان:",
+    "primaryTopic": "موضوع اصلی:",
+    "concepts": "مفاهیم:",
+    "authors": "نویسندگان:",
+    "nameOfInstitution": "نام مؤسسه",
+    "countryCode": "کد کشور",
+    "noAuthorWithInstitution":"نویسنده هنگام انتشار این کتاب به مؤسسه مرتبط نیست",
+    "name": "نام",
+    "orgName": "نام سازمان",
+    "sourceUrl": "منبع URL",
+    "whereYouCanFindThis": "جایی که می‌توانید این را پیدا کنید:",
+    "author": "نویسنده:",
+    "donateModal": {
+        "title": "برای ادامه این پروژه کمک مالی کنید",
+        "successLine1": "کمک مالی دریافت شد",
+        "successLine2": "از مشارکت شما سپاسگزاریم"
+    }
 }

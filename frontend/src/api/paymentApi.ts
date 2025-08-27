@@ -1,10 +1,10 @@
 import axios from "axios";
 // import { PaginatedResult } from "../models/common";
 import { axiosResponseBody } from "./agent";
-import { CapturePaymentInfo, SetupCustomerPaymentInfo, SubmitCustomerPaymentInfo } from "../models/payment";
+import { CapturePaymentInfo, PaymentSession, SetupCustomerPaymentInfo, SubmitCustomerPaymentInfo } from "../models/payment";
 
 export const paymentApi = {
-    initializeSession: (values: SetupCustomerPaymentInfo) => 
+    initializeSession: (values: SetupCustomerPaymentInfo): Promise<PaymentSession> => 
         axios.post(`/payment/initializeCustomerSession`, { values }).then(axiosResponseBody),
     submitPayment: (values: SubmitCustomerPaymentInfo) => 
         axios.post(`/payment/submitPayment`, { values }).then(axiosResponseBody),

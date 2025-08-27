@@ -1,24 +1,78 @@
 {
-  "welcome": "MuslimWiki में आपका स्वागत है",
-  "searchPlaceholder": "एक नज़र डालें...",
-  "links": {
-    "es": "स्पेनिश",
-    "en": "अंग्रेज़ी",
-    "ar": "अरबी",
-    "ba": "बोस्नियाई",
-    "tr": "तुर्की",
-    "al": "अल्बानियाई",
-    "fr": "फ़्रेंच",
-    "ur": "उर्दू",
-    "fa": "फ़ारसी",
-    "cn": "चीनी",
-    "ru": "रूसी",
-    "de": "जर्मन",
-    "jp": "जापानी",
-    "hi": "हिंदी"
-  },
-  "buttons": {
-    "submit": "जमा करें",
-    "cancel": "रद्द करें"
-  }
+    "welcome": "मुस्लिमविकि में आपका स्वागत है",
+    "welcomePrefix": "स्वागत है ",
+    "noResults": "कोई परिणाम नहीं",
+    "searchPlaceholder": "देखें...",
+    "searchNavbarPlaceholder": "मुसूआ खोजें...",
+    "donate": "दान करें",
+    "createAccount": "खाता बनाएं",
+    "login": "लॉगिन",
+    "logout": "लॉगआउट",
+    "privacyPolicy": "गोपनीयता नीति",
+    "mainLinks": {
+        "yourAccount": "आपका खाता",
+        "collaborate": "सहयोग करें",
+        "useAI": "एआई का उपयोग करें",
+        "booksAndStudiesPart1": "पुस्तकें",
+        "booksAndStudiesPart2": "और अध्ययन"
+    },
+    "links": {
+        "es": "स्पैनिश",
+        "en": "अंग्रेज़ी",
+        "ar": "अरबी",
+        "ba": "बोस्नियाई",
+        "tr": "तुर्की",
+        "al": "अल्बानियाई",
+        "fr": "फ्रेंच",
+        "ur": "उर्दू",
+        "fa": "फ़ारसी",
+        "cn": "चीनी",
+        "ru": "रूसी",
+        "de": "जर्मन",
+        "jp": "जापानी",
+        "hi": "हिंदी"
+    },
+    "buttons": {
+        "submit": "सबमिट करें",
+        "cancel": "रद्द करें"
+    },
+    "leftSideNav": {
+        "contribute": "योगदान करें",
+        "mainPage": "मुख्य पृष्ठ",
+        "navigation": "नेविगेशन",
+        "help": "सहायता"
+    },
+    "rightSideNav": {
+        "languages": "भाषाएँ",
+        "tools": "उपकरण"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "लंबित हटाने का अनुरोध है",
+        "pendingDeleteRequestDesc": "आप पहले ही इस विकीपृष्ठ के लिए हटाने का अनुरोध जमा कर चुके हैं",
+        "pendingDeleteRequestWikibookDesc": "आप पहले ही इस विकीबुक के लिए हटाने का अनुरोध जमा कर चुके हैं",
+        "pendingChangeRequestTitle": "लंबित परिवर्तन अनुरोध है",
+        "pendingChangeRequestDesc": "आप पहले ही इस विकीपृष्ठ के लिए परिवर्तन अनुरोध जमा कर चुके हैं"
+    },
+    "searchResultsFor": "के लिए खोज परिणाम ",
+    "searchBooksAndStudiesFromHere": "यहाँ से पुस्तकें और अध्ययन खोजें।",
+    "searchPagesFromHere": "यहाँ से पृष्ठ खोजें।",
+    "publicationYear": "प्रकाशन वर्ष:",
+    "publicationDate": "प्रकाशन तिथि:",
+    "title": "शीर्षक:",
+    "primaryTopic": "प्रमुख विषय:",
+    "concepts": "अवधारणाएँ:",
+    "authors": "लेखक:",
+    "nameOfInstitution": "संस्थान का नाम",
+    "countryCode": "देश कोड",
+    "noAuthorWithInstitution":"इस पुस्तक को प्रकाशित करते समय लेखक किसी संस्थान से संबद्ध नहीं था",
+    "name": "नाम",
+    "orgName": "संगठन का नाम",
+    "sourceUrl": "स्रोत यूआरएल",
+    "whereYouCanFindThis": "आप इसे यहाँ पा सकते हैं:",
+    "author": "लेखक:",
+    "donateModal": {
+        "title": "इस परियोजना को जारी रखने के लिए दान करें",
+        "successLine1": "दान प्राप्त हुआ",
+        "successLine2": "आपके योगदान के लिए धन्यवाद"
+    }
 }

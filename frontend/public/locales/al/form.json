@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "Bashkëpunoni",
+    "registerToCollaborate": "Regjistrohuni për të bashkëpunuar me ne! 😊",
+    "pleaseCheckYourEmailAt": "Ju lutemi kontrolloni emailin tuaj në ",
+    "forAVerificationEmail": " për një email verifikimi.",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "Informacion Personal",
+        "fieldOfFocus": "Fusha e Fokusit",
+        "otherInfo": "Informacione të tjera"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "Dëshironi të bëheni kontribues?",
+    "joinUs": "Bashkohuni me ne",
     "inputLabels": {
         "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "password": "Fjalëkalimi",
+        "profilePicture": "Ngarkoni foton e profilit tuaj",
+        "firstName": "Emri",
+        "familyName": "Mbiemri",
+        "countryOfOrigin": "Vendi i origjinës",
+        "nationalId": "ID Kombëtare",
+        "nationalIdPicture": "Ngarkoni ID tuaj kombëtare",
+        "fieldOfFocus": "Fusha e Fokusit",
+        "wasInGovernmentAgency": "A keni qenë pjesë e një agjencie qeveritare?",
+        "infoIsCorrect": "A betoheni se informacioni juaj është i saktë?",
+        "whyContribute": "Pse dëshironi të kontribuoni në mūsūʿah?",
+        "agreeToTerms": "A pajtoheni me kushtet dhe afatet?",
+        "amountToDonate": "Shuma për të dhuruar në USD",
+        "paymentNote": "Shënim pagese"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "Emaili juaj",
+        "password": "Fjalëkalimi juaj",
+        "confirmPassword": "Konfirmoni fjalëkalimin",
+        "firstName": "Emri juaj dhe emrat e tjerë",
+        "familyName": "Mbiemri ose emri i familjes",
+        "nationalId": "ID-ja juaj për vendin e banimit",
+        "whyContribute": "Pse dëshironi të kontribuoni në mūsūʿah, thjesht nga kurioziteti.",
+        "amountToDonate": "Shuma e pagesës",
+        "paymentNote": "Shënimi juaj i pagesës"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " minimum karakteresh",
+        "line2": "Të paktën një shkronjë e madhe",
+        "line3": "Të paktën një shkronjë e vogël",
+        "line4": "Të paktën një numër",
+        "line5": "Të paktën një simbol i veçantë",
+        "passwordsMatch": "✓ Fjalëkalimet përputhen",
+        "passwordsDoNotMatch": "✗ Fjalëkalimet nuk përputhen",
+        "hidePasswords": "Fshih fjalëkalimet",
+        "showPasswords": "Shfaq fjalëkalimet"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "Të dhënat e hyrjes",
+        "login": "Hyrje"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "Ruaj",
+        "edit": "Redakto",
+        "cancel": "Anulo",
+        "requestToDelete": "Kërkesë për fshirje",
+        "back": "Kthehu",
+        "review": "Rishikim",
+        "next": "Tjetra",
+        "submit": "Dërgo",
+        "yesIConfirm": "Po, e konfirmoj",
+        "normalView": "Pamje normale",
+        "councilMemberView": "Pamja e anëtarit të këshillit"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "Ju jeni gati të dërgoni këtë titull ",
+        "forDeletion": " për fshirje",
+        "reasonLabel": "Arsyeja për këtë vendim.",
+        "reasonPlaceholder": "Arsyeja e këtij vendimi"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "Përmbledhje"
     }
 }

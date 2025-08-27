@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "تعاون",
+    "registerToCollaborate": "سجل للتعاون معنا! 😊",
+    "pleaseCheckYourEmailAt": "يرجى التحقق من بريدك الإلكتروني على ",
+    "forAVerificationEmail": " للحصول على رسالة التحقق.",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "المعلومات الشخصية",
+        "fieldOfFocus": "مجال التركيز",
+        "otherInfo": "معلومات أخرى"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "هل تود أن تكون مساهماً؟",
+    "joinUs": "انضم إلينا",
     "inputLabels": {
-        "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "profilePicture": "ارفع صورتك الشخصية",
+        "firstName": "الاسم الأول",
+        "familyName": "اسم العائلة",
+        "countryOfOrigin": "بلد الأصل",
+        "nationalId": "الهوية الوطنية",
+        "nationalIdPicture": "ارفع صورة هويتك الوطنية",
+        "fieldOfFocus": "مجال التركيز",
+        "wasInGovernmentAgency": "هل كنت جزءاً من وكالة حكومية؟",
+        "infoIsCorrect": "هل تقسم أن معلوماتك صحيحة؟",
+        "whyContribute": "لماذا تود المساهمة في الموسوعة؟",
+        "agreeToTerms": "هل توافق على الشروط والأحكام؟",
+        "amountToDonate": "المبلغ للتبرع بالدولار الأمريكي",
+        "paymentNote": "ملاحظة الدفع"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "بريدك الإلكتروني",
+        "password": "كلمة المرور الخاصة بك",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "firstName": "اسمك الأول، والأسماء الأخرى",
+        "familyName": "اسم العائلة أو اللقب",
+        "nationalId": "هويتك في بلد الإقامة",
+        "whyContribute": "لماذا تريد المساهمة في الموسوعة؟ نحن فقط فضوليون.",
+        "amountToDonate": "مبلغ الدفع",
+        "paymentNote": "ملاحظتك حول الدفع"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " عدد أحرف كحد أدنى",
+        "line2": "حرف كبير واحد على الأقل",
+        "line3": "حرف صغير واحد على الأقل",
+        "line4": "رقم واحد على الأقل",
+        "line5": "رمز خاص واحد على الأقل",
+        "passwordsMatch": "✓ كلمتا المرور متطابقتان",
+        "passwordsDoNotMatch": "✗ كلمتا المرور غير متطابقتين",
+        "hidePasswords": "إخفاء كلمات المرور",
+        "showPasswords": "إظهار كلمات المرور"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "معلومات تسجيل الدخول",
+        "login": "تسجيل الدخول"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "حفظ",
+        "edit": "تعديل",
+        "cancel": "إلغاء",
+        "requestToDelete": "طلب الحذف",
+        "back": "رجوع",
+        "review": "مراجعة",
+        "next": "التالي",
+        "submit": "إرسال",
+        "yesIConfirm": "نعم، أؤكد",
+        "normalView": "العرض العادي",
+        "councilMemberView": "عرض عضو المجلس"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "أنت على وشك إرسال هذا العنوان ",
+        "forDeletion": " للحذف",
+        "reasonLabel": "سبب اتخاذ هذا القرار.",
+        "reasonPlaceholder": "السبب وراء اتخاذ هذا القرار"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "الملخص"
     }
 }

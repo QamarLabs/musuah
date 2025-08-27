@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "Mirësevini",
+    "recentWikiPageRequests": "Kërkesat e fundit për faqet Wiki",
+    "deniedWikiPageRequests": "Kërkesat e refuzuara për faqet Wiki",
+    "approvedWikiPageRequests": "Kërkesat e aprovuara për faqet Wiki",
+    "deleteWikiPageRequests": "Kërkesat e fundit për fshirjen e faqeve Wiki",
+    "deleteWikiPageRequestsApproved": "Kërkesat e aprovuara për fshirjen e faqeve Wiki",
+    "deleteWikiPageRequestsDenied": "Kërkesat e refuzuara për fshirjen e faqeve Wiki",
+    "deleteWikiBookRequests": "Kërkesat e fundit për fshirjen e librave Wiki",
+    "deleteWikiBookRequestsApproved": "Kërkesat e aprovuara për fshirjen e librave Wiki",
+    "deleteWikiBookRequestsDenied": "Kërkesat e refuzuara për fshirjen e librave Wiki",
+    "wikiPageRequestsToApproveOrDeny": "Kërkesat për faqet Wiki që janë në pritje",
+    "deleteWikiPageRequestsToApproveOrDeny": "Kërkesat për fshirjen e faqeve Wiki që janë në pritje",
+    "deleteWikiBookRequestsToApproveOrDeny": "Kërkesat për fshirjen e librave Wiki që janë në pritje"
 }

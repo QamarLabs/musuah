@@ -25,8 +25,12 @@ export default class CommonStore {
     language: "ar" | "al" | "ba" | "cn" | "de" | "en" | "es" | "fa" | "fr" | "hi" | "jp" | "ru" | "tr" | "ur"  = "en";
     ipAddress: string | undefined = undefined;
     paymentCustomerId: string | undefined = undefined;
+    paymentCustomerSessionSecret: string | undefined = undefined;
     setPaymentCustomerId = (val: string | undefined) => {
         this.paymentCustomerId = val;
+    }
+    setPaymentCustomerSessionSecret = (val: string | undefined) => {
+        this.paymentCustomerSessionSecret = val;
     }
     paymentClientSecret: string | undefined = undefined;
     setPaymentClientSecret = (val: string | undefined) => {

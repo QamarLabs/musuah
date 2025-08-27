@@ -1,24 +1,78 @@
 {
-    "welcome": "Bienvenido a MuslimWiki",
-    "searchPlaceholder": "Echa un vistazo...",
-    "links": {
-        "es": "Español",
-        "en": "Inglés",
-        "ar": "Árabe",
-        "ba": "Bosnio",
-        "tr": "Turco",
-        "al": "Albanés",
-        "fr": "Francés",
-        "ur": "Urdu",
-        "fa": "Persa",
-        "cn": "Chino",
-        "ru": "Ruso",
-        "de": "Alemán",
-        "jp": "Japonés",
-        "hi": "Hindi"
-    },
-    "buttons": {
-        "submit": "Enviar",
-        "cancel": "Cancelar"
-    }
+  "welcome": "Bienvenido a MuslimWiki",
+  "welcomePrefix": "Bienvenido ",
+  "noResults": "Sin resultados",
+  "searchPlaceholder": "Echa un vistazo...",
+  "searchNavbarPlaceholder": "Buscar musūʿah...",
+  "donate": "Donar",
+  "createAccount": "Crear cuenta",
+  "login": "Iniciar sesión",
+  "logout": "Cerrar sesión",
+  "privacyPolicy": "Política de privacidad",
+  "mainLinks": {
+    "yourAccount": "Tu cuenta",
+    "collaborate": "Colaborar",
+    "useAI": "Usar IA",
+    "booksAndStudiesPart1": "Libros",
+    "booksAndStudiesPart2": "Y estudios"
+  },
+  "links": {
+    "es": "Español",
+    "en": "Inglés",
+    "ar": "Árabe",
+    "ba": "Bosnio",
+    "tr": "Turco",
+    "al": "Albanés",
+    "fr": "Francés",
+    "ur": "Urdu",
+    "fa": "Farsi",
+    "cn": "Chino",
+    "ru": "Ruso",
+    "de": "Alemán",
+    "jp": "Japonés",
+    "hi": "Hindi"
+  },
+  "buttons": {
+    "submit": "Enviar",
+    "cancel": "Cancelar"
+  },
+  "leftSideNav": {
+    "contribute": "Contribuir",
+    "mainPage": "Página principal",
+    "navigation": "Navegación",
+    "help": "Ayuda"
+  },
+  "rightSideNav": {
+    "languages": "Idiomas",
+    "tools": "Herramientas"
+  },
+  "alerts": {
+    "pendingDeleteRequestTitle": "Tiene una solicitud de eliminación pendiente",
+    "pendingDeleteRequestDesc": "Ya envió una solicitud de eliminación para esta página wiki",
+    "pendingDeleteRequestWikibookDesc": "Ya envió una solicitud de eliminación para este wikilibro",
+    "pendingChangeRequestTitle": "Tiene una solicitud de cambio pendiente",
+    "pendingChangeRequestDesc": "Ya envió una solicitud de cambio para esta página wiki"
+  },
+  "searchResultsFor": "Resultados de búsqueda para ",
+  "searchBooksAndStudiesFromHere": "Busca libros y estudios desde aquí.",
+  "searchPagesFromHere": "Busca páginas desde aquí.",
+  "publicationYear": "Año de publicación:",
+  "publicationDate": "Fecha de publicación:",
+  "title": "Título:",
+  "primaryTopic": "Tema principal:",
+  "concepts": "Conceptos:",
+  "authors": "Autores:",
+  "nameOfInstitution": "Nombre de la institución",
+  "countryCode": "Código del país",
+  "noAuthorWithInstitution": "El autor no estaba asociado a una institución al publicar este libro",
+  "name": "Nombre",
+  "orgName": "Nombre de la organización",
+  "sourceUrl": "URL de origen",
+  "whereYouCanFindThis": "Dónde puedes encontrar esto:",
+  "author": "Autor:",
+  "donateModal": {
+    "title": "Dona para continuar este proyecto",
+    "successLine1": "Donación recibida",
+    "successLine2": "Gracias por tu contribución"
+  }
 }

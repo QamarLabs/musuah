@@ -1,24 +1,78 @@
 {
-  "welcome": "Добро пожаловать в MuslimWiki",
-  "searchPlaceholder": "Посмотрите...",
-  "links": {
-    "es": "Испанский",
-    "en": "Английский",
-    "ar": "Арабский",
-    "ba": "Боснийский",
-    "tr": "Турецкий",
-    "al": "Албанский",
-    "fr": "Французский",
-    "ur": "Урду",
-    "fa": "Персидский",
-    "cn": "Китайский",
-    "ru": "Русский",
-    "de": "Немецкий",
-    "jp": "Японский",
-    "hi": "Хинди"
-  },
-  "buttons": {
-    "submit": "Отправить",
-    "cancel": "Отмена"
-  }
+    "welcome": "Добро пожаловать в MuslimWiki",
+    "welcomePrefix": "Добро пожаловать ",
+    "noResults": "Нет результатов",
+    "searchPlaceholder": "Посмотрите...",
+    "searchNavbarPlaceholder": "Поиск мусу’а...",
+    "donate": "Пожертвовать",
+    "createAccount": "Создать аккаунт",
+    "login": "Войти",
+    "logout": "Выйти",
+    "privacyPolicy": "Политика конфиденциальности",
+    "mainLinks": {
+        "yourAccount": "Ваш аккаунт",
+        "collaborate": "Сотрудничать",
+        "useAI": "Использовать ИИ",
+        "booksAndStudiesPart1": "Книги",
+        "booksAndStudiesPart2": "И исследования"
+    },
+    "links": {
+        "es": "Испанский",
+        "en": "Английский",
+        "ar": "Арабский",
+        "ba": "Боснийский",
+        "tr": "Турецкий",
+        "al": "Албанский",
+        "fr": "Французский",
+        "ur": "Урду",
+        "fa": "Фарси",
+        "cn": "Китайский",
+        "ru": "Русский",
+        "de": "Немецкий",
+        "jp": "Японский",
+        "hi": "Хинди"
+    },
+    "buttons": {
+        "submit": "Отправить",
+        "cancel": "Отмена"
+    },
+    "leftSideNav": {
+        "contribute": "Внести вклад",
+        "mainPage": "Главная страница",
+        "navigation": "Навигация",
+        "help": "Помощь"
+    },
+    "rightSideNav": {
+        "languages": "Языки",
+        "tools": "Инструменты"
+    },
+    "alerts": {
+        "pendingDeleteRequestTitle": "Есть ожидающий запрос на удаление",
+        "pendingDeleteRequestDesc": "Вы уже отправили запрос на удаление этой страницы вики",
+        "pendingDeleteRequestWikibookDesc": "Вы уже отправили запрос на удаление этой википедии",
+        "pendingChangeRequestTitle": "Есть ожидающий запрос на изменение",
+        "pendingChangeRequestDesc": "Вы уже отправили запрос на изменение этой страницы вики"
+    },
+    "searchResultsFor": "Результаты поиска для ",
+    "searchBooksAndStudiesFromHere": "Ищите книги и исследования здесь.",
+    "searchPagesFromHere": "Ищите страницы здесь.",
+    "publicationYear": "Год публикации:",
+    "publicationDate": "Дата публикации:",
+    "title": "Название:",
+    "primaryTopic": "Основная тема:",
+    "concepts": "Концепции:",
+    "authors": "Авторы:",
+    "nameOfInstitution": "Название учреждения",
+    "countryCode": "Код страны",
+    "noAuthorWithInstitution":"Автор не связан с учреждением при публикации этой книги",
+    "name": "Имя",
+    "orgName": "Название организации",
+    "sourceUrl": "URL источника",
+    "whereYouCanFindThis": "Где вы можете это найти:",
+    "author": "Автор:",
+    "donateModal": {
+        "title": "Пожертвуйте для продолжения этого проекта",
+        "successLine1": "Пожертвование получено",
+        "successLine2": "Спасибо за ваш вклад"
+    }
 }

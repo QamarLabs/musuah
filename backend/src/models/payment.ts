@@ -1,5 +1,4 @@
 
-
 export interface SetupCustomerPaymentInfo {
     ipAddress: string; 
     email?: string;
@@ -8,11 +7,13 @@ export interface SetupCustomerPaymentInfo {
 
 export interface SubmitCustomerPaymentInfo {
     setupPaymentId: string;
+    paymentMethodId: any;
     ipAddress: string; 
     amount: number;
     paymentMessage: string;
     email?: string;
     customerId?: string;
+    customerSessionSecret?: string;
 }
 
 export interface PaymentSession {

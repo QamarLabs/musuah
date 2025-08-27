@@ -1,3 +1,5 @@
+import { PaymentMethod } from "@stripe/stripe-js";
+
 export interface SetupCustomerPaymentInfo {
     ipAddress: string; 
     email?: string;
@@ -6,11 +8,13 @@ export interface SetupCustomerPaymentInfo {
 
 export interface SubmitCustomerPaymentInfo {
     setupPaymentId: string;
+    paymentMethodId: string | PaymentMethod | undefined;
     ipAddress: string; 
     amount: number;
     paymentMessage: string;
     email?: string;
     customerId?: string;
+    customerSessionSecret?: string;
 }
 
 export interface PaymentSession {

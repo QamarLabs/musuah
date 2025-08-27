@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "Colaborar",
+    "registerToCollaborate": "¡Regístrate para colaborar con nosotros! 😊",
+    "pleaseCheckYourEmailAt": "Por favor revisa tu correo electrónico en ",
+    "forAVerificationEmail": " para un correo de verificación.",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "Información Personal",
+        "fieldOfFocus": "Área de Enfoque",
+        "otherInfo": "Otra Información"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "¿Te gustaría ser colaborador?",
+    "joinUs": "Únete a nosotros",
     "inputLabels": {
-        "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "email": "Correo Electrónico",
+        "password": "Contraseña",
+        "profilePicture": "Sube tu foto de perfil",
+        "firstName": "Nombre",
+        "familyName": "Apellido",
+        "countryOfOrigin": "País de Origen",
+        "nationalId": "Identificación Nacional",
+        "nationalIdPicture": "Sube tu identificación nacional",
+        "fieldOfFocus": "Área de Enfoque",
+        "wasInGovernmentAgency": "¿Has sido parte de una agencia gubernamental?",
+        "infoIsCorrect": "¿Juras que tu información es correcta?",
+        "whyContribute": "¿Por qué te gustaría contribuir a mūsūʿah?",
+        "agreeToTerms": "¿Aceptas los términos y condiciones?",
+        "amountToDonate": "Monto a donar en USD",
+        "paymentNote": "Nota de pago"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "Tu correo electrónico",
+        "password": "Tu contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "firstName": "Tu nombre y otros nombres",
+        "familyName": "Apellido o nombre de familia",
+        "nationalId": "Tu identificación para tu país de residencia",
+        "whyContribute": "¿Por qué quieres contribuir a mūsūʿah? Solo tenemos curiosidad.",
+        "amountToDonate": "Monto del pago",
+        "paymentNote": "Tu nota de pago"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " caracteres como mínimo",
+        "line2": "Al menos una letra mayúscula",
+        "line3": "Al menos una letra minúscula",
+        "line4": "Al menos un número",
+        "line5": "Al menos un carácter especial",
+        "passwordsMatch": "✓ Las contraseñas coinciden",
+        "passwordsDoNotMatch": "✗ Las contraseñas no coinciden",
+        "hidePasswords": "Ocultar contraseñas",
+        "showPasswords": "Mostrar contraseñas"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "Información de Inicio de Sesión",
+        "login": "Iniciar Sesión"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "Guardar",
+        "edit": "Editar",
+        "cancel": "Cancelar",
+        "requestToDelete": "Solicitar Eliminación",
+        "back": "Atrás",
+        "review": "Revisar",
+        "next": "Siguiente",
+        "submit": "Enviar",
+        "yesIConfirm": "Sí, Confirmo",
+        "normalView": "Vista Normal",
+        "councilMemberView": "Vista de Miembro del Consejo"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "Estás a punto de enviar este título ",
+        "forDeletion": " para su eliminación",
+        "reasonLabel": "Razón para tomar esta decisión.",
+        "reasonPlaceholder": "Motivo para tomar esta decisión"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "Resumen"
     }
 }

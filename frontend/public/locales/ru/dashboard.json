@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "Добро пожаловать",
+    "recentWikiPageRequests": "Недавние запросы на страницы Wiki",
+    "deniedWikiPageRequests": "Отклоненные запросы на страницы Wiki",
+    "approvedWikiPageRequests": "Одобренные запросы на страницы Wiki",
+    "deleteWikiPageRequests": "Недавние запросы на удаление страниц Wiki",
+    "deleteWikiPageRequestsApproved": "Одобренные запросы на удаление страниц Wiki",
+    "deleteWikiPageRequestsDenied": "Отклоненные запросы на удаление страниц Wiki",
+    "deleteWikiBookRequests": "Недавние запросы на удаление книг Wiki",
+    "deleteWikiBookRequestsApproved": "Одобренные запросы на удаление книг Wiki",
+    "deleteWikiBookRequestsDenied": "Отклоненные запросы на удаление книг Wiki",
+    "wikiPageRequestsToApproveOrDeny": "Запросы на страницы Wiki, ожидающие рассмотрения",
+    "deleteWikiPageRequestsToApproveOrDeny": "Запросы на удаление страниц Wiki, ожидающие рассмотрения",
+    "deleteWikiBookRequestsToApproveOrDeny": "Запросы на удаление книг Wiki, ожидающие рассмотрения"
 }

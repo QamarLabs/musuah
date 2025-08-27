@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "ようこそ",
+    "recentWikiPageRequests": "最近のWikiページリクエスト",
+    "deniedWikiPageRequests": "拒否されたWikiページリクエスト",
+    "approvedWikiPageRequests": "承認されたWikiページリクエスト",
+    "deleteWikiPageRequests": "最近削除されたWikiページリクエスト",
+    "deleteWikiPageRequestsApproved": "承認された削除Wikiページリクエスト",
+    "deleteWikiPageRequestsDenied": "拒否された削除Wikiページリクエスト",
+    "deleteWikiBookRequests": "最近削除されたWikiブックリクエスト",
+    "deleteWikiBookRequestsApproved": "承認された削除Wikiブックリクエスト",
+    "deleteWikiBookRequestsDenied": "拒否された削除Wikiブックリクエスト",
+    "wikiPageRequestsToApproveOrDeny": "保留中のWikiページリクエスト",
+    "deleteWikiPageRequestsToApproveOrDeny": "保留中の削除Wikiページリクエスト",
+    "deleteWikiBookRequestsToApproveOrDeny": "保留中の削除Wikiブックリクエスト"
 }

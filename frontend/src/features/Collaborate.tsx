@@ -147,9 +147,10 @@ function Collaborate() {
 
   return (
     <CommonWikiPageTextContainer 
+      align="center"
       justify='start'
       pb={{ base: '30vh', md: '20vh' }}
-      style={{ minHeight: "100vh", textAlign: 'left', minWidth: '60vw', maxWidth: '60vw' }}
+      style={{ minHeight: "100vh", textAlign: 'center', minWidth: '60vw', maxWidth: '60vw' }}
     >
       <VStack>
         <h3 className='w-100 mw-text mw-subheader my-1' >
@@ -172,145 +173,147 @@ function Collaborate() {
             )
             : (
                 <Box p='0'>
-                  <CommonWikiPageGridBox width={{ base: '100%', xl: '40rem' }}>
+                  <CommonWikiPageGridBox width={{ base: '100%', xl: '40rem', '2xl': '50rem' }}>
+                    <VStack align='center'>
 
-                    <Formik<RegistrationForm>
-                      initialValues={{
-                        ...DEFAULT_REGISTER_FORM,
-                        email: 'devmtnali@gmail.com',
-                        password: "P@ssw0rd11",
-                        confirmPassword: "P@ssw0rd11",
-                        firstName: "Ali",
-                        familyName: "Alhaddad",
-                        // email: registrationValues.email ?? "",
-                        // password: registrationValues.password ?? "",
-                        // confirmPassword: registrationValues.confirmPassword ?? "",
-                        // firstName: registrationValues.firstName ?? "",
-                        // familyName: registrationValues.familyName ?? "",
-                        profilePicture: registrationValues.profilePicture ?? '',
-                        fieldOfFocus: registrationValues.fieldOfFocus ?? [],
-                        countryOfOrigin: registrationValues.countryOfOrigin ?? undefined,
-                      }}
-                      validationSchema={validationSchema}
-                      onSubmit={handleOnSubmit}
-                      validateOnBlur={false}
-                    >
-                      {({
-                        isSubmitting,
-                        errors,
-                        values,
-                        handleSubmit
-                      }) => (
-                        <Form className='mw-form' onSubmit={handleSubmit}>
-                          {showLoginInfo && (
-                            <LoginInfo />
-                          )}
-                          {showPersonalInfo && (
-                            <PersonalInfo />
-                          )}
-                          {showOtherInfo && (
-                            <OtherInfo />
-                          )}
-                          {showReviewForm && (
-                            <Review
-                              sections={[
-                                {
-                                  id: 'personal-info',
-                                  title: t("sectionTitles.personalInfo"),
-                                  jsx: <ReviewPersonalInfo />
-                                },
-                                {
-                                  id: 'field-of-focus',
-                                  title: t("sectionTitles.fieldOfFocus"),
-                                  jsx: <ReviewFieldOfFocus />
-                                },
-                                {
-                                  id: 'other-info',
-                                  title: t("sectionTitles.otherInfo"),
-                                  jsx: <ReviewOtherInfo />
-                                }
-                              ]}
-                            />
-                          )}
-
-                          <HStack
-                            onClick={(e) => e.stopPropagation()}
-                            justifyContent={!showBackButton ? "end" : "space-between"} alignItems="center" mt={{ base: '4rem', md: '3rem', lg: 2 }} w="full">
-                            {showBackButton && (
-                              <Button
-                                onClick={() => setRegistrationStep(registrationStep <= 0 ? 0 : registrationStep - 1)}
-                                rounded='full'
-                                style={{ right: 0 }}
-                                px={{ base: 2, md: 5 }}
-                                type="button"
-                                bg="green.800"
-                                className='mw-text'
-                              >
-                                <LuArrowLeft />
-                                {t("buttons.back")}
-                              </Button>
+                      <Formik<RegistrationForm>
+                        initialValues={{
+                          ...DEFAULT_REGISTER_FORM,
+                          email: 'devmtnali@gmail.com',
+                          password: "P@ssw0rd11",
+                          confirmPassword: "P@ssw0rd11",
+                          firstName: "Ali",
+                          familyName: "Alhaddad",
+                          // email: registrationValues.email ?? "",
+                          // password: registrationValues.password ?? "",
+                          // confirmPassword: registrationValues.confirmPassword ?? "",
+                          // firstName: registrationValues.firstName ?? "",
+                          // familyName: registrationValues.familyName ?? "",
+                          profilePicture: registrationValues.profilePicture ?? '',
+                          fieldOfFocus: registrationValues.fieldOfFocus ?? [],
+                          countryOfOrigin: registrationValues.countryOfOrigin ?? undefined,
+                        }}
+                        validationSchema={validationSchema}
+                        onSubmit={handleOnSubmit}
+                        validateOnBlur={false}
+                      >
+                        {({
+                          isSubmitting,
+                          errors,
+                          values,
+                          handleSubmit
+                        }) => (
+                          <Form className='mw-form' onSubmit={handleSubmit}>
+                            {showLoginInfo && (
+                              <LoginInfo />
                             )}
-
+                            {showPersonalInfo && (
+                              <PersonalInfo />
+                            )}
                             {showOtherInfo && (
-                              <Button
-                                type="button"
-                                onClick={updateRegistrationForm(registrationStep + 1, values)}
-                                disabled={Object.values(errors).some(v => !!v)}
-                                rounded="full"
-                                px={{ base: 2, md: 5 }}
-                                py={2}
-                                color="white"
-                                bg="green.800"
-                                _disabled={{
-                                  opacity: 0.4
-                                }}
-                                className='mw-text'
-                              >
-                                {t("buttons.review")}
-                              </Button>
-                            )} 
-                            {!showOtherInfo && !showReviewForm && (
-                              <Button
-                                type="button"
-                                onClick={updateRegistrationForm(registrationStep + 1, values)}
-                                disabled={Object.values(errors).some(v => !!v)}
-                                rounded="full"
-                                px={{ base: 2, md: 5 }}
-                                py={2}
-                                color="white"
-                                bg="green.800"
-                                _disabled={{
-                                  opacity: 0.4
-                                }}
-                                className='mw-text'
-                              >
-                                {t("buttons.next")}
-                                <LuArrowRight />
-                              </Button>
+                              <OtherInfo />
                             )}
-                            <Button
-                              type='submit'
-                              disabled={Object.values(errors).some(v => !!v) || isSubmitting}
-                              rounded="full"
-                              px={{ base: 2, md: 5 }}
-                              py={2}
-                              fontWeight="bold"
-                              color="white"
-                              _disabled={{
-                                opacity: 0.4
-                              }}
-                              bg="green.800"
-                              loading={isSubmitting}
-                              textDecoration="underline"
-                              className='mw-text'
-                              display={(showReviewForm ? 'initial' : 'none')}
-                            >
-                              {t("buttons.submit")}
-                            </Button>
-                          </HStack>
-                        </Form>
-                      )}
-                    </Formik>
+                            {showReviewForm && (
+                              <Review
+                                sections={[
+                                  {
+                                    id: 'personal-info',
+                                    title: t("sectionTitles.personalInfo"),
+                                    jsx: <ReviewPersonalInfo />
+                                  },
+                                  {
+                                    id: 'field-of-focus',
+                                    title: t("sectionTitles.fieldOfFocus"),
+                                    jsx: <ReviewFieldOfFocus />
+                                  },
+                                  {
+                                    id: 'other-info',
+                                    title: t("sectionTitles.otherInfo"),
+                                    jsx: <ReviewOtherInfo />
+                                  }
+                                ]}
+                              />
+                            )}
+
+                            <HStack
+                              onClick={(e) => e.stopPropagation()}
+                              justifyContent={!showBackButton ? "end" : "space-between"} alignItems="center" mt={{ base: '4rem', md: '3rem', lg: 2 }} w="full">
+                              {showBackButton && (
+                                <Button
+                                  onClick={() => setRegistrationStep(registrationStep <= 0 ? 0 : registrationStep - 1)}
+                                  rounded='full'
+                                  style={{ right: 0 }}
+                                  px={{ base: 2, md: 5 }}
+                                  type="button"
+                                  bg="green.800"
+                                  className='mw-text'
+                                >
+                                  <LuArrowLeft />
+                                  {t("buttons.back")}
+                                </Button>
+                              )}
+
+                              {showOtherInfo && (
+                                <Button
+                                  type="button"
+                                  onClick={updateRegistrationForm(registrationStep + 1, values)}
+                                  disabled={Object.values(errors).some(v => !!v)}
+                                  rounded="full"
+                                  px={{ base: 2, md: 5 }}
+                                  py={2}
+                                  color="white"
+                                  bg="green.800"
+                                  _disabled={{
+                                    opacity: 0.4
+                                  }}
+                                  className='mw-text'
+                                >
+                                  {t("buttons.review")}
+                                </Button>
+                              )} 
+                              {!showOtherInfo && !showReviewForm && (
+                                <Button
+                                  type="button"
+                                  onClick={updateRegistrationForm(registrationStep + 1, values)}
+                                  disabled={Object.values(errors).some(v => !!v)}
+                                  rounded="full"
+                                  px={{ base: 2, md: 5 }}
+                                  py={2}
+                                  color="white"
+                                  bg="green.800"
+                                  _disabled={{
+                                    opacity: 0.4
+                                  }}
+                                  className='mw-text'
+                                >
+                                  {t("buttons.next")}
+                                  <LuArrowRight />
+                                </Button>
+                              )}
+                              <Button
+                                type='submit'
+                                disabled={Object.values(errors).some(v => !!v) || isSubmitting}
+                                rounded="full"
+                                px={{ base: 2, md: 5 }}
+                                py={2}
+                                fontWeight="bold"
+                                color="white"
+                                _disabled={{
+                                  opacity: 0.4
+                                }}
+                                bg="green.800"
+                                loading={isSubmitting}
+                                textDecoration="underline"
+                                className='mw-text'
+                                display={(showReviewForm ? 'initial' : 'none')}
+                              >
+                                {t("buttons.submit")}
+                              </Button>
+                            </HStack>
+                          </Form>
+                        )}
+                      </Formik>
+                    </VStack>
                   </CommonWikiPageGridBox>
                 </Box>
             )

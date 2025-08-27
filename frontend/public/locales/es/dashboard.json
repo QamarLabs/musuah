@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "Bienvenido",
+    "recentWikiPageRequests": "Solicitudes recientes de páginas Wiki",
+    "deniedWikiPageRequests": "Solicitudes de páginas Wiki denegadas",
+    "approvedWikiPageRequests": "Solicitudes de páginas Wiki aprobadas",
+    "deleteWikiPageRequests": "Solicitudes recientes de eliminación de páginas Wiki",
+    "deleteWikiPageRequestsApproved": "Solicitudes de eliminación de páginas Wiki aprobadas",
+    "deleteWikiPageRequestsDenied": "Solicitudes de eliminación de páginas Wiki denegadas",
+    "deleteWikiBookRequests": "Solicitudes recientes de eliminación de libros Wiki",
+    "deleteWikiBookRequestsApproved": "Solicitudes de eliminación de libros Wiki aprobadas",
+    "deleteWikiBookRequestsDenied": "Solicitudes de eliminación de libros Wiki denegadas",
+    "wikiPageRequestsToApproveOrDeny": "Solicitudes de páginas Wiki pendientes",
+    "deleteWikiPageRequestsToApproveOrDeny": "Solicitudes de eliminación de páginas Wiki pendientes",
+    "deleteWikiBookRequestsToApproveOrDeny": "Solicitudes de eliminación de libros Wiki pendientes"
 }

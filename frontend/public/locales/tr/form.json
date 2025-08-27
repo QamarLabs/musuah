@@ -1,76 +1,78 @@
 {
-    "collaborate": "Collaborate",
-    "registerToCollaborate": "Register to Collaborate with Us! 😊",
-    "pleaseCheckYourEmailAt": "Please check your email at ",
-    "forAVerificationEmail": " for a verification email.",
+    "collaborate": "İşbirliği",
+    "registerToCollaborate": "Bizimle işbirliği yapmak için kaydolun! 😊",
+    "pleaseCheckYourEmailAt": "Lütfen e-postanızı kontrol edin ",
+    "forAVerificationEmail": " doğrulama e-postası için.",
     "sectionTitles": {
-        "personalInfo": "Personal Info",
-        "fieldOfFocus": "Field of Focus",
-        "otherInfo": "Other Info"
+        "personalInfo": "Kişisel Bilgiler",
+        "fieldOfFocus": "Odak Alanı",
+        "otherInfo": "Diğer Bilgiler"
     },
-    "wouldLikeToBeContributor": "Would like to be a contributer?",
-    "joinUs": "Join us",
+    "wouldLikeToBeContributor": "Katkıda bulunmak ister misiniz?",
+    "joinUs": "Bize katılın",
     "inputLabels": {
-        "email": "Email",
-        "password": "Password",
-        "profilePicture": "Upload your profile picture",
-        "firstName": "First Name",
-        "familyName": "Family Name",
-        "countryOfOrigin": "Country of Origin",
-        "nationalId": "National ID",
-        "nationalIdPicture":  "Upload your national Id",
-        "fieldOfFocus": "Field Of Focus",
-        "wasInGovernmentAgency": "Have you been part of a government agency?",
-        "infoIsCorrect": "Do you swear your info is correct?",
-        "whyContribute": "Why would you like to contribute to mūsūʿah?",
-        "agreeToTerms": "Do you agree to the terms and conditions",
-        "amountToDonate": "Amount to Donate in USD",
-        "paymentNote": "Payment Note"
+        "email": "E-posta",
+        "password": "Şifre",
+        "profilePicture": "Profil resminizi yükleyin",
+        "firstName": "Ad",
+        "familyName": "Soyad",
+        "countryOfOrigin": "Doğum Ülkesi",
+        "nationalId": "Kimlik No",
+        "nationalIdPicture": "Kimlik yükleyin",
+        "fieldOfFocus": "Odak Alanı",
+        "wasInGovernmentAgency": "Daha önce bir devlet kurumunda bulundunuz mu?",
+        "infoIsCorrect": "Bilgileriniz doğru mu?",
+        "whyContribute": "Neden mūsūʿah’a katkıda bulunmak istiyorsunuz?",
+        "agreeToTerms": "Şartlar ve koşulları kabul ediyor musunuz?",
+        "amountToDonate": "Bağış Miktarı (USD)",
+        "paymentNote": "Ödeme Notu"
     },
     "inputPlaceholders": {
-        "email": "Your Email",
-        "password": "Your Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "Your First Name, and other names",
-        "familyName": "Family Name or Last Name",
-        "nationalId": "Your id for your country of residence",
-        "whyContribute": "Why do you want to contribute to mūsūʿah, we are just curious.",
-        "amountToDonate": "Payment Amount",
-        "paymentNote": "Your Payment Note"
+        "email": "E-postanız",
+        "password": "Şifreniz",
+        "confirmPassword": "Şifreyi Onaylayın",
+        "firstName": "Adınız ve diğer isimler",
+        "familyName": "Soyadınız",
+        "nationalId": "İkamet ettiğiniz ülkenin kimlik numaranız",
+        "whyContribute": "Neden mūsūʿah’a katkıda bulunmak istiyorsunuz? Sadece merak ediyoruz.",
+        "amountToDonate": "Ödeme Miktarı",
+        "paymentNote": "Ödeme Notunuz"
     },
     "passwordRequirements": {
-        "line1": " characters minimum",
-        "line2": "At least one uppercase letter",
-        "line3": "At least one lowercase letter",
-        "line4": "At least one number",
-        "line5": "At least one special character",
-        "passwordsMatch": "✓ Passwords match",
-        "passwordsDoNotMatch": "✗ Passwords do not match",
-        "hidePasswords": "Hide Passwords",
-        "showPasswords": "Show Passwords"
+        "line1": " karakter minimum",
+        "line2": "En az bir büyük harf",
+        "line3": "En az bir küçük harf",
+        "line4": "En az bir sayı",
+        "line5": "En az bir özel karakter",
+        "passwordsMatch": "✓ Şifreler eşleşiyor",
+        "passwordsDoNotMatch": "✗ Şifreler eşleşmiyor",
+        "hidePasswords": "Şifreleri Gizle",
+        "showPasswords": "Şifreleri Göster"
     },
     "sectionSubtitles": {
-        "loginInfo": "Login Info",
-        "login": "Login"
+        "loginInfo": "Giriş Bilgileri",
+        "login": "Giriş"
     },
     "buttons": {
-        "save": "Save",
-        "edit": "Edit",
-        "cancel": "Cancel",
-        "requestToDelete": "Request To Delete",
-        "back": "Back",
-        "review": "Review",
-        "next": "Next",
-        "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "save": "Kaydet",
+        "edit": "Düzenle",
+        "cancel": "İptal",
+        "requestToDelete": "Silme Talebi",
+        "back": "Geri",
+        "review": "İncele",
+        "next": "Sonraki",
+        "submit": "Gönder",
+        "yesIConfirm": "Evet, Onaylıyorum",
+        "normalView": "Normal Görünüm",
+        "councilMemberView": "Meclis Üyesi Görünümü"
     },
     "confirmation": {
-        "deleteTitle": "You are about to submit this title ",
-        "forDeletion": " for deletion",
-        "reasonLabel": "Reasoning to make this decision.",
-        "reasonPlaceholder": "Reason to make this decision"
+        "deleteTitle": "Bu başlığı göndermek üzeresiniz ",
+        "forDeletion": " silinmesi için",
+        "reasonLabel": "Bu kararı alma nedeni.",
+        "reasonPlaceholder": "Bu kararı alma nedeni"
     },
     "wikipages": {
-        "summary": "Summary"
+        "summary": "Özet"
     }
 }

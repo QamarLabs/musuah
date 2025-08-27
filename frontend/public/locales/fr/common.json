@@ -1,24 +1,78 @@
 {
-    "welcome": "Bienvenue sur MuslimWiki",
-    "searchPlaceholder": "Jetez un coup d'œil...",
-    "links": {
-        "es": "Espagnol",
-        "en": "Anglais",
-        "ar": "Arabe",
-        "ba": "Bosniaque",
-        "tr": "Turc",
-        "al": "Albanais",
-        "fr": "Français",
-        "ur": "Ourdou",
-        "fa": "Persan",
-        "cn": "Chinois",
-        "ru": "Russe",
-        "de": "Allemand",
-        "jp": "Japonais",
-        "hi": "Hindi"
-    },
-    "buttons": {
-        "submit": "Soumettre",
-        "cancel": "Annuler"
-    }
+  "welcome": "Bienvenue sur MuslimWiki",
+  "welcomePrefix": "Bienvenue ",
+  "noResults": "Aucun résultat",
+  "searchPlaceholder": "Jetez un coup d'œil...",
+  "searchNavbarPlaceholder": "Rechercher musūʿah...",
+  "donate": "Faire un don",
+  "createAccount": "Créer un compte",
+  "login": "Connexion",
+  "logout": "Déconnexion",
+  "privacyPolicy": "Politique de confidentialité",
+  "mainLinks": {
+    "yourAccount": "Votre compte",
+    "collaborate": "Collaborer",
+    "useAI": "Utiliser l'IA",
+    "booksAndStudiesPart1": "Livres",
+    "booksAndStudiesPart2": "Et études"
+  },
+  "links": {
+    "es": "Espagnol",
+    "en": "Anglais",
+    "ar": "Arabe",
+    "ba": "Bosniaque",
+    "tr": "Turc",
+    "al": "Albanais",
+    "fr": "Français",
+    "ur": "Ourdou",
+    "fa": "Persan",
+    "cn": "Chinois",
+    "ru": "Russe",
+    "de": "Allemand",
+    "jp": "Japonais",
+    "hi": "Hindi"
+  },
+  "buttons": {
+    "submit": "Soumettre",
+    "cancel": "Annuler"
+  },
+  "leftSideNav": {
+    "contribute": "Contribuer",
+    "mainPage": "Page principale",
+    "navigation": "Navigation",
+    "help": "Aide"
+  },
+  "rightSideNav": {
+    "languages": "Langues",
+    "tools": "Outils"
+  },
+  "alerts": {
+    "pendingDeleteRequestTitle": "A une demande de suppression en attente",
+    "pendingDeleteRequestDesc": "Vous avez déjà soumis une demande de suppression pour cette page wiki",
+    "pendingDeleteRequestWikibookDesc": "Vous avez déjà soumis une demande de suppression pour ce wikilivre",
+    "pendingChangeRequestTitle": "A une demande de modification en attente",
+    "pendingChangeRequestDesc": "Vous avez déjà soumis une demande de modification pour cette page wiki"
+  },
+  "searchResultsFor": "Résultats de recherche pour ",
+  "searchBooksAndStudiesFromHere": "Recherchez des livres et des études à partir d'ici.",
+  "searchPagesFromHere": "Recherchez des pages à partir d'ici.",
+  "publicationYear": "Année de publication:",
+  "publicationDate": "Date de publication:",
+  "title": "Titre:",
+  "primaryTopic": "Sujet principal:",
+  "concepts": "Concepts:",
+  "authors": "Auteurs:",
+  "nameOfInstitution": "Nom de l'institution",
+  "countryCode": "Code du pays",
+  "noAuthorWithInstitution": "Auteur non associé à une institution lors de la publication de ce livre",
+  "name": "Nom",
+  "orgName": "Nom de l'organisation",
+  "sourceUrl": "URL source",
+  "whereYouCanFindThis": "Où vous pouvez trouver ceci:",
+  "author": "Auteur:",
+  "donateModal": {
+    "title": "Faites un don pour continuer ce projet",
+    "successLine1": "Don reçu",
+    "successLine2": "Merci pour votre contribution"
+  }
 }

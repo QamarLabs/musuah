@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "مرحباً",
+    "recentWikiPageRequests": "طلبات صفحات الويكي الأخيرة",
+    "deniedWikiPageRequests": "طلبات صفحات الويكي المرفوضة",
+    "approvedWikiPageRequests": "طلبات صفحات الويكي المقبولة",
+    "deleteWikiPageRequests": "طلبات حذف صفحات الويكي الأخيرة",
+    "deleteWikiPageRequestsApproved": "طلبات حذف صفحات الويكي المقبولة",
+    "deleteWikiPageRequestsDenied": "طلبات حذف صفحات الويكي المرفوضة",
+    "deleteWikiBookRequests": "طلبات حذف كتب الويكي الأخيرة",
+    "deleteWikiBookRequestsApproved": "طلبات حذف كتب الويكي المقبولة",
+    "deleteWikiBookRequestsDenied": "طلبات حذف كتب الويكي المرفوضة",
+    "wikiPageRequestsToApproveOrDeny": "طلبات صفحات الويكي قيد المراجعة",
+    "deleteWikiPageRequestsToApproveOrDeny": "طلبات حذف صفحات الويكي قيد المراجعة",
+    "deleteWikiBookRequestsToApproveOrDeny": "طلبات حذف كتب الويكي قيد المراجعة"
 }

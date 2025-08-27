@@ -1,8 +1,15 @@
 {
-    "welcome": "Welcome ",
-    "currentWikiPageRequests": "Current Wiki Page Requests",
-    "deniedWikiPageRequests": "Denied Wiki Page Requests",
-    "approvedWikiPageRequests": "Approved Wiki Page Requests",
-    "deleteWikiPageRequests": "Delete Wiki Page Requests",
-    "deleteWikiBookRequests": "Delete Wiki Book Requests"
+    "welcome": "Dobrodošli",
+    "recentWikiPageRequests": "Nedavni zahtjevi za Wiki stranice",
+    "deniedWikiPageRequests": "Odbijeni zahtjevi za Wiki stranice",
+    "approvedWikiPageRequests": "Odobreni zahtjevi za Wiki stranice",
+    "deleteWikiPageRequests": "Nedavni zahtjevi za brisanje Wiki stranica",
+    "deleteWikiPageRequestsApproved": "Odobreni zahtjevi za brisanje Wiki stranica",
+    "deleteWikiPageRequestsDenied": "Odbijeni zahtjevi za brisanje Wiki stranica",
+    "deleteWikiBookRequests": "Nedavni zahtjevi za brisanje Wiki knjiga",
+    "deleteWikiBookRequestsApproved": "Odobreni zahtjevi za brisanje Wiki knjiga",
+    "deleteWikiBookRequestsDenied": "Odbijeni zahtjevi za brisanje Wiki knjiga",
+    "wikiPageRequestsToApproveOrDeny": "Zahtjevi za Wiki stranice na čekanju",
+    "deleteWikiPageRequestsToApproveOrDeny": "Zahtjevi za brisanje Wiki stranica na čekanju",
+    "deleteWikiBookRequestsToApproveOrDeny": "Zahtjevi za brisanje Wiki knjiga na čekanju"
 }

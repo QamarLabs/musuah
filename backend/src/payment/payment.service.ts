@@ -69,6 +69,9 @@ export class PaymentService {
     console.log("paymentInfo:", paymentInfo)
     try {
 
+      if(!paymentInfo.paymentMethodId)
+        throw new Error("Payment method required!!!");
+
       paymentIntent = await this.stripe.paymentIntents.create({
         amount: paymentInfo.amount,
         currency: 'usd',
@@ -77,9 +80,12 @@ export class PaymentService {
           message: paymentInfo.paymentMessage,
           ipAddress: paymentInfo.ipAddress,
         },
+        payment_method: paymentInfo.paymentMethodId,
         payment_method_configuration: process.env.STRIPE_PAYMENT_CONFIGURATION!,
         customer: customer?.id ?? paymentInfo.customerId!,
         confirmation_method: 'automatic',
+        off_session: true,
+        confirm: true,
         capture_method: 'manual'
       });
       
@@ -99,16 +105,14 @@ export class PaymentService {
   async capturePayment(
     capturePaymentRequest: CapturePaymentInfo
   ) {
-    let customer;
     let payment;
     const {
       paymentIntentClientSecret,
       paymentIntentId,
-      customerSessionId,
-      customerId
+      // customerSessionId,
+      // customerId
     } = capturePaymentRequest
     
-    console.log('capturePaymentRequest', capturePaymentRequest);
     try {
 
       // if(!customerId)
@@ -119,7 +123,6 @@ export class PaymentService {
 
       payment = await this.stripe.paymentIntents.retrieve(paymentIntentId!);
 
-      console.log('JSON stringified payment', JSON.stringify(payment));
       if (!payment)
         throw new Error("A valid payment is required when capturing a payment.")
 

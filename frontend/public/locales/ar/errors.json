@@ -1,10 +1,17 @@
 {
-    "welcome": "Mirësevini në aplikacionin tonë",
-    "buttons": {
-      "submit": "Dërgo",
-      "cancel": "Anulo"
-    },
-    "Invalid credentials": "Invalid login, please try again."
-
-  }
-  
+  "Invalid credentials": "بيانات تسجيل الدخول غير صحيحة، يرجى المحاولة مرة أخرى.",
+  "errorTitle": "عذرًا، هناك مشكلة",
+  "errorMessages": {
+    "login": "حدث خطأ أثناء تسجيل الدخول، يرجى المحاولة مرة أخرى",
+    "submittingDonation": "حدث خطأ أثناء إرسال التبرع، يرجى التواصل مع الدعم",
+    "captureDonation": "حدث خطأ عند تأكيد التبرع. يرجى التواصل مع الدعم"
+  },
+  "invalidEmail": "بريد إلكتروني غير صالح",
+  "emailRequired": "البريد الإلكتروني مطلوب",
+  "passwordAtLeast8Characters": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+  "passwordContainAtLeastOneUppercaseLetter": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+  "passwordContainAtLeastOneLowercaseLetter": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+  "passwordContainAtLeastOneNumber": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+  "passwordContainAtLeastOneSpecialCharacter": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+  "invalidDonationAmount": "يجب أن يكون المبلغ أكثر من 0.50 دولار أمريكي"
+}

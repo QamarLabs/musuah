@@ -32,38 +32,48 @@ export const DonationForm = observer(function ({
         donatePayment,
         ipAddress,
         paymentCustomerId,
+        paymentCustomerSessionSecret
     } = commonStore;
     const { userSession } = authStore;
     const stripe = useStripe();
     const elements = useElements();
 
+    
     async function donate(values: { amount: any, paymentNote: string }) {
-        try {
+        try {            
+            const confirmSetupResponse = await stripe?.confirmSetup({
+                elements: elements!,
+                redirect: 'if_required'
+            })
+
             const sessionResponse = await donatePayment({
-                setupPaymentId: setupPaymentId ?? "",
+                setupPaymentId: setupPaymentId?? "",
+                paymentMethodId: confirmSetupResponse?.setupIntent?.payment_method ?? undefined,
                 ipAddress: ipAddress ?? "No ip address provided.",
                 amount: parseFloat(values.amount) * 100,
                 paymentMessage: values.paymentNote,
                 email: userSession?.email ?? "",
-                customerId: paymentCustomerId
+                customerId: paymentCustomerId,
+                customerSessionSecret: paymentCustomerSessionSecret
             })
-            await stripe?.confirmSetup({ elements: elements!, redirect: 'if_required' });
 
             const paymentIntentRetrieved = await stripe?.retrievePaymentIntent(sessionResponse.clientSecret);
 
             setCapturePaymentConfig({
                 paymentIntentId: paymentIntentRetrieved?.paymentIntent?.id ?? '',
                 paymentIntentClientSecret: sessionResponse.clientSecret,
-                customerSessionId: sessionResponse.customerSessionClientSecret,
+                customerSessionId: paymentCustomerSessionSecret,
                 customerId: sessionResponse.customerId,
                 customerInfo: {}
             });
+
             setCurrentStep(1);
 
         } catch (error) {
             setCurrentStep(0);
         }
     }
+
     const validationSchema = Yup.object().shape({
         amount: Yup.number().min(0.50).required(t("invalidDonationAmount", { ns: "errors" })),
         paymentNote: Yup.string().notRequired(),

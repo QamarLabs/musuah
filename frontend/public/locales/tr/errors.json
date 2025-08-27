@@ -1,8 +1,17 @@
 {
-  "welcome": "Mirësevini në aplikacionin tonë",
-  "buttons": {
-    "submit": "Dërgo",
-    "cancel": "Anulo"
+  "Invalid credentials": "Geçersiz giriş, lütfen tekrar deneyin.",
+  "errorTitle": "Ah hayır, bir sorun var",
+  "errorMessages": {
+    "login": "Giriş yaparken hata oluştu, lütfen tekrar deneyin",
+    "submittingDonation": "Bağış gönderilirken hata oluştu, lütfen destek ile iletişime geçin",
+    "captureDonation": "Bağışınızı onaylarken bir şeyler yanlış gitti. Lütfen destek ile iletişime geçin"
   },
-  "Invalid credentials": "Invalid login, please try again."
+  "invalidEmail": "Geçersiz e-posta",
+  "emailRequired": "E-posta gereklidir",
+  "passwordAtLeast8Characters": "Şifre en az 8 karakter olmalıdır",
+  "passwordContainAtLeastOneUppercaseLetter": "Şifre en az bir büyük harf içermelidir",
+  "passwordContainAtLeastOneLowercaseLetter": "Şifre en az bir küçük harf içermelidir",
+  "passwordContainAtLeastOneNumber": "Şifre en az bir rakam içermelidir",
+  "passwordContainAtLeastOneSpecialCharacter": "Şifre en az bir özel karakter içermelidir",
+  "invalidDonationAmount": "Miktar 0,50 USD'den fazla olmalıdır"
 }
