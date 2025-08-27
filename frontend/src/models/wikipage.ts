@@ -60,6 +60,16 @@ export interface CreateDeleteWikiPageRequest {
   reasonToDelete: string;
 }
 
+export interface ApproveWikiPageRequest {
+  id: string;
+  reasonToApprove: string;
+}
+
+export interface DenyWikiPageRequest {
+  id: string;
+  reasonToDeny: string;
+}
+
 export interface ApproveDeleteWikiPageRequest {
   id: string;
   reasonToApproveDelete: string;

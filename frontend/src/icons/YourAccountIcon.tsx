@@ -2,7 +2,7 @@ import { Icon } from "@chakra-ui/react";
 
 export default function() {
     return (
-        <Icon p="0.5rem" h="5em" w="5em">
+        <Icon p="0.5rem" h={{ base: "5.25rem", md: "5em"}} w={{ base: "5.25rem", md: "5em"}}>
             <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100" height="100" fill="url(#pattern0_145_4)"/>
                 <defs>

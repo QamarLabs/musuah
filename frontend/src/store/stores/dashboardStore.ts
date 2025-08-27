@@ -24,8 +24,14 @@ export default class DashboardStore {
     pendingWikiPageRequestRegistry = new Map<string, WikiPageRequestRecord>();
     approveWikiPageRequestRegistry = new Map<string, WikiPageRequestRecord>();
     deniedWikiPageRequestRegistry = new Map<string, WikiPageRequestRecord>();
-    deleteWikiPageRequestRegistry = new Map<string, DeleteWikiPageRequestRecord>();
-    deleteWikiBookRequestRegistry = new Map<string, DeleteWikiBookRequest>();
+
+    recentDeleteWikiPageRequestRegistry = new Map<string, DeleteWikiPageRequestRecord>();
+    approvedDeleteWikiPageRequestRegistry = new Map<string, DeleteWikiPageRequestRecord>();
+    deniedDeleteWikiPageRequestRegistry = new Map<string, DeleteWikiPageRequestRecord>();
+    recentDeleteWikiBookRequestRegistry = new Map<string, DeleteWikiBookRequest>();
+    approvedDeleteWikiBookRequestRegistry = new Map<string, DeleteWikiBookRequest>();
+    deniedDeleteWikiBookRequestRegistry = new Map<string, DeleteWikiBookRequest>();
+
     recentActivityLogsRegistry = new Map<string, any>();
     setCurrentWikiPageRequest = (itm: WikiPageRequestRecord) => {
         this.currentWikiPageRequestRegistry.set(itm._id, itm);
@@ -39,12 +45,27 @@ export default class DashboardStore {
     setDeniedWikiPageRequest = (itm: WikiPageRequestRecord) => {
         this.deniedWikiPageRequestRegistry.set(itm._id, itm);
     }
-    setDeleteWikiPageRequest = (itm: DeleteWikiPageRequestRecord) => {
-        this.deleteWikiPageRequestRegistry.set(itm._id, itm);
+
+    setRecentDeleteWikiPageRequest = (itm: DeleteWikiPageRequestRecord) => {
+        this.recentDeleteWikiPageRequestRegistry.set(itm._id, itm);
     }
-    setDeleteWikiBookRequest = (itm: DeleteWikiBookRequest) => {
-        this.deleteWikiBookRequestRegistry.set(itm._id, itm);
+    setApprovedDeleteWikiPageRequest = (itm: DeleteWikiPageRequestRecord) => {
+        this.approvedDeleteWikiPageRequestRegistry.set(itm._id, itm);
     }
+    setDeniedDeleteWikiPageRequest = (itm: DeleteWikiPageRequestRecord) => {
+        this.deniedDeleteWikiPageRequestRegistry.set(itm._id, itm);
+    }
+
+    setRecentDeleteWikiBookRequest = (itm: DeleteWikiBookRequest) => {
+        this.recentDeleteWikiBookRequestRegistry.set(itm._id, itm);
+    }
+    setApproveDeleteWikiBookRequest = (itm: DeleteWikiBookRequest) => {
+        this.approvedDeleteWikiBookRequestRegistry.set(itm._id, itm);
+    }
+    setDeniedDeleteWikiBookRequest = (itm: DeleteWikiBookRequest) => {
+        this.deniedDeleteWikiBookRequestRegistry.set(itm._id, itm);
+    }
+
     setRecentActivityLogItem = (itm: any) => {
         this.recentActivityLogsRegistry.set(itm._id, itm);
     }
@@ -57,8 +78,6 @@ export default class DashboardStore {
         return params;
     }
 
-    
-
     private setLoadingInitial = (loading: boolean) => {
         this.loadingInitial = loading;
     }
@@ -66,14 +85,19 @@ export default class DashboardStore {
         this.loadingDeleteRequests = loading;
     }
 
-    private clearWikiPageRequests = () => {
+    clearWikiPageRequests = () => {
         this.currentWikiPageRequestRegistry.clear();
         this.approveWikiPageRequestRegistry.clear();
         this.deniedWikiPageRequestRegistry.clear();
     }
-    private clearDeletedWikiRequests = () => {
-        this.deleteWikiPageRequestRegistry.clear();
-        this.deleteWikiBookRequestRegistry.clear();
+    clearDeletedWikiRequests = () => {
+        this.recentDeleteWikiPageRequestRegistry.clear();
+        this.approvedDeleteWikiPageRequestRegistry.clear();
+        this.deniedDeleteWikiPageRequestRegistry.clear();
+
+        this.recentDeleteWikiBookRequestRegistry.clear();
+        this.approvedDeleteWikiBookRequestRegistry.clear();
+        this.deniedDeleteWikiBookRequestRegistry.clear();
     }
 
     loadDashboard = async () => {
@@ -98,6 +122,7 @@ export default class DashboardStore {
             this.setLoadingInitial(false);
         }
     }
+
     loadDashboardWikiRequests = async () => {
         try {
             this.clearWikiPageRequests();
@@ -126,8 +151,15 @@ export default class DashboardStore {
                 results
             } = await agent.dashboard.getDeleteRequests(store.authStore.authUserToken!);
 
-            results.deleteWikiPageRequests.forEach((itm: DeleteWikiPageRequestRecord) => this.setDeleteWikiPageRequest(itm));
-            results.deleteWikiBookRequests.forEach((itm: DeleteWikiBookRequest) => this.setDeleteWikiBookRequest(itm));
+            results.recentDeleteWikiPageRequests.forEach((itm: DeleteWikiPageRequestRecord) => this.setRecentDeleteWikiPageRequest(itm));
+            results.approvedDeleteWikiPageRequests.forEach((itm: DeleteWikiPageRequestRecord) => this.setApprovedDeleteWikiPageRequest(itm));
+            results.deniedDeleteWikiPageRequests.forEach((itm: DeleteWikiPageRequestRecord) => this.setDeniedDeleteWikiPageRequest(itm));
+
+
+            results.recentDeleteWikiBookRequests.forEach((itm: DeleteWikiBookRequest) => this.setRecentDeleteWikiBookRequest(itm));
+            results.approvedWikiBookRequests.forEach((itm: DeleteWikiBookRequest) => this.setApproveDeleteWikiBookRequest(itm));
+            results.deniedWikiBookRequests.forEach((itm: DeleteWikiBookRequest) => this.setDeniedDeleteWikiBookRequest(itm));
+
 
             runInAction(() => {
                 
@@ -166,11 +198,25 @@ export default class DashboardStore {
         return Array.from(this.deniedWikiPageRequestRegistry.values());
     }
 
-    get deleteWikiPageRequests(){
-        return Array.from(this.deleteWikiPageRequestRegistry.values());
+    get recentDeleteWikiPageRequests(){
+        return Array.from(this.recentDeleteWikiPageRequestRegistry.values());
     }
-    get deleteWikiBookRequests(){
-        return Array.from(this.deleteWikiBookRequestRegistry.values());
+    get approvedDeleteWikiPageRequests(){
+        return Array.from(this.approvedDeleteWikiPageRequestRegistry.values());
+    }
+    get deniedDeleteWikiPageRequests(){
+        return Array.from(this.deniedDeleteWikiPageRequestRegistry.values());
+    }
+
+
+    get recentDeleteWikiBookRequests(){
+        return Array.from(this.recentDeleteWikiBookRequestRegistry.values());
+    }
+    get approvedDeleteWikiBookRequests(){
+        return Array.from(this.approvedDeleteWikiBookRequestRegistry.values());
+    }
+    get deniedDeleteWikiBookRequests(){
+        return Array.from(this.deniedDeleteWikiBookRequestRegistry.values());
     }
     get recentActivityLog(){
         return Array.from(this.recentActivityLogsRegistry.values());

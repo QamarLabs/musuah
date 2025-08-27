@@ -146,7 +146,8 @@ export default function WikiPage() {
         )}
         <CommonWikiPageTextContainer position="relative" px={{ base: '2rem', xl: 'unset' }}>
           {authUserToken && (
-            <HStack zIndex={1000} position="absolute" top={-2} right={'2rem'}>
+            <HStack h="4rem" pl={1} zIndex={1000} position="absolute" 
+              top={(currentWikiPageRequest || currentDeleteWikiPageRequest) ? -5 : 0} right={'2rem'}>
               {!mounted 
               ? <Loader color='black' /> 
               : (
@@ -196,7 +197,7 @@ export default function WikiPage() {
               )}
             </HStack>
           )}
-          <Box className='w-100'>
+          <Box w='full' mt={authUserToken && mounted && showDeleteButton ? "2rem" : "initial"}>
             <h3 className='w-100 mw-text mw-subheader mb-2' >
               {currentWikiPage?.title}
             </h3>

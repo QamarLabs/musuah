@@ -24,6 +24,8 @@ export class DeleteArticleRequest extends Document {
     @Prop({ required: false })
     reasonToDenyDelete: string;
 
+    @Prop({ required: false })
+    status?: string;
     
     @Prop({ required: false })
     judgedByUserId: string;

@@ -25,6 +25,7 @@ import { PaymentsModule } from './modules/payment.module';
 import { PaymentController } from './payment/payment.controller';
 import { DeleteWikibookRequestsController } from './wikibookrequests/deletewikibookrequests.controller';
 import { DeleteWikipagerequestsController } from './wikipagerequests/deletewikipagerequests.controller';
+import { CommonModule } from './modules/common.module';
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 @Module({
@@ -35,6 +36,7 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV)
     }),
     CacheModule.register(),
     MongooseModule.forRoot(process.env.MUSLIM_WIKI_DATABASE_URL, {}),
+    CommonModule,
     PaymentsModule,
     DashboardModule,
     WikiPagesModule,

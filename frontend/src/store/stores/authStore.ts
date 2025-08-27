@@ -21,11 +21,15 @@ import { router } from "../../router";
 export default class AuthStore {
   userSession: SessionUser | null = null;
   userSessionToken: string | null = null;
+  isCouncilMember: boolean | undefined = undefined;
   setUserSessionToken = (token: string | null) => {
     this.userSessionToken = token;
   }
   setUserSession = (authUserSession: SessionUser | null) => {
     this.userSession = authUserSession;
+  }
+  setIsCouncilMember = (val: boolean | undefined) => {
+    this.isCouncilMember = val;
   }
   private auth: Auth | null = null;
   initializeFromStorage = async () => {
@@ -39,8 +43,12 @@ export default class AuthStore {
       console.log('loggedInuser:', JSON.stringify(loggedInUser))
       this.setUserSession(loggedInUser);
       console.log("Found existing session token");
+      const { cM } = await agent.dashboard.check(token);
+      console.log("CM:", cM)
+      this.setIsCouncilMember(cM);
     }
   }
+  
 
   loadingInitial = true;
   refreshTokenTimeout: any;
@@ -50,7 +58,6 @@ export default class AuthStore {
   returnMessage: string = "";
 
   selectedUser: UserFormValues | undefined = undefined;
-
   forgotPasswordReset = false;
 
   submittingRegister: boolean = false;
@@ -87,19 +94,33 @@ export default class AuthStore {
     return !!this.userSession;
   }
 
+  checkAsync = async (): Promise<boolean> => {
+    let cm = false;
+    try {
+      if(!this.userSessionToken) return cm;
+      const { cM } = await agent.dashboard.check(this.userSessionToken);
+      this.setIsCouncilMember(cM);
+      cm = cM;
+    } catch(err){
+      console.log("Error:", err);
+    } finally {
+      return cm;
+    }
+  }
   login = async (credentials: UserLogin) => {
     try {
       //clean out anything that may still be lying around
       // resetRegistries();
       // debugger;
       const user = await agent.auth.login(credentials);
-
+      
       this.resetAuthBeforeLogin();
       store.commonStore.setToken(user.jwt);
+      const { cM } = await agent.dashboard.check(user.jwt);
       this.auth?.setToken(user.jwt);
       this.setUserSession(user.userInfo);
       this.setUserSessionToken(user.jwt);
-
+      this.setIsCouncilMember(cM);
       runInAction(() => {
         router.navigate('/');
       })

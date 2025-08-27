@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, UseGuards } from '@nestjs/common';
 import { WikibookRequestsService } from './wikibookrequests.service';
 import { CreateDeleteBookRequestDto } from 'src/dtos/create-delete-book-request.dto';
 import { GetUser } from 'src/auth/decorators/get-user-decorator';
@@ -30,26 +30,28 @@ export class DeleteWikibookRequestsController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Put('approve/:id')
+    @Patch('approve/:id')
     async approve(
         @GetUser() user,
         @Param('id') id: string, 
         @Body() { values:deleteApproveWikiBookRequestDto  }: { values: ApproveDeleteWikiBookRequest}) {
         return await this.wikibookRequestsService.approveDeleteBookRequest(
-                user.id, 
-                deleteApproveWikiBookRequestDto
+            user.email,
+            user.id, 
+            deleteApproveWikiBookRequestDto
         );
     }
 
     @UseGuards(JwtAuthGuard)
-    @Put('deny/:id')
+    @Patch('deny/:id')
     async deny(
         @GetUser() user,
         @Param('id') id: string, 
         @Body() { values:denyDeleteWikibookRequestDto  }: { values: DenyDeleteWikiBookRequest}) {
         return await this.wikibookRequestsService.denyDeleteBookRequest(
-                user.id, 
-                denyDeleteWikibookRequestDto
+            user.email,
+            user.id, 
+            denyDeleteWikibookRequestDto
         );
     }
 

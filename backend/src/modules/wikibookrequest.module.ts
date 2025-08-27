@@ -4,14 +4,16 @@ import { Book, BookSchema } from 'src/schemas/book.schema';
 import { DeleteBookRequest, DeleteBookRequestSchema } from 'src/schemas/deletebookrequest.schema';
 import { User, UserSchema } from 'src/schemas/user.schema';
 import { WikibookRequestsService } from 'src/wikibookrequests/wikibookrequests.service';
+import { CommonModule } from './common.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Book.name, schema: BookSchema },
-      { name: DeleteBookRequest.name, schema: DeleteBookRequestSchema }
+      { name: DeleteBookRequest.name, schema: DeleteBookRequestSchema },
     ]),
+    CommonModule
   ],
   providers: [WikibookRequestsService],
   exports: [WikibookRequestsService],

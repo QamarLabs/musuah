@@ -159,7 +159,7 @@ function Collaborate() {
           {t("registerToCollaborate")}
         </h5>
       </VStack>
-      <Box className='w-100'>
+      <Box>
         {
           registrationSubmitted.submitted && registrationSubmitted.expires && !isDateExpired(registrationSubmitted.expires)
             ? (
@@ -171,9 +171,8 @@ function Collaborate() {
               </VStack>
             )
             : (
-              <ResponsiveContainer extraClasses="wikipage w-100">
-                <Box className='w-100'>
-                  <CommonWikiPageGridBox>
+                <Box p='0'>
+                  <CommonWikiPageGridBox width={{ base: '100%', xl: '40rem' }}>
 
                     <Formik<RegistrationForm>
                       initialValues={{
@@ -236,7 +235,7 @@ function Collaborate() {
 
                           <HStack
                             onClick={(e) => e.stopPropagation()}
-                            justifyContent={!showBackButton ? "end" : "space-between"} alignItems="center" mt={2} w="full">
+                            justifyContent={!showBackButton ? "end" : "space-between"} alignItems="center" mt={{ base: '4rem', md: '3rem', lg: 2 }} w="full">
                             {showBackButton && (
                               <Button
                                 onClick={() => setRegistrationStep(registrationStep <= 0 ? 0 : registrationStep - 1)}
@@ -314,7 +313,6 @@ function Collaborate() {
                     </Formik>
                   </CommonWikiPageGridBox>
                 </Box>
-              </ResponsiveContainer>
             )
         }
       </Box>

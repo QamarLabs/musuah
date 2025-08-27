@@ -11,9 +11,9 @@ import DonationDialog from '../common/DonationDialog';
 import { MWOptimizedImage } from './Image';
 import { router } from '../router';
 
-export const NavigationBarLink = ({ children, onClick }: React.PropsWithChildren<ButtonProps>) => {
+export const NavigationBarLink = ({ children, onClick , ...props }: React.PropsWithChildren<ButtonProps>) => {
     return (
-        <Button as='a' variant="ghost" bg='transparent' p={0} fontSize="85%" onClick={onClick}>
+        <Button as='a' variant="ghost" bg='transparent' p={0} fontSize="85%" onClick={onClick} {...props}>
             {children}
         </Button>
     );
@@ -97,6 +97,7 @@ export default observer(function NavigationBar() {
 
     const logoutUser = useCallback(async () => {
         await logout();
+        navigate(`/${language}`);
     }, [userSession]);
 
     return (

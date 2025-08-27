@@ -73,14 +73,14 @@ export default function LeftSideNavigation(
       // Titles after V2
       // items: ['Main page', 'Contents', 'Current events', 'Random article', 'About MuslimWiki']
       items: [
-        {text: t("leftSideNav.mainPage"), link: `${store.commonStore.language}/`}
+        {text: t("leftSideNav.mainPage"), link: `/${store.commonStore.language}/`}
       ]
     },
     {
       id: 'contribute',
       title: t("leftSideNav.contribute"),
       items: [
-        {text: t("leftSideNav.help"), link: `${store.commonStore.language}/collaborate`}
+        {text: t("leftSideNav.help"), link: `/${store.commonStore.language}/collaborate`}
       ]
       // Titles after V2
       // items: ['Help', 'Learn to edit', 'Community portal', 'Recent changes', 'Upload file']
@@ -100,7 +100,7 @@ export default function LeftSideNavigation(
               <FlexItem key={index}>
                 <NavigationBarLink 
                   className="mw-body mw-link" 
-                  onClick={() => navigate(item.link, { replace: true })}
+                  onClick={() => navigate(item.link)}
                 >
                   {item.text}
                 </NavigationBarLink>

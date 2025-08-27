@@ -48,7 +48,7 @@ export default class WikiPageRequestsStore {
         } catch(err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     updateWikiPageRequest = async (
@@ -66,7 +66,7 @@ export default class WikiPageRequestsStore {
         } catch(err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     deleteWikiPageRequest = async (
@@ -83,7 +83,7 @@ export default class WikiPageRequestsStore {
         } catch(err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
 }

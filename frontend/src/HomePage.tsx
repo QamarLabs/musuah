@@ -15,6 +15,7 @@ import EBooksIcon from "./icons/EBooksIcon";
 import SignInIcon from "./icons/SignInIcon";
 import LogoutIcon from "./icons/LogoutIcon";
 import YourAccountIcon from "./icons/YourAccountIcon";
+import { NavigationBarLink } from "./common/NavigationBar";
 
 
 export default observer(function HomePage() {
@@ -86,40 +87,64 @@ export default observer(function HomePage() {
           <CardDivider />
           <Flex id='language-links' justify='space-between' className="w-100" wrap={true}>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/es">{t("links.es")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/es")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.es")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/en">{t("links.en")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/en")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.en")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/ar">{t("links.ar")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/ar")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.ar")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/tr">{t("links.tr")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/tr")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.tr")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/fr">{t("links.fr")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/fr")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.fr")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/ur">{t("links.ur")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/ur")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.ur")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/fa">{t("links.fr")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/fa")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.fr")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/cn">{t("links.cn")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/cn")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.cn")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/ru">{t("links.ru")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/ru")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.ru")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/de">{t("links.de")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/de")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.de")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/jp">{t("links.jp")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/jp")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.jp")}
+              </NavigationBarLink>
             </FlexItem>
             <FlexItem className="lng-item">
-              <ExternalLink className="mw-body mw-link" href="/hi">{t("links.hi")}</ExternalLink>
+              <NavigationBarLink className="mw-body mw-link" onClick={() => navigate("/hi")} _hover={{ textDecoration: 'underline' }}>
+                {t("links.hi")}
+              </NavigationBarLink>
             </FlexItem>
           </Flex>
           <StackDivider p='0' backgroundColor='black' border='solid 1px var(--global-color-border, currentColor)' />

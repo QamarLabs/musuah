@@ -6,8 +6,9 @@ import { UpdateArticleRequestDto } from 'src/dtos/update-article-request.dto';
 import { Article } from 'src/schemas/article.schema';
 import { ArticleRequest } from 'src/schemas/articlerequest.schema';
 import { DeleteArticleRequest } from 'src/schemas/deletearticlerequest.schema';
-import { DenyDeleteArticleRequest, ApproveDeleteArticleRequest, CreateDeleteArticleRequest } from 'src/models/article';
+import { DenyDeleteArticleRequest, ApproveDeleteArticleRequest, CreateDeleteArticleRequest, DenyArticleRequest, ApproveArticleRequest } from 'src/models/article';
 import { User } from 'src/schemas/user.schema';
+import { CommonService } from 'src/common/common.service';
 
 @Injectable()
 export class WikipagerequestsService {
@@ -15,7 +16,8 @@ export class WikipagerequestsService {
         @InjectModel(User.name) private userModel: Model<User>,
         @InjectModel(Article.name) private articleModel: Model<Article>,
         @InjectModel(ArticleRequest.name) private articleRequestModel: Model<ArticleRequest>,
-        @InjectModel(DeleteArticleRequest.name) private deleteArticleRequestModel: Model<DeleteArticleRequest>) { }
+        @InjectModel(DeleteArticleRequest.name) private deleteArticleRequestModel: Model<DeleteArticleRequest>,
+        private readonly commonService: CommonService) { }
 
     async searchArticleRequests(
         qry: string,
@@ -89,6 +91,9 @@ export class WikipagerequestsService {
     async findByPageId(pageid: number): Promise<ArticleRequest> {
         return this.articleRequestModel.findOne({ pageid }).exec();
     }
+    async findArticleByPageId(pageid: number): Promise<Article> {
+        return this.articleModel.findOne({ pageid }).exec();
+    }
 
     async update(userId: string, articleRequestId: string, updateArticleRequestDto: UpdateArticleRequestDto) {
         try {
@@ -148,6 +153,7 @@ export class WikipagerequestsService {
                 title: article.title,
                 reasonToDelete: deleteArticleRequest.reasonToDelete,
                 submitByUserId: userId,
+                status: "pending",
                 reasonToApproveDelete: '',
                 reasonToDenyDelete: '',
                 judgedByUserId: '',
@@ -164,19 +170,27 @@ export class WikipagerequestsService {
         }
     }
 
-    async approveDeleteArtileRequest(userToApproveId: string, approveRequest: ApproveDeleteArticleRequest) {
+    async approveDeleteArticleRequest(userEmail: string, userToApproveId: string, approveRequest: ApproveDeleteArticleRequest) {
         try {
+
+            if(!(await this.commonService.checkShura(userEmail)))
+                throw new Error("Can't approve this delete wikipage request.");
+
             const judgedUser = await this.userModel.findById(userToApproveId);
+            const deleteArticleRequestToUpdate = await this.deleteArticleRequestModel.findOne({ _id: approveRequest.id })
             await this.deleteArticleRequestModel.updateOne(
                 { _id: approveRequest.id },
                 {
                     $set: {
+                        status: "approved",
                         reasonToApproveDelete: approveRequest.reasonToApproveDelete,
                         judgedByUserId: judgedUser._id,
                         judgedByUserName: `${judgedUser.firstName} ${judgedUser.familyName}`
                     }
                 }
             );
+
+            await this.articleModel.deleteOne({ pageid: deleteArticleRequestToUpdate.pageid })
         } catch (err) {
             console.log("Issue approving delete book request:", err)
             return false;
@@ -185,21 +199,122 @@ export class WikipagerequestsService {
         }
     }
 
-    async denyDeleteArticleRequest(userToApproveId: string, denyRequest: DenyDeleteArticleRequest) {
+    async denyDeleteArticleRequest(userEmail: string, userToApproveId: string, denyRequest: DenyDeleteArticleRequest) {
         try {
+            if(!(await this.commonService.checkShura(userEmail)))
+                throw new Error("Can't deny this delete wikipage request.");
+
             const judgedUser = await this.userModel.findById(userToApproveId);
             await this.deleteArticleRequestModel.updateOne(
                 { _id: denyRequest.id },
                 {
                     $set: {
+                        status: "denied",
                         reasonToDenyDelete: denyRequest.reasonToDenyDelete,
                         judgedByUserId: judgedUser._id,
                         judgedByUserName: `${judgedUser.firstName} ${judgedUser.familyName}`
                     }
                 }
             );
+            
         } catch (err) {
             console.log("Issue approving delete article request:", err)
+            return false;
+        } finally {
+            return true;
+        }
+    }
+
+    async approveArticleRequest(judgeUserEmail: string, judgeUserId: string, approveRequest: ApproveArticleRequest) {
+        try {
+            if(!(await this.commonService.checkShura(judgeUserEmail)))
+                throw new Error("Can't approve this wikipage request.");
+            const judgedUser = await this.userModel.findById(judgeUserId);
+    
+            const existingArticleRequest = await this.articleRequestModel.findById(approveRequest.id);
+            const existingArticle = await this.findArticleByPageId(existingArticleRequest.pageid);
+            const updatedArticleRequest = {
+                contributors: Array.from(
+                    new Set([
+                        ...(existingArticleRequest.contributors ?? []),
+                        {
+                            userId: judgeUserId,
+                            userName: `${judgedUser.firstName} ${judgedUser.familyName}`
+                        }
+                    ]).values()
+                ),
+                status: "approved",
+                timestamp: new Date()
+            };
+
+            await this.articleRequestModel.updateOne(
+                { _id: approveRequest.id },
+                {
+                    $set: {
+                        contributors: updatedArticleRequest.contributors,
+                        deniedByUserId: judgeUserId,
+                        status: updatedArticleRequest.status,
+                        timestamp: updatedArticleRequest.timestamp
+                    }
+                }
+            );
+
+            await this.articleModel.updateOne(
+                { _id: existingArticle.id },
+                {
+                    $set: {
+                        title: existingArticleRequest.newTitle ? existingArticleRequest.newTitle : existingArticle.title, 
+                        text: existingArticleRequest.newText ? existingArticleRequest.newText : existingArticle.text,
+                        summary: existingArticleRequest.newSummary ? existingArticleRequest.newSummary : existingArticle.summary,
+                        attributes: existingArticleRequest.newAttributes ? existingArticleRequest.newAttributes : existingArticle.attributes,
+                        collaborators: updatedArticleRequest.contributors.length != existingArticle.collaborators.length ? updatedArticleRequest.contributors : existingArticle.collaborators
+                    }
+                }
+            );
+        } catch (err) {
+            console.log("Issue approving article request:", err)
+            return false;
+        } finally {
+            return true;
+        }
+    }
+
+    async denyArticleRequest(judgeUserEmail: string, judgeUserId: string, denyRequest: DenyArticleRequest) {
+        try {
+            if(!(await this.commonService.checkShura(judgeUserEmail)))
+                throw new Error("Can't deny this wikipage request.");
+            const judgedUser = await this.userModel.findById(judgeUserId);
+    
+            const existingArticleRequest = await this.articleRequestModel.findById(denyRequest.id);
+
+            const updatedArticleRequest = {
+                contributors: Array.from(
+                    new Set([
+                        ...(existingArticleRequest.contributors ?? []),
+                        {
+                            userId: judgeUserId,
+                            userName: `${judgedUser.firstName} ${judgedUser.familyName}`
+                        }
+                    ]).values()
+                ),
+                status: "denied",
+                timestamp: new Date()
+            };
+
+
+            await this.articleRequestModel.updateOne(
+                { _id: denyRequest.id },
+                {
+                    $set: {
+                        contributors: updatedArticleRequest.contributors,
+                        deniedByUserId: judgeUserId,
+                        status: updatedArticleRequest.status,
+                        timestamp: updatedArticleRequest.timestamp
+                    }
+                }
+            );
+        } catch (err) {
+            console.log("Issue denying article request:", err)
             return false;
         } finally {
             return true;

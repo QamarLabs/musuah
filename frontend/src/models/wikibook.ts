@@ -17,19 +17,19 @@ export interface WikiBookLocation {
 }
 
 export interface WikiBookRecord {
-  _id: string;
-  title: string;
-  displayName: string | undefined;
-  description: string | undefined;
-  publicationYear: number;
-  publicationDate: Date;
-  authors: WikiBookAuthor[];
-  sourceUrl: string | undefined;
-  concepts: string[];
-  primaryTopic: string | undefined;
-  openStudy: boolean;
-  language: string;
-  locations: WikiBookLocation[];
+    _id: string;
+    title: string;
+    displayName: string | undefined;
+    description: string | undefined;
+    publicationYear: number;
+    publicationDate: Date;
+    authors: WikiBookAuthor[];
+    sourceUrl: string | undefined;
+    concepts: string[];
+    primaryTopic: string | undefined;
+    openStudy: boolean;
+    language: string;
+    locations: WikiBookLocation[];
 }
 
 export interface DeleteWikiBookRequest {
@@ -60,3 +60,4 @@ export interface DenyDeleteWikiBookRequest {
     id: string;
     reasonToDenyDelete: string;
 }
+

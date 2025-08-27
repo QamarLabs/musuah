@@ -15,7 +15,7 @@ export function OtherInfo() {
     return (
         <VStack w="full">
             <Text className='mw-text' fontSize="1.2rem" mb={3}>{t("sectionTitles.otherInfo")}</Text>
-            <VStack>
+            <VStack w='full'>
                 <MWTextInput
                     label="Facebook"
                     name="facebook"

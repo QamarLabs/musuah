@@ -80,7 +80,7 @@ export const DonationForm = observer(function ({
         }
     };
     return (
-        <VStack width='full' bg='red'>
+        <VStack width='full'>
             <Formik<{ amount: number, paymentNote: string, donate: string }>
                 initialValues={DEFAULT_DONATE_FORM}
                 validationSchema={validationSchema}

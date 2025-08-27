@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import LeftSideNavigation, { LeftSideNavigationToggler } from "./LeftSideNavigation";
 import RightSideNavigation, { RightSideNavigationToggler } from "./RightSideNavigation";
-import { Flex } from "@wordpress/components";
 import { useLocation } from "react-router";
-import { useMediaQuery } from "@chakra-ui/react";
+
+import { HStack, Stack, useMediaQuery } from "@chakra-ui/react";
 import NavigationBar from "./NavigationBar";
 import { store } from "../store";
 import Footer from "./Footer";
@@ -12,36 +12,37 @@ type Props = {}
 
 const LayoutContainer = ({ children }: React.PropsWithChildren<any>) => {
     return (
-        <Flex direction="column" style={{
+        <Stack direction="column" style={{
             boxSizing: 'border-box',
             width: '100vw',
             maxWidth: '100%',
             position: 'fixed',
             minHeight: '100vh',
+            height: '100%',
             overflowY: 'auto',
             top: 0,
             right: 0,
             // backgroundColor: 'purple'
         }}>
             {children}
-        </Flex>
+        </Stack>
     )
 }
 
 const LayoutNavbarContainer = ({ children }: React.PropsWithChildren<any>) => {
     return (
-        <Flex align="flex-start" justify="space-between" style={{
+        <HStack align="flex-start" justify="space-between" style={{
             width: '100%',
             boxSizing: 'border-box'
         }}>
             {children}
-        </Flex>
+        </HStack>
     );
 }
 
 const LayoutFooterContainer = ({ children }: React.PropsWithChildren<any>) => {
     return (
-        <Flex 
+        <HStack 
             align="flex-start" 
             justify="space-between" 
             style={{
@@ -52,7 +53,7 @@ const LayoutFooterContainer = ({ children }: React.PropsWithChildren<any>) => {
             }}
         >
             {children}
-        </Flex>
+        </HStack>
     );
 }
 
@@ -136,11 +137,11 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
                 <LayoutNavbarContainer>
                     <NavigationBar />
                 </LayoutNavbarContainer>
-                <Flex align="flex-start" justify="space-between" style={{ marginTop: '2rem' }}>
+                <HStack overflowY="auto" align="flex-start" justify="space-between" style={{ marginTop: '2rem' }}>
                     <div />
                     {children}
                     <div />
-                </Flex>
+                </HStack>
                 <LayoutFooterContainer>
                     <Footer />
                 </LayoutFooterContainer>
@@ -152,7 +153,7 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
                 <LayoutNavbarContainer>
                     <NavigationBar />
                 </LayoutNavbarContainer>
-                <Flex style={{ position: 'absolute', left: "2rem", top: '4rem', zIndex: 9999, width: '90vw' }}>
+                <HStack justify="space-between" position='absolute' left='2rem' top='4rem' zIndex={9999} width='90vw'>
                     {!isLargerThan1024 && (
                         <>
                             <LeftSideNavigationToggler
@@ -172,8 +173,8 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
                         </>
                     )}
                     {/* {!isLargerThan768 && <RightSideNavigationToggler isMobile={!isLargerThan768} toggleRightNav={toggleRightNav} />} */}
-                </Flex>
-                <Flex align="flex-start" justify="space-between" style={{ marginTop: '5rem' }}>
+                </HStack>
+                <HStack overflowY="auto" align="flex-start" justify="space-between" mt={{ base: "5rem", md: "1rem"}}>
                     {isLargerThan1024 && (
                         <LeftSideNavigation
                             isMobile={isMobile}
@@ -191,7 +192,7 @@ export default function Layout({ children }: React.PropsWithChildren<Props>) {
                             toggleRightNav={toggleRightNav}
                         />
                     )}
-                </Flex>
+                </HStack>
                 <LayoutFooterContainer>
                     <Footer />
                 </LayoutFooterContainer>

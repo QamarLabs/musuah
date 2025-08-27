@@ -73,7 +73,7 @@ export function MultiSelect({
       )}
 
       {/* Selected items display */}
-      <div className="d-flex flex-wrap gap-2 mb-2">
+      <Box display='flex' flexWrap='wrap' gap={2} mb={2} maxH="4rem" overflowY="auto">
         {field.value.map(value => {
           const option = FIELD_OF_FOCUS_OPTIONS.find(o => o.value === value);
           return (
@@ -92,7 +92,7 @@ export function MultiSelect({
             </div>
           );
         })}
-      </div>
+      </Box>
 
       {/* Multi-select dropdown */}
       <div className="position-relative">

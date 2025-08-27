@@ -48,7 +48,7 @@ export default class DeleteWikiBookRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     approveRequest = async (
@@ -66,7 +66,7 @@ export default class DeleteWikiBookRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     denyRequest = async (
@@ -84,7 +84,7 @@ export default class DeleteWikiBookRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     removeDeleteWikiBookRequest = async (
@@ -101,7 +101,7 @@ export default class DeleteWikiBookRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
 

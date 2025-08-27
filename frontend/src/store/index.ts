@@ -7,6 +7,7 @@ import AiAssistantStore from './stores/aiAssistantStore';
 import SearchBooksStore from './stores/searchBooksStore';
 import WikiBookStore from './stores/wikiBookStore';
 import DashboardStore from './stores/dashboardStore';
+import MutateDashboardStore from './stores/mutateDashboardStore';
 import WikiPageRequestsStore from './stores/wikipageRequestStore';
 import DeleteWikiBookRequestsStore from './stores/deleteWikiBookRequestStore';
 import DeleteWikiPageRequestsStore from './stores/deleteWikipageRequestStore';
@@ -16,6 +17,7 @@ interface Store {
     authStore: AuthStore;
     commonStore: CommonStore;
     dashboardStore: DashboardStore;
+    mutateDashboardStore: MutateDashboardStore;
     deleteWikiBookRequestStore: DeleteWikiBookRequestsStore;
     deleteWikiPageRequestStore: DeleteWikiPageRequestsStore;
     searchStore: SearchStore;
@@ -30,6 +32,7 @@ export const store: Store ={
     authStore: new AuthStore(),
     commonStore: new CommonStore(),
     dashboardStore: new DashboardStore(),
+    mutateDashboardStore: new MutateDashboardStore(),
     deleteWikiBookRequestStore: new DeleteWikiBookRequestsStore(),
     deleteWikiPageRequestStore: new DeleteWikiPageRequestsStore(),
     searchStore: new SearchStore(),

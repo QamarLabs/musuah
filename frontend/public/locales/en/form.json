@@ -62,7 +62,9 @@
         "review": "Review",
         "next": "Next",
         "submit": "Submit",
-        "yesIConfirm": "Yes, I Confirm"
+        "yesIConfirm": "Yes, I Confirm",
+        "normalView": "Normal View",
+        "councilMemberView": "Council Member View"
     },
     "confirmation": {
         "deleteTitle": "You are about to submit this title ",

@@ -5,6 +5,7 @@ import { ArticleRequest, ArticleRequestSchema } from 'src/schemas/articlerequest
 import { DeleteArticleRequest, DeleteArticleRequestSchema } from 'src/schemas/deletearticlerequest.schema';
 import { User, UserSchema } from 'src/schemas/user.schema';
 import { WikipagerequestsService } from 'src/wikipagerequests/wikipagerequests.service';
+import { CommonModule } from './common.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { WikipagerequestsService } from 'src/wikipagerequests/wikipagerequests.s
       { name: ArticleRequest.name, schema: ArticleRequestSchema },
       { name: DeleteArticleRequest.name, schema: DeleteArticleRequestSchema },
     ]),
+    CommonModule
   ],
   providers: [WikipagerequestsService],
   exports: [WikipagerequestsService],

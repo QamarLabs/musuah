@@ -46,7 +46,7 @@ export default class DeleteWikiPageRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     approveRequest = async (
@@ -64,7 +64,7 @@ export default class DeleteWikiPageRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     denyRequest = async (
@@ -82,7 +82,7 @@ export default class DeleteWikiPageRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
     removeDeleteWikiPageRequest = async (
@@ -99,7 +99,7 @@ export default class DeleteWikiPageRequestsStore {
         } catch (err) {
             throw err;
         } finally {
-            this.setLoadingUpsert(true);
+            this.setLoadingUpsert(false);
         }
     }
 

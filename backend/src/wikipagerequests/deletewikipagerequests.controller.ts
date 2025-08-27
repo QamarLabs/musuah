@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, UseGuards } from '@nestjs/common';
 import { WikipagerequestsService } from './wikipagerequests.service';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { GetUser } from 'src/auth/decorators/get-user-decorator';
@@ -29,26 +29,28 @@ export class DeleteWikipagerequestsController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Put('approve/:id')
+    @Patch('approve/:id')
     async approve(
         @GetUser() user,
         @Param('id') id: string, 
         @Body() { values:approveArticleRequestDto  }: { values: ApproveDeleteArticleRequest}) {
-        return await this.wikipageRequestsService.approveDeleteArtileRequest(
-                user.id, 
-                approveArticleRequestDto
+        return await this.wikipageRequestsService.approveDeleteArticleRequest(
+            user.email,
+            user.id, 
+            approveArticleRequestDto
         );
     }
 
     @UseGuards(JwtAuthGuard)
-    @Put('deny/:id')
+    @Patch('deny/:id')
     async deny(
         @GetUser() user,
         @Param('id') id: string, 
         @Body() { values:denyArticleRequestDto  }: { values: DenyDeleteArticleRequest}) {
         return await this.wikipageRequestsService.denyDeleteArticleRequest(
-                user.id, 
-                denyArticleRequestDto
+            user.email,
+            user.id, 
+            denyArticleRequestDto
         );
     }
 

@@ -19,6 +19,9 @@ export class DeleteBookRequest extends Document {
     reasonToDelete: string;
 
     @Prop({ required: false })
+    status: string; //pending | approved | denied
+
+    @Prop({ required: false })
     reasonToApproveDelete: string;
 
     @Prop({ required: false })

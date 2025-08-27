@@ -41,11 +41,17 @@ export class ArticleRequest extends Document {
   @Prop({ required: true })
   submitByUserId: string;
 
+  @Prop({ required: false })
+  approvedByUserId: string;
+
+  @Prop({ required: false })
+  deniedByUserId: string;
+
   @Prop({ type: [Object], required: true })
   contributors: {userId: string, userName: string }[];
 
   @Prop({ required: true })
-  status: string;
+  status: string; // approved | denied | pending
 
   @Prop({ required: true })
   timestamp: Date; // Changed from 'any' to Date type for better typing

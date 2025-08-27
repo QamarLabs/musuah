@@ -22,6 +22,7 @@ export default class Auth {
     });
   }
 
+
   clearToken(key: string = 'jwt') {
     this.cookie.remove(key);
   }

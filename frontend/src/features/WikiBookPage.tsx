@@ -87,7 +87,7 @@ function WikiBookPage() {
         {currentDeleteWikibookRequest && <WarningAlert title={t("alerts.pendingDeleteRequestTitle", { ns: "common" })} description={t("alerts.pendingDeleteRequestWikibookDesc", { ns: "common" })} />}
         <CommonWikiPageTextContainer position='relative' justify="start">
           {authUserToken && (
-              <HStack zIndex={1000} position="absolute" top={-2} right={'0rem'}>
+              <HStack h={'4rem'} pl={1} zIndex={1000} position="absolute" top={0} right={'0rem'}>
                   {!mounted 
                       ? <Loader color='black' /> 
                       : (
@@ -110,7 +110,7 @@ function WikiBookPage() {
                     }
               </HStack>
           )}
-          <Box w='full' mt={2}>
+          <Box w='full' mt={authUserToken && mounted && showDeleteButton ? "2rem" : "initial"}>
             <h3 className='w-100 mw-text mw-subheader m-1' >
               {currentWikiBook?.title}
             </h3>

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CommonService } from 'src/common/common.service';
 import { CreateDeleteBookRequestDto } from 'src/dtos/create-delete-book-request.dto';
 import { ApproveDeleteWikiBookRequest, DenyDeleteWikiBookRequest } from 'src/models/book';
 import { Book } from 'src/schemas/book.schema';
@@ -12,7 +13,8 @@ export class WikibookRequestsService {
     constructor(
       @InjectModel(User.name) private userModel: Model<User>,
       @InjectModel(DeleteBookRequest.name) private deleteBookRequestModel: Model<DeleteBookRequest>,
-      @InjectModel(Book.name) private bookRequestModel: Model<Book>) {}
+      @InjectModel(Book.name) private bookModel: Model<Book>,
+      private readonly commonService: CommonService) {}
 
       
     async usersDeleteRequest(id: string, userId: string): Promise<DeleteBookRequest> {
@@ -24,12 +26,13 @@ export class WikibookRequestsService {
 
     async createDeleteBookRequest(userId: string, deleteBookRequest: CreateDeleteBookRequestDto){
       try {
-        const book = await this.bookRequestModel.findById(deleteBookRequest.bookId);
+        const book = await this.bookModel.findById(deleteBookRequest.bookId);
         const newDeleteBookRequest = new  this.deleteBookRequestModel({
           bookId: deleteBookRequest.bookId,
           submitByUserId: userId,
           title: book.title,
-          reasonToDelete: deleteBookRequest.bookId,
+          reasonToDelete: deleteBookRequest.reasonToDelete,
+          status: 'pending',
           reasonToApproveDelete: '',
           reasonToDenyDelete: '',
           judgedByUserId: '',
@@ -46,19 +49,29 @@ export class WikibookRequestsService {
       }
     }
 
-    async approveDeleteBookRequest(userToApproveId: string, approveRequest: ApproveDeleteWikiBookRequest){
+    async approveDeleteBookRequest(userToApproveEmail: string, userToApproveId: string, approveRequest: ApproveDeleteWikiBookRequest){
       try {
+        if(!(await this.commonService.checkShura(userToApproveEmail)))
+          throw new Error("Can't approve this delete wikibook request.");
+
         const judgedUser = await this.userModel.findById(userToApproveId);
+        const deleteBookRequest = await this.deleteBookRequestModel.findById(approveRequest.id);
+
+        const bookToDelete = await this.bookModel.findById(deleteBookRequest.bookId)
+
         await this.deleteBookRequestModel.updateOne(
           { _id: approveRequest.id },
           {
             $set: {
+              status: "approved",
               reasonToApproveDelete: approveRequest.reasonToApproveDelete,
               judgedByUserId: judgedUser._id,
               judgedByUserName: `${judgedUser.firstName} ${judgedUser.familyName}`
             }
           }
         );
+
+        await this.bookModel.findByIdAndDelete(bookToDelete._id);
       } catch(err) {
         console.log("Issue approving delete book request:", err)
         return false;
@@ -67,13 +80,17 @@ export class WikibookRequestsService {
       }
     }
 
-    async denyDeleteBookRequest(userToApproveId: string, denyRequest: DenyDeleteWikiBookRequest){
+    async denyDeleteBookRequest(userToDenyEmail: string, userToDenyId: string, denyRequest: DenyDeleteWikiBookRequest){
       try {
-        const judgedUser = await this.userModel.findById(userToApproveId);
+        if(!(await this.commonService.checkShura(userToDenyEmail)))
+          throw new Error("Can't deny this delete wikibook request.");
+
+        const judgedUser = await this.userModel.findById(userToDenyId);
         await this.deleteBookRequestModel.updateOne(
           { _id: denyRequest.id },
           {
             $set: {
+              status: 'denied',
               reasonToDenyDelete: denyRequest.reasonToDenyDelete,
               judgedByUserId: judgedUser._id,
               judgedByUserName: `${judgedUser.firstName} ${judgedUser.familyName}`
@@ -88,7 +105,7 @@ export class WikibookRequestsService {
       }
     }
 
-    async deleteDeleteBookRequest(deleteBookRequestId){
+    async deleteDeleteBookRequest(deleteBookRequestId: string){
       try {
         await this.deleteBookRequestModel.deleteOne({ _id: deleteBookRequestId });
       } catch(err) {

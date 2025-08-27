@@ -20,13 +20,17 @@ type ConfirmationDialogProps = {
     triggerChildren: React.ReactNode;
     onConfirm: (values: { reasonToConfirm: string }) => Promise<void>;
     onConfirmLoading: boolean;
+    confirmButtonOverrideColor?: string;
+    confirmButtonOverrideText?: string;
 }
 
 export default observer(({
     confirmationTitle,
     triggerChildren,
     onConfirm,
-    onConfirmLoading
+    onConfirmLoading,
+    confirmButtonOverrideColor,
+    confirmButtonOverrideText
 }: React.PropsWithChildren<ConfirmationDialogProps>) => {
     const { t } = useTranslation(["form"])
     const [mounted, setMounted] = useState<boolean>(false);
@@ -64,7 +68,7 @@ export default observer(({
                             </Dialog.Title>
                         </Dialog.Header>
                         <Dialog.Body>
-                            <VStack bg='red'>
+                            <VStack>
                                 <Formik<{ reasonToConfirm: string }>
                                     initialValues={{
                                         reasonToConfirm: ''
@@ -104,13 +108,13 @@ export default observer(({
                                                     _disabled={{
                                                         opacity: 0.4
                                                     }}
-                                                    bg="yellow.500"
+                                                    bg={confirmButtonOverrideColor ? confirmButtonOverrideColor : "yellow.500"}
                                                     loading={onConfirmLoading}
                                                     textDecoration="underline"
                                                     mx='auto'
                                                     className='mw-text'
                                                 >
-                                                    {t("buttons.yesIConfirm", { ns: "form" })}
+                                                    {confirmButtonOverrideText ? confirmButtonOverrideText : t("buttons.yesIConfirm", { ns: "form" })}
                                                 </Button>
                                             </HStack>
                                         </Form>

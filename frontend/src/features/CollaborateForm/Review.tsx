@@ -86,8 +86,8 @@ export const ReviewOtherInfo = observer(() => {
 
 export default function Review({ sections }: Props) {
     return (
-        <Stack gap="8">
-            <Text className='mw-text' fontSize="1.2rem" mb={3}>Review</Text>
+        <Stack w={'full'} gap="8">
+            <Text className='mw-text' fontSize="1.2rem" mb={2} w='full' textAlign='center'>Review</Text>
             <Accordion.Root variant={"enclosed"} collapsible defaultValue={["b"]}>
                 {sections.map((item, index) => (
                     <Accordion.Item key={index} value={item.id}>

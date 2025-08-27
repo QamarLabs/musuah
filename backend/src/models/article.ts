@@ -21,6 +21,16 @@ export interface CreateDeleteArticleRequest {
   reasonToDelete: string;
 }
 
+export interface ApproveArticleRequest {
+  id: string;
+  reasonToApprove: string;
+}
+
+export interface DenyArticleRequest {
+  id: string;
+  reasonToDeny: string;
+}
+
 export interface ApproveDeleteArticleRequest {
   id: string;
   reasonToApproveDelete: string;

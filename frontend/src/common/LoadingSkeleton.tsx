@@ -6,10 +6,13 @@ import {
     SkeletonText,
     Box
 } from '@chakra-ui/react';
+import React from 'react';
 
-export default function () {
+// export const RelativeLoaderSkeleton = () => {}
+
+export default function ({...props}: React.PropsWithChildren<any>) {
     return (
-        <LoaderOverlay>
+        <LoaderOverlay {...props}>
             <VStack>
                 <HStack flexDir={{ base: 'column', lg: 'row' }}>
                     <Box width="20rem">
