@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo } from "react";
 import ResponsiveContainer from './common/ResponsiveContainer';
-import { FlexBlock, FlexItem, Flex, ExternalLink, CardDivider } from "@wordpress/components";
+import { FlexBlock, FlexItem, Flex, CardDivider } from "@wordpress/components";
 import { StackDivider } from '@chakra-ui/layout';
 import { useTranslation } from 'react-i18next';
 import Autocomplete from './common/Autocomplete';

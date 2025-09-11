@@ -1,4 +1,4 @@
-import { Box, HStack, LoaderOverlay, Portal, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, VStack } from "@chakra-ui/react";
 import { useStore } from "../store";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";

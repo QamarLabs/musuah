@@ -8,7 +8,6 @@ import { store } from "../";
 import {
   UploadProfilePictureDto,
   UserChangePassword,
-  UserForgotPassword,
   UserFormValues,
   UserLogin
 } from "../../models/auth";
@@ -48,7 +47,7 @@ export default class AuthStore {
       this.setIsCouncilMember(cM);
     }
   }
-  
+
 
   loadingInitial = true;
   refreshTokenTimeout: any;
@@ -97,11 +96,11 @@ export default class AuthStore {
   checkAsync = async (): Promise<boolean> => {
     let cm = false;
     try {
-      if(!this.userSessionToken) return cm;
+      if (!this.userSessionToken) return cm;
       const { cM } = await agent.dashboard.check(this.userSessionToken);
       this.setIsCouncilMember(cM);
       cm = cM;
-    } catch(err){
+    } catch (err) {
       console.log("Error:", err);
     } finally {
       return cm;
@@ -109,11 +108,8 @@ export default class AuthStore {
   }
   login = async (credentials: UserLogin) => {
     try {
-      //clean out anything that may still be lying around
-      // resetRegistries();
-      // debugger;
       const user = await agent.auth.login(credentials);
-      
+
       this.resetAuthBeforeLogin();
       store.commonStore.setToken(user.jwt);
       const { cM } = await agent.dashboard.check(user.jwt);
@@ -147,37 +143,15 @@ export default class AuthStore {
     try {
       if (isChange) {
         changePassword.id = id;
-        // await agent.auth.changePassword(changePassword);
       }
-      //   else {
-      //     changePassword.token = token;
-      //     await agent.Account.ResetPassword(changePassword);
-      //   }
-
     } catch (error) {
       console.log(error);
       throw error;
-    }
-  };
-
-  requestPasswordReset = async (email: UserForgotPassword) => {
-    this.forgotPasswordReset = false;
-    try {
-      //   await agent.Account.ForgotPassword(email);
-    } catch (error) {
-      console.log(error);
-      throw error;
-    } finally {
-      this.forgotPasswordReset = true;
-      this.returnMessage =
-        "Sent password to this forgetful person " + email.emailAddress;
     }
   };
 
   logout = async () => {
-    // resetRegistries();
     try {
-      // router.navigate("/");
       store.commonStore.setToken(undefined);
       store.commonStore.setPaymentCustomerId(undefined);
       this.auth?.clearToken();
@@ -245,26 +219,6 @@ export default class AuthStore {
   private stopRefreshTokenTimer() {
     clearTimeout(this.refreshTokenTimeout);
   }
-
-  loadUsersList = async () => {
-    this.loadingInitial = true;
-    try {
-      //   this.userRegistry.clear();
-      //   const result = await agent.Account.userList();
-      runInAction(() => {
-        // result.forEach((user) => {
-        //   this.setUserRegistry(user);
-        // });
-      });
-    } catch (error) {
-      console.log(error);
-    } finally {
-      runInAction(() => {
-        this.loadingInitial = false;
-      });
-    }
-  };
-
 
 
   setLoadingInitial = (state: boolean) => {

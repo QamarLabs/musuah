@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useStore } from "../store";
-import ResponsiveContainer, { CommonWikiPageTextContainer, CommonWikiPageGridBox } from "../common/ResponsiveContainer";
+import { CommonWikiPageTextContainer, CommonWikiPageGridBox } from "../common/ResponsiveContainer";
 import { Formik, Form, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { observer } from "mobx-react-lite";
