@@ -2,6 +2,7 @@ import { createBrowserRouter, RouteObject } from "react-router-dom";
 import AccessDenied from '../features/AccessDenied';
 import NotFound from '../features/NotFound';
 import ServerError from '../features/ServerError';
+import PrivacyPolicy from '../features/PrivacyPolicy';
 // import ValidationError from '../features/ValidationError';
 
 import App from '../App';
@@ -118,7 +119,7 @@ export const routes: RouteObject[] = [
       { path: "wikibooks/:bookId", element: <WikiBookPage /> },
       { path: "accessDenied", element: <AccessDenied /> },
       { path: "verify-account/:userId", element: <VerifyAccount /> },
-      // { path: "privacyPolicy", element: <PrivacyPolicy /> },
+      { path: "privacy-policy", element: <PrivacyPolicy /> },
       { path: "*", element: <NotFound /> },
       { path: "server-error", element: <ServerError /> },
       { path: "validation-error", element: <ServerError /> },

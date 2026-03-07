@@ -9,6 +9,7 @@ import {
     useDisclosure,
     Flex,
     HStack,
+    VStack,
     Image,
     Collapsible
 } from "@chakra-ui/react";
@@ -18,9 +19,11 @@ export const PrivacyPolicyDefinitions = () => {
     const { open: isNonCoverageOpen, onToggle: toggleNonCoverage } = useDisclosure();
 
     return (
+        <VStack align="start" spaceY={4} mx="10%" textAlign="left">
+        
         <Box
             float={['none', 'none', 'right']}
-            width={['100%', '100%', '70%']}
+            width={['100%', '100%', '100%']}
             pl={[0, 0, 8]}
         >
             <Text mb={4}>
@@ -290,5 +293,6 @@ export const PrivacyPolicyDefinitions = () => {
                 </Flex>
             </Box>
         </Box>
+    </VStack>
     );
 };

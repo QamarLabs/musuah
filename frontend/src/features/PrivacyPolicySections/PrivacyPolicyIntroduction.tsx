@@ -11,7 +11,10 @@ import {
 
 export const PrivacyPolicyIntroduction = () => {
   return (
+    
     <Box>
+      <VStack align="start" spaceY={4} mx="10%" textAlign="left">
+
       {/* Introduction Section */}
       <Flex align="center" id="Introduction" className="mw-heading mw-heading2">
         <Link 
@@ -44,7 +47,7 @@ export const PrivacyPolicyIntroduction = () => {
         </Box>
 
         <Box 
-          width={['100%', '100%', '70%']} 
+          width={['100%', '100%', '100%']} 
           pl={[0, 0, 8]}
           float={['none', 'none', 'right']}
         >
@@ -100,6 +103,7 @@ export const PrivacyPolicyIntroduction = () => {
           </Box>
         </Box>
       </Flex>
+    </VStack>
     </Box>
   );
 };

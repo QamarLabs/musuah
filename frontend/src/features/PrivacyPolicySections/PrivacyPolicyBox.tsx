@@ -3,12 +3,13 @@ import {
   Heading,
   Text,
   Link,
+  List,
   ListItem,
   Image,
   Flex,
   VStack,
 } from "@chakra-ui/react";
-import { UnorderedList, Divider } from "@chakra-ui/layout";
+import { Divider } from "@chakra-ui/layout";
 
 export function PrivacyPolicyBox() {
   return (
@@ -68,7 +69,7 @@ export function PrivacyPolicyBox() {
           Because we believe that you should not have to provide personal information to participate
           in the free knowledge movement, you may:
         </Text>
-        <UnorderedList spacing={2}>
+        <List.Root spaceY={2}>
           <ListItem>
             Read, edit, or use any mūsūʿah site{" "}
             <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-account-info" target="_blank" rel="noopener noreferrer">
@@ -82,13 +83,13 @@ export function PrivacyPolicyBox() {
             </Link>{" "}
             an email address or real name.
           </ListItem>
-        </UnorderedList>
+        </List.Root>
 
         <Text fontWeight="bold">
           Because we want to understand how Wikimedia Sites are used so we can make them better for
           you, we collect some information when you:
         </Text>
-        <UnorderedList spacing={2}>
+        <List.Root  spaceY={2}>
           <ListItem>
             Make{" "}
             <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-public-contribs" target="_blank" rel="noopener noreferrer">
@@ -117,10 +118,10 @@ export function PrivacyPolicyBox() {
               survey or give feedback
             </Link>.
           </ListItem>
-        </UnorderedList>
+        </List.Root>
 
         <Text fontWeight="bold">We are committed to:</Text>
-        <UnorderedList spacing={2}>
+        <List.Root spaceY={2}>
           <ListItem>
             Describing how your information may be used or{" "}
             <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#when-we-may-share" target="_blank" rel="noopener noreferrer">
@@ -164,10 +165,10 @@ export function PrivacyPolicyBox() {
             for the shortest possible time that is consistent with maintaining, understanding, and
             improving the Wikimedia Sites, and our obligations under applicable law.
           </ListItem>
-        </UnorderedList>
+        </List.Root>
 
         <Text fontWeight="bold">Be aware:</Text>
-        <UnorderedList spacing={2}>
+        <List.Root  spaceY={2}>
           <ListItem>
             Any content you add or any change that you make to a Wikimedia Site will be{" "}
             <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-public-contribs" target="_blank" rel="noopener noreferrer">
@@ -215,7 +216,7 @@ export function PrivacyPolicyBox() {
             For the protection of the Wikimedia Foundation and other users, if you do not agree with
             this Privacy Policy, you may not use the Wikimedia Sites.
           </ListItem>
-        </UnorderedList>
+        </List.Root>
       </VStack>
     </Box>
   );
