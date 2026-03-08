@@ -3,10 +3,12 @@ import {
   Heading,
   Text,
   Link,
+  ListItem,
   Image,
   Flex,
   VStack,
   useBreakpointValue,
+  List,
 } from "@chakra-ui/react";
 
 export const PrivacyPolicySharing = () => {
@@ -17,25 +19,26 @@ export const PrivacyPolicySharing = () => {
       id: "when-we-may-share",
       title: "When May We Share Your Information?",
       level: 3,
-      content: null,
+      content: (
+        <Text mb={4}>
+          At Qamar Labs, our commitment to honesty means we are transparent about 
+          the limited circumstances where we might share information. The good news 
+          is that since we collect very little personal information, there is very 
+          little to share. Here are the rare situations where sharing could occur:
+        </Text>
+      ),
     },
     {
       id: "share-with-permission",
-      title: "With Your Permission",
+      title: "With Your Explicit Permission",
       level: 4,
       content: (
         <Text mb={4}>
-          We share your Personal Information for a particular purpose, if you
-          agree. For example, if you receive a scholarship and we ask permission
-          to share your Personal Information with a local chapter. You can find
-          more information in the list of examples in our{" "}
-          <Link
-            href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Frequently_asked_questions#permissionexamplesFAQ"
-            color="blue.500"
-          >
-            FAQ
-          </Link>
-          .
+          We will only share your personal information for a specific purpose if 
+          you explicitly agree to it. For example, if you contact us for support 
+          and we need to involve a third-party service to help resolve your issue, 
+          we would ask for your permission first. We believe in quality over quantity—including 
+          when it comes to permissions. You'll always know what you're agreeing to.
         </Text>
       ),
     },
@@ -46,62 +49,41 @@ export const PrivacyPolicySharing = () => {
       content: (
         <>
           <Text mb={4}>
-            We will access, use, preserve, and/or disclose your Personal
-            Information if we reasonably believe it necessary to satisfy a valid
-            and legally enforceable warrant, subpoena, court order, law or
-            regulation, or other judicial or administrative order. However, if
-            we believe that a particular request for disclosure of a user's
-            information is legally invalid or an abuse of the legal system and
-            the affected user does not intend to oppose the disclosure
-            themselves, we will try our best to fight it. We are committed to
-            notifying you via email at least ten (10) calendar days, when
-            possible, before we disclose your Personal Information in response
-            to a legal demand. However, we may only provide notice if we are not
-            legally restrained from contacting you, there is no credible threat
-            to life or limb that is created or increased by disclosing the
-            request, and you have provided us with an email address.
+            We will access, use, or disclose your Personal Information only if we 
+            reasonably believe it is necessary to satisfy a valid and legally 
+            enforceable warrant, subpoena, court order, law, or regulation. 
+            However, if we believe a request for disclosure is legally invalid or 
+            an abuse of the legal system, we will try our best to fight it.
           </Text>
           <Text mb={4}>
-            Nothing in this Privacy Policy is intended to limit any legal
-            objections or defenses you may have to a third-party's request
-            (whether it be civil, criminal, or governmental) to disclose your
-            Personal Information. We recommend seeking the advice of legal
-            counsel immediately if such a request is made involving you.
+            <Box as="span" fontWeight="bold">Our commitment to you:</Box> If we receive a legal 
+            demand for your information, we will notify you via email (if you have 
+            provided one) at least 7 days before disclosure, when legally permitted 
+            to do so. This gives you an opportunity to challenge the request if 
+            you wish.
           </Text>
           <Text mb={4}>
-            For more information, see our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Subpoena_frequently_asked_questions"
-              color="blue.500"
-            >
-              Subpoena FAQ
-            </Link>
-            .
+            Nothing in this Privacy Policy limits any legal objections or defenses 
+            you may have to a third party's request to disclose your information. 
+            We recommend seeking legal counsel if such a situation arises.
           </Text>
         </>
       ),
     },
     {
       id: "share-org-transfer",
-      title: "If the Organization is Transferred (Really Unlikely!)",
+      title: "If Qamar Labs Is Transferred (Extremely Unlikely!)",
       level: 4,
       content: (
         <Text mb={4}>
-          In the extremely unlikely event that ownership of all or substantially
-          all of the Foundation changes, or we go through a reorganization (such
-          as a merger, consolidation, or acquisition), consistent with our
-          legitimate interest, we will continue to keep your Personal
-          Information confidential, except as provided in this Policy, and
-          provide notice to you via the Wikimedia Sites and a notification on{" "}
-          <Link
-            href="https://lists.wikimedia.org/mailman/listinfo/wikimediaannounce-l"
-            color="blue.500"
-          >
-            WikimediaAnnounce-L
-          </Link>{" "}
-          or similar mailing list at least thirty (30) calendar days before any
-          Personal Information is transferred or becomes subject to a different
-          privacy policy.
+          In the highly unlikely event that ownership of Qamar Labs changes, or we 
+          go through a reorganization (such as a merger or acquisition), we will 
+          continue to keep your Personal Information confidential, except as 
+          provided in this Policy. We will provide notice to you through our app 
+          and website at least 30 days before any Personal Information is transferred 
+          or becomes subject to a different privacy policy. We will ensure that the 
+          new entity honors this Privacy Policy or give you the option to delete 
+          your information.
         </Text>
       ),
     },
@@ -112,61 +94,25 @@ export const PrivacyPolicySharing = () => {
       content: (
         <>
           <Text mb={4}>
-            We, or particular users with certain administrative rights as
-            described below, need to use and share your Personal Information if
-            it is reasonably believed to be necessary to enforce or investigate
-            potential violations of our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Terms_of_Use"
-              color="blue.500"
-            >
-              Terms of Use
-            </Link>
-            , this Privacy Policy, or any Wikimedia Foundation or user
-            community-based policies. We may also need to access and share
-            Personal Information to investigate and defend ourselves against
-            legal threats or actions.
+            We may access and share Personal Information if we reasonably believe 
+            it is necessary to:
+          </Text>
+          <List.Root listStyle="disc" pl={6} mb={4}>
+            <ListItem>Enforce or investigate potential violations of our Terms of Use</ListItem>
+            <ListItem>Detect, prevent, or address fraud, security, or technical issues</ListItem>
+            <ListItem>Protect against harm to the rights, property, or safety of Qamar Labs, our users, or the public</ListItem>
+            <ListItem>Respond to reports of abuse or harassment</ListItem>
+          </List.Root>
+          <Text mb={4}>
+            We hope this never comes up, but we may disclose your Personal Information 
+            if we believe it is reasonably necessary to prevent imminent and serious 
+            bodily harm or death to a person.
           </Text>
           <Text mb={4}>
-            Wikimedia Sites are collaborative, with users writing most of the
-            policies and selecting from amongst themselves people to hold
-            certain administrative rights. These rights may include access to
-            limited amounts of otherwise nonpublic information about recent
-            contributions and activity by other users. They use this access to
-            help protect against vandalism and abuse, fight harassment of other
-            users, and generally try to minimize disruptive behavior on the
-            Wikimedia Sites. These various user-selected administrative groups
-            have their own privacy and confidentiality guidelines, but all such
-            groups are supposed to agree to follow our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Access_to_nonpublic_personal_data_policy"
-              color="blue.500"
-            >
-              Access to nonpublic personal data policy
-            </Link>
-            . These user-selected administrative groups are accountable to other
-            users through checks and balances: users are selected through a
-            community-driven process and overseen by their peers through a
-            logged history of their actions. However, the legal names of these
-            users are not known to the Wikimedia Foundation.
-          </Text>
-          <Text mb={4}>
-            We hope that this never comes up, but we may disclose your Personal
-            Information if we believe that it is reasonably necessary to prevent
-            imminent and serious bodily harm or death to a person, or to protect
-            our organization, employees, contractors, users, or the public. We
-            may also disclose your Personal Information if we reasonably believe
-            it necessary to detect, prevent, or otherwise assess and address
-            potential spam, malware, fraud, abuse, unlawful activity, and
-            security or technical concerns. (Check out the list of examples in
-            our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Frequently_asked_questions#investigateuseFAQ"
-              color="blue.500"
-            >
-              FAQ
-            </Link>{" "}
-            for more information.)
+            <Box as="span" fontWeight="bold">Note:</Box> Since our mobile encyclopedia does not 
+            require accounts or user contributions, these situations are extremely 
+            rare. We simply don't have the type of user-generated content that 
+            typically leads to these scenarios.
           </Text>
         </>
       ),
@@ -178,104 +124,88 @@ export const PrivacyPolicySharing = () => {
       content: (
         <>
           <Text mb={4}>
-            We use third-party service providers or contractors to help run or
-            improve the Wikimedia Sites for you and other users. We give access
-            to your Personal Information to these providers or contractors as
-            needed to perform their services for us or to use their tools and
-            services. We put requirements, such as confidentiality agreements,
-            in place to help ensure that these service providers treat your
-            Personal Information consistently with, and no less protective of
-            your privacy than, the principles of this Policy. For further
-            information, please see our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Frequently_asked_questions#thirdpartyshareexamplesFAQ"
-              color="blue.500"
-            >
-              FAQ
-            </Link>
-            .
+            We use third-party service providers to help run and improve our mobile 
+            encyclopedia. These may include:
+          </Text>
+          <List.Root listStyle="disc" pl={6} mb={4}>
+            <ListItem>Cloud hosting providers (to serve app content)</ListItem>
+            <ListItem>Analytics services (to understand usage patterns anonymously)</ListItem>
+            <ListItem>Crash reporting tools (to fix bugs and improve stability)</ListItem>
+            <ListItem>Customer support tools (if you contact us for help)</ListItem>
+          </List.Root>
+          <Text mb={4}>
+            We only give these providers access to the information necessary to 
+            perform their services. We put confidentiality agreements in place to 
+            ensure they treat your information consistently with this Policy and 
+            no less protectively than we do.
           </Text>
           <Text mb={4}>
-            If you are visiting Wikimedia Sites with your mobile device, we use
-            your IP address to provide anonymized or aggregated information to
-            service providers regarding the volume of usage in certain areas.
+            <Box as="span" fontWeight="bold">Importantly:</Box> Our service providers receive 
+            only anonymized or aggregated data whenever possible. For example, 
+            analytics providers see that "1000 users read article X" but not 
+            "User 123 read article X."
           </Text>
           <Text mb={4}>
-            Some of our service providers ask us to post links to their privacy
-            policies; a list of these service providers and links to their
-            policies can be found{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Supplement"
-              color="blue.500"
-            >
-              on this page
-            </Link>
-            .
+            If you are using our mobile app, your IP address may be shared with 
+            our hosting provider to deliver content to your device. This is 
+            standard for any internet service.
           </Text>
+          <Box bg="yellow.50" p={3} borderRadius="md" mb={4}>
+            <Text fontWeight="bold" mb={2}>📋 Current Service Providers:</Text>
+            <Text fontSize="sm">
+              We will maintain a list of our current service providers and links 
+              to their privacy policies on our website. Please check there for 
+              the most up-to-date information.
+            </Text>
+          </Box>
         </>
       ),
     },
     {
       id: "share-to-experiment",
-      title: "To Understand & Experiment",
+      title: "For Research & Improvement",
       level: 4,
       content: (
         <>
           <Text mb={4}>
-            The open-source software that powers the Wikimedia Sites depends on
-            the contributions of volunteer software developers, who spend time
-            writing and testing code to help it improve and evolve with our
-            users' needs. To facilitate their work, we give some developers
-            limited access to systems that contain your Personal Information,
-            but only as reasonably necessary for them to develop and contribute
-            to the Wikimedia Sites.
+            As part of our mission to serve the Ummah with quality knowledge, we 
+            occasionally collaborate with researchers to understand how our app 
+            is used and how we can improve it.
           </Text>
           <Text mb={4}>
-            Similarly, we share non-Personal Information or aggregated
-            information with researchers, scholars, academics, and other
-            interested third parties who wish to study the Wikimedia Sites.
-            Sharing this Personal Information helps them understand usage,
-            viewing, and demographics statistics and patterns. They then can
-            share their findings with us and our users so that we can all better
-            understand and improve the Wikimedia Sites.
+            <Box as="span" fontWeight="bold">What we share:</Box> We share only non-personal, 
+            aggregated information with researchers—for example, "articles about 
+            Islamic history are read 50% more on weekends" or "users in certain 
+            regions prefer longer articles."
           </Text>
           <Text mb={4}>
-            When we give access to Personal Information to third-party
-            developers or researchers, we put requirements, such as reasonable
-            technical and contractual protections, in place to help ensure that
-            these service providers treat your Personal Information consistently
-            with the principles of this Policy and in accordance with our
-            instructions. If these developers or researchers later publish their
-            work or findings, we ask that they not disclose your Personal
-            Information. Please note that, despite the obligations we impose on
-            developers and researchers, we cannot guarantee that they will abide
-            by our agreement, nor do we guarantee that we will regularly screen
-            or audit their projects. (You can learn more about re-identification
-            in our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Frequently_asked_questions#reidentifiationFAQ"
-              color="blue.500"
-            >
-              FAQ
-            </Link>
-            .)
+            <Box as="span" fontWeight="bold">Our safeguards:</Box> When we give researchers 
+            access to any data, we:
+          </Text>
+          <List.Root listStyle="disc" pl={6} mb={4}>
+            <ListItem>Require them to sign confidentiality agreements</ListItem>
+            <ListItem>Ensure data is anonymized and cannot be traced to individuals</ListItem>
+            <ListItem>Prohibit them from attempting to re-identify users</ListItem>
+            <ListItem>Review their research methodology and intended use</ListItem>
+          </List.Root>
+          <Text mb={4}>
+            These collaborations help us make data-driven decisions about how to 
+            better serve you, always respecting your privacy.
           </Text>
         </>
       ),
     },
     {
       id: "share-because-public",
-      title: "Because You Made It Public",
+      title: "Information You Make Public",
       level: 4,
       content: (
         <Text mb={4}>
-          Any information you post publicly on the Wikimedia Sites is just that
-          – public. For example, if you put your mailing address on your talk
-          page, that is public, and not specifically protected by this Policy.
-          And if you edit without registering or logging into your account, your
-          IP address will be seen publicly. Please think carefully about your
-          desired level of privacy before you disclose Personal Information on
-          your user page or elsewhere.
+          <Box as="span" fontWeight="bold">Important:</Box> Our mobile encyclopedia is designed 
+          for reading, not for posting content. You cannot make public posts, 
+          comments, or contributions within the app itself. Therefore, there is 
+          no scenario where you would accidentally make your personal information 
+          public through our app.
         </Text>
       ),
     },
@@ -286,6 +216,7 @@ export const PrivacyPolicySharing = () => {
       case 2:
         return (
           <Heading
+            className='mw-text'
             as="h2"
             id={id}
             fontSize="xl"
@@ -295,12 +226,11 @@ export const PrivacyPolicySharing = () => {
           >
             {!isMobile && (
               <Image
-                src="//upload.wikimedia.org/wikipedia/commons/thumb/9/90/WMF_share.png/60px-WMF_share.png"
+                src="/flaticon-icons/sharing.svg"
                 alt="Sharing icon"
                 width="60px"
                 height="60px"
                 mr={2}
-                srcSet="//upload.wikimedia.org/wikipedia/commons/thumb/9/90/WMF_share.png/90px-WMF_share.png 1.5x, //upload.wikimedia.org/wikipedia/commons/9/90/WMF_share.png 2x"
               />
             )}
             {title}
@@ -308,34 +238,70 @@ export const PrivacyPolicySharing = () => {
         );
       case 3:
         return (
-          <Heading as="h3" id={id} fontSize="lg" mb={4}>
+          <Heading className='mw-text' as="h3" id={id} fontSize="lg" mb={4}>
             {title}
           </Heading>
         );
       case 4:
         return (
-          <Heading as="h4" id={id} fontSize="md" mb={4}>
+          <Heading className='mw-text' as="h4" id={id} fontSize="md" mb={4}>
             {title}
           </Heading>
         );
       default:
         return (
-          <Heading as="h4" id={id} fontSize="md" mb={4}>
+          <Heading className='mw-text' as="h4" id={id} fontSize="md" mb={4}>
             {title}
           </Heading>
         );
     }
   };
 
+  // Summary section to add at the end
+  const summarySection = (
+    <Box mt={8} p={5} bg="blue.50" borderRadius="md" borderLeft="4px solid" borderLeftColor="blue.500">
+      <Heading className='mw-text' as="h4" size="sm" mb={3}>
+        📋 Summary: How We Share Information
+      </Heading>
+      
+      <List.Root spaceY={2}>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ We collect very little, so we share very little</Box>
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ We never sell your information</Box> — period
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ We share only with your permission</Box> or for legal reasons
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ Service providers get only what's necessary</Box> and are bound by confidentiality
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ Research partners receive only anonymized, aggregated data</Box>
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ No public posting means no accidental sharing</Box>
+        </ListItem>
+      </List.Root>
+      
+      <Text mt={4} fontStyle="italic">
+        At Qamar Labs, we're building honest apps for the Ummah. Our sharing 
+        practices reflect our commitment to quality over quantity—and privacy first.
+      </Text>
+    </Box>
+  );
+
   return (
     <Box>
-      <VStack align="start" spaceY={4} mx="10%" textAlign="left">
+      <VStack className='mw-text' align="start" spaceY={4} mx="10%" textAlign="left">
         <Box
           float={{ base: "none", md: "right" }}
           width={{ base: "100%", md: "100%" }}
           pl={{ base: 0, md: 8 }}
+          className='mw-text'
         >
-          {renderHeading(2, "Sharing", "Sharing")}
+          {renderHeading(2, "Information Sharing", "Sharing")}
 
           {sections.map((section, index) => (
             <Box key={index} mb={8}>
@@ -352,7 +318,7 @@ export const PrivacyPolicySharing = () => {
                   <Link href="#top" color="blue.500" mr={2}>
                     Back to top
                   </Link>
-                  <Link href="/wiki/Privacy_policy#top" title="Privacy policy">
+                  <Link href="#top" title="Back to top">
                     <Image
                       src="//upload.wikimedia.org/wikipedia/commons/c/ce/WWC_arrow_up.png"
                       alt="Up arrow"
@@ -364,6 +330,25 @@ export const PrivacyPolicySharing = () => {
               )}
             </Box>
           ))}
+          
+          {/* Add summary section */}
+          {summarySection}
+          
+          {!isMobile && (
+            <Flex justify="flex-end" mt={4}>
+              <Link href="#top" color="blue.500" mr={2}>
+                Back to top
+              </Link>
+              <Link href="#top" title="Back to top">
+                <Image
+                  src="//upload.wikimedia.org/wikipedia/commons/c/ce/WWC_arrow_up.png"
+                  alt="Up arrow"
+                  width="11px"
+                  height="11px"
+                />
+              </Link>
+            </Flex>
+          )}
         </Box>
         <Box clear="both" />
       </VStack>

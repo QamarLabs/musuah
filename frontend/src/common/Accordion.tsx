@@ -27,3 +27,25 @@ export function MWAccordion({ children, titleTrigger, hideTrigger }: React.Props
             </Accordion.Root>
     );
 }
+
+export const InfoCollapsibleSection: React.FC<{
+  title: string;
+  children: React.ReactNode;
+}> = ({ title, children }) => {
+
+  return (
+    <Accordion.Root variant={"enclosed"} collapsible defaultValue={["b"]}>
+        <Accordion.Item value="0">
+            <Accordion.ItemTrigger>
+                <Span className='mw-text' fontSize="0.90rem" flex="1">{title}</Span>
+                <Accordion.ItemIndicator />
+            </Accordion.ItemTrigger>
+            <Accordion.ItemContent>
+                <Accordion.ItemBody>
+                  {children}
+                </Accordion.ItemBody>
+            </Accordion.ItemContent>
+          </Accordion.Item>
+    </Accordion.Root>
+  );
+};

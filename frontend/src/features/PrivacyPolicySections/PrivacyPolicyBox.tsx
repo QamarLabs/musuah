@@ -2,7 +2,6 @@ import {
   Box,
   Heading,
   Text,
-  Link,
   List,
   ListItem,
   Image,
@@ -13,7 +12,7 @@ import { Divider } from "@chakra-ui/layout";
 
 export function PrivacyPolicyBox() {
   return (
-    <Box p="0.3em 0" textAlign="center">
+    <Box className="mw-text" p="0.3em 0" textAlign="center">
       <Heading
         as="h2"
         bg="green.700"
@@ -21,34 +20,31 @@ export function PrivacyPolicyBox() {
         m="0.3em auto"
         fontWeight="bold"
         textAlign="center"
+        className='mw-text'
+        color="rgba(255, 255, 255, 0.87)"
         py={2}
         px={4}
       >
-        mūsūʿah Privacy Policy
+        Qamar Labs Privacy Policy
       </Heading>
 
       <Flex justify="flex-end" mr={0}>
-        <Link href="/wiki/File:Wikimedia-logo_black.svg" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Wikimedia-logo_black.svg/120px-Wikimedia-logo_black.svg.png"
-            alt="Wikimedia Logo"
-            w={90}
-            h={90}
-            srcSet="//upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Wikimedia-logo_black.svg/250px-Wikimedia-logo_black.svg.png 1.5x"
-            decoding="async"
-          />
-        </Link>
+        <Image
+          src="/qamar-labs-logo.png"
+          alt="Qamar Labs Logo"
+          w={90}
+          h={90}
+          decoding="async"
+        />
       </Flex>
 
       <Text p="0.3em 0" textAlign="center" mx="10%" my={1}>
         This is a{" "}
-        <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Summary" target="_blank" rel="noopener noreferrer">
+        <Text as="span" fontWeight="bold">
           summary
-        </Link>{" "}
-        of the Privacy Policy. To read the full terms, scroll down or{" "}
-        <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#introduction" target="_blank" rel="noopener noreferrer">
-          click here
-        </Link>.
+        </Text>{" "}
+        of the Qamar Labs Privacy Policy. To read the full terms, scroll down.
+        We believe in honesty, clarity, and serving the Ummah with transparency.
       </Text>
 
       <Text
@@ -57,164 +53,112 @@ export function PrivacyPolicyBox() {
         p="0.3em"
         mx="75px"
       >
-        Disclaimer: This summary is not a part of the Privacy Policy and is not a legal document.
-        It is simply a handy reference for understanding the full Privacy Policy. Think of it as the
-        user-friendly interface to our Privacy Policy.
+        Disclaimer: This summary is not a legal document. It is a simplified
+        explanation meant to help you understand our full Privacy Policy. Think
+        of it as the user‑friendly version of how Qamar Labs protects your data.
       </Text>
 
       <Divider my={4} />
 
       <VStack align="start" spaceY={4} mx="10%" textAlign="left">
         <Text fontWeight="bold">
-          Because we believe that you should not have to provide personal information to participate
-          in the free knowledge movement, you may:
+          At Qamar Labs, we believe you should be able to benefit from our apps
+          without giving up unnecessary personal information. You may:
         </Text>
+
         <List.Root spaceY={2}>
           <ListItem>
-            Read, edit, or use any mūsūʿah site{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-account-info" target="_blank" rel="noopener noreferrer">
-              without registering an account
-            </Link>.
+            Use most Qamar Labs apps{" "}
+            <Text as="span" fontWeight="bold">
+              without creating an account
+            </Text>.
           </ListItem>
           <ListItem>
-            Register for an account{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-account-info" target="_blank" rel="noopener noreferrer">
-              without providing
-            </Link>{" "}
-            an email address or real name.
+            Create an account{" "}
+            <Text as="span" fontWeight="bold">
+              without providing your real name
+            </Text>{" "}
+            or unnecessary personal details.
           </ListItem>
         </List.Root>
 
         <Text fontWeight="bold">
-          Because we want to understand how Wikimedia Sites are used so we can make them better for
-          you, we collect some information when you:
+          To improve our apps and serve the Ummah better, we collect limited
+          information when you:
         </Text>
-        <List.Root  spaceY={2}>
+
+        <List.Root spaceY={2}>
+          <ListItem>Use features inside our apps.</ListItem>
+          <ListItem>Create an account or update your profile.</ListItem>
+          <ListItem>Send us feedback or contact our support team.</ListItem>
           <ListItem>
-            Make{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-public-contribs" target="_blank" rel="noopener noreferrer">
-              public contributions
-            </Link>.
-          </ListItem>
-          <ListItem>
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-account-info" target="_blank" rel="noopener noreferrer">
-              Register an account
-            </Link>{" "}
-            or update your user page.
-          </ListItem>
-          <ListItem>
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-use-of-wm-sites" target="_blank" rel="noopener noreferrer">
-              Use
-            </Link>{" "}
-            the Wikimedia Sites.
-          </ListItem>
-          <ListItem>
-            Send us{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#emails" target="_blank" rel="noopener noreferrer">
-              emails
-            </Link>{" "}
-            or participate in a{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#surveys-feedback" target="_blank" rel="noopener noreferrer">
-              survey or give feedback
-            </Link>.
+            Participate in optional surveys, beta programs, or community
+            feedback sessions.
           </ListItem>
         </List.Root>
 
         <Text fontWeight="bold">We are committed to:</Text>
+
         <List.Root spaceY={2}>
           <ListItem>
-            Describing how your information may be used or{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#when-we-may-share" target="_blank" rel="noopener noreferrer">
-              shared
-            </Link>{" "}
-            in this Privacy Policy.
+            Being{" "}
+            <Text as="span" fontWeight="bold">
+              honest
+            </Text>{" "}
+            and clear about how your information is used or shared.
           </ListItem>
           <ListItem>
-            Using reasonable measures to keep your information{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#protection-means" target="_blank" rel="noopener noreferrer">
-              secure
-            </Link>.
+            Using reasonable security measures to keep your information safe.
           </ListItem>
           <ListItem>
             Never{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#donotsell" target="_blank" rel="noopener noreferrer">
+            <Text as="span" fontWeight="bold">
               selling
-            </Link>{" "}
-            your information or sharing it with third parties for marketing purposes.
+            </Text>{" "}
+            your information or sharing it with third parties for marketing.
           </ListItem>
           <ListItem>
-            Only{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#when-we-may-share" target="_blank" rel="noopener noreferrer">
-              sharing
-            </Link>{" "}
-            your information in limited circumstances, such as to{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#share-to-experiment" target="_blank" rel="noopener noreferrer">
-              improve the Wikimedia Sites
-            </Link>, to{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#share-legal-reasons" target="_blank" rel="noopener noreferrer">
-              comply with the law
-            </Link>, or to{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#share-to-protect-people" target="_blank" rel="noopener noreferrer">
-              protect you and others
-            </Link>.
+            Only sharing your information in limited cases, such as:
+            <List.Root pl={4} mt={1} spaceY={1}>
+              <ListItem>Improving Qamar Labs apps and services.</ListItem>
+              <ListItem>Complying with legal obligations.</ListItem>
+              <ListItem>Protecting our users and systems.</ListItem>
+            </List.Root>
           </ListItem>
           <ListItem>
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#protection-duration" target="_blank" rel="noopener noreferrer">
-              Retaining your data
-            </Link>{" "}
-            for the shortest possible time that is consistent with maintaining, understanding, and
-            improving the Wikimedia Sites, and our obligations under applicable law.
+            Retaining your data only for as long as needed to operate and
+            improve our services.
           </ListItem>
         </List.Root>
 
         <Text fontWeight="bold">Be aware:</Text>
-        <List.Root  spaceY={2}>
+
+        <List.Root spaceY={2}>
           <ListItem>
-            Any content you add or any change that you make to a Wikimedia Site will be{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#your-public-contribs" target="_blank" rel="noopener noreferrer">
-              publicly and permanently available
-            </Link>.
+            Any content you publicly submit inside a Qamar Labs app may be
+            visible to other users.
           </ListItem>
           <ListItem>
-            If you add content or make a change to a Wikimedia Site{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#noaccount" target="_blank" rel="noopener noreferrer">
-              without logging in
-            </Link>, that content or change will be publicly and permanently attributed to the IP
-            address used at the time rather than a username.
+            If you submit content without logging in, it may be associated with
+            your device or IP address.
           </ListItem>
           <ListItem>
-            Our community of volunteer editors and contributors is a self-policing body. Certain
-            administrators of the Wikimedia Sites, who are chosen by the community, use tools that
-            grant them limited access to nonpublic information about recent contributions so they may
-            protect the Wikimedia Sites and enforce policies.
+            Some Qamar Labs apps include community‑moderated spaces where trusted
+            volunteers may have limited access to non‑public information to
+            maintain safety.
           </ListItem>
           <ListItem>
-            This Privacy Policy{" "}
-            <Link href="/wiki/Special:MyLanguage/Policy:Privacy_policy#coverage" target="_blank" rel="noopener noreferrer">
-              does not apply
-            </Link>{" "}
-            to all sites and services run by the Wikimedia Foundation, such as sites or services that
-            have their own privacy policy (like the{" "}
-            <Link href="https://shop.wikimedia.org" target="_blank" rel="noopener noreferrer">
-              Wikimedia Shop
-            </Link>) or sites or services run by third parties (like third-party developer projects
-            on{" "}
-            <Link
-              href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Cloud_Services"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Wikimedia Cloud Services
-            </Link>).
+            This Privacy Policy applies only to Qamar Labs apps and services.
+            Third‑party tools or integrations may have their own privacy
+            policies.
           </ListItem>
           <ListItem>
-            As part of our commitment to education and research around the world, we occasionally
-            release public information and aggregated or non-personal information to the general
-            public through data dumps and data sets.
+            We may release aggregated, non‑personal data for research,
+            transparency, or community benefit.
           </ListItem>
           <ListItem>
-            For the protection of the Wikimedia Foundation and other users, if you do not agree with
-            this Privacy Policy, you may not use the Wikimedia Sites.
+            If you do not agree with this Privacy Policy, you may choose not to
+            use Qamar Labs apps.
           </ListItem>
         </List.Root>
       </VStack>

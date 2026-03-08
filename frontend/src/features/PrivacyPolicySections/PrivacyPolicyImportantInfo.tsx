@@ -8,6 +8,7 @@ import {
   VStack,
   useBreakpointValue,
   List,
+  ListItem
 } from "@chakra-ui/react";
 
 export function PrivacyPolicyImportantInfo() {
@@ -19,60 +20,70 @@ export function PrivacyPolicyImportantInfo() {
       title: "",
       level: 0,
       content: (
-        <Text fontWeight="bold" mb={4}>
-          For the protection of the Wikimedia Foundation and other users, if you
-          do not agree with this Privacy Policy, you may not use the Wikimedia
-          Sites.
+        <Text fontWeight="bold" mb={4} fontSize="lg" color="blue.600">
+          At Qamar Labs, we believe in honesty and transparency. By using our mobile 
+          encyclopedia, you trust us with your information. This Privacy Policy is 
+          designed to help you understand what we collect, why we collect it, and 
+          what you can do to protect your privacy.
         </Text>
       ),
     },
     {
-      id: "where-is-the-wmf",
-      title: "Where is the Foundation & What Does That Mean for Me?",
+      id: "where-is-qamarlabs",
+      title: "Where Is Qamar Labs Located?",
       level: 3,
       content: (
-        <Text mb={4}>
-          The Wikimedia Foundation is a non-profit organization based in San
-          Francisco, California, with servers and data centers located in the
-          U.S. If you decide to use Wikimedia Sites, whether from inside or
-          outside of the U.S., you understand that your Personal Information
-          will be collected, transferred, stored, processed, disclosed and
-          otherwise used in the U.S. as described in this Privacy Policy. You
-          also understand that your information may be transferred by us from
-          the U.S. to other countries, which may have different or less
-          stringent data protection laws than your country, in connection with
-          providing services to you.
-        </Text>
+        <>
+          <Text className='mw-text' mb={4}>
+            Qamar Labs is a developer committed to building quality applications for 
+            the Ummah. We are headquartered in [Insert Country/City]. Our servers and 
+            infrastructure may be located in various countries, including the United 
+            States and other regions.
+          </Text>
+          <Text className='mw-text' mb={4}>
+            By using our mobile encyclopedia, you understand that your information 
+            may be collected, transferred, stored, and processed in countries where 
+            our servers and service providers are located. These countries may have 
+            data protection laws that differ from those in your country of residence. 
+            We take steps to ensure that your information receives an adequate level 
+            of protection regardless of where it is processed.
+          </Text>
+          <Box className='mw-text' bg="yellow.50" p={4} borderRadius="md" mb={4}>
+            <Text fontWeight="bold" mb={2}>🌍 International Users:</Text>
+            <Text>
+              If you are accessing our app from outside the US, please be 
+              aware that your information may be transferred to and maintained on 
+              servers located outside of your country. By using our app, you consent 
+              to this transfer and processing of your information.
+            </Text>
+          </Box>
+        </>
       ),
     },
     {
       id: "DNT",
-      title: "Our Response to Do Not Track (DNT) signals",
+      title: "Do Not Track (DNT) Signals",
       level: 3,
       content: (
         <>
-          <Text mb={4}>
-            We are strongly committed to protecting users' Personal Information.
-            Under this Policy, we may share your information only under
-            particular situations, which you can learn more about in the{" "}
-            <Link href="#sharing" color="blue.500">
-              "When May We Share Your Information"
-            </Link>{" "}
-            section of this Privacy Policy. In particular, we do not share your
-            Personal Information for marketing purposes.
+          <Text className='mw-text' mb={4}>
+            We respect your privacy choices. Currently, our app does not respond to 
+            "Do Not Track" signals from web browsers because:
           </Text>
-          <Text mb={4}>
-            Because we protect all users in accordance with this Privacy Policy,
-            we do not change our behavior in response to a web browser's "do not
-            track" signal. For more information regarding Do Not Track signals
-            and how we handle them, please visit our{" "}
-            <Link
-              href="/wiki/Special:MyLanguage/Policy:Privacy_policy/Frequently_asked_questions#DNTFAQ"
-              color="blue.500"
-            >
-              FAQ
-            </Link>
-            .
+          <List.Root className='mw-text' listStyle="disc" pl={6} mb={4}>
+            <ListItem>We do not track you across third-party websites</ListItem>
+            <ListItem>We do not use your information for marketing or advertising purposes</ListItem>
+            <ListItem>We already protect all users in accordance with this Privacy Policy regardless of DNT signals</ListItem>
+          </List.Root>
+          <Text className='mw-text' mb={4}>
+            In short, because we don't engage in the types of tracking that DNT is 
+            designed to prevent, there's no behavior to change. We treat all users 
+            with the same high standard of privacy protection.
+          </Text>
+          <Text className='mw-text' mb={4}>
+            If you have questions about how we handle tracking technologies, please 
+            review the "Local Storage & Data Collection Technologies" section of this 
+            Privacy Policy.
           </Text>
         </>
       ),
@@ -83,48 +94,45 @@ export function PrivacyPolicyImportantInfo() {
       level: 3,
       content: (
         <>
-          <Text mb={4}>
-            Because things naturally change over time and we want to ensure our
-            Privacy Policy accurately reflects our practices and the law, it may
-            be necessary to modify this Privacy Policy from time to time. We
-            reserve the right to do so in the following manner:
+          <Text className='mw-text' mb={4}>
+            As we grow and improve our app, and as laws and technologies evolve, we 
+            may need to update this Privacy Policy. Our commitment to honesty means 
+            we will always notify you of significant changes.
           </Text>
-          <List.Root mb={4} pl={6}>
-            <List.Item mb={2}>
-              In the event of substantial changes, we will provide the proposed
-              changes to our users in at least three (3) languages (selected at
-              our discretion) for an open comment period lasting at least thirty
-              (30) calendar days. Prior to the start of any comment period, we
-              will provide notice of such changes and the opportunity to comment
-              via the Wikimedia Sites, and via a notification on{" "}
-              <Link
-                href="https://lists.wikimedia.org/mailman/listinfo/wikimediaannounce-l"
-                color="blue.500"
-              >
-                WikimediaAnnounce-L
-              </Link>{" "}
-              or a similar mailing list.
-            </List.Item>
-            <List.Item>
-              For minor changes, such as grammatical fixes, administrative or
-              legal changes, or corrections of inaccurate statements, we will
-              post the changes and, when possible, provide at least three (3)
-              calendar days' prior notice via{" "}
-              <Link
-                href="https://lists.wikimedia.org/mailman/listinfo/wikimediaannounce-l"
-                color="blue.500"
-              >
-                WikimediaAnnounce-L
-              </Link>{" "}
-              or similar mailing list.
-            </List.Item>
+          
+          <Text className='mw-text' mb={2} fontWeight="bold">How we handle changes:</Text>
+          
+          <List.Root className='mw-text' listStyle="disc" pl={6} mb={4}>
+            <ListItem mb={3}>
+              <Box as="span" fontWeight="bold">Major changes:</Box> For significant updates 
+              that affect your rights or how we handle your information, we will:
+              <List.Root listStyle="circle" pl={6} mt={2}>
+                <ListItem>Update the "Effective Date" at the top of this policy</ListItem>
+                <ListItem>Provide notice within the app (such as a pop-up or notification)</ListItem>
+                <ListItem>Give you an opportunity to review the changes before they take effect</ListItem>
+                <ListItem>Offer a 30-day period for you to ask questions or provide feedback</ListItem>
+              </List.Root>
+            </ListItem>
+            <ListItem>
+              <Box as="span" fontWeight="bold">Minor changes:</Box> For clarifications, 
+              grammatical fixes, or administrative updates, we will post the updated 
+              policy with a revised effective date. We may provide notice through the 
+              app when appropriate.
+            </ListItem>
           </List.Root>
+          
           <Text mb={4}>
-            We ask that you please review the most up-to-date version of our
-            Privacy Policy. Your continued use of the Wikimedia Sites after any
-            effective date of a subsequent version of this Privacy Policy
-            constitutes acceptance of this Privacy Policy on your part.
+            We encourage you to review this Privacy Policy periodically. Your 
+            continued use of our mobile encyclopedia after any updates constitutes 
+            your acceptance of the revised policy. If you do not agree with the 
+            changes, you should stop using the app and uninstall it.
           </Text>
+          
+          <Box bg="blue.50" p={3} borderRadius="md" mb={4}>
+            <Text fontSize="sm">
+              <Box as="span" fontWeight="bold">📅 Current version effective:</Box> TBD
+            </Text>
+          </Box>
         </>
       ),
     },
@@ -134,56 +142,93 @@ export function PrivacyPolicyImportantInfo() {
       level: 3,
       content: (
         <>
-          <Text mb={4}>
-            If you have questions or suggestions about this Privacy Policy, or
-            the information collected under this Privacy Policy, please email us
-            at{" "}
-            <Link href="mailto:privacy@wikimedia.org" color="blue.500">
-              privacy@wikimedia.org
-            </Link>{" "}
-            or{" "}
-            <Link
-              href="https://wikimediafoundation.org/about/contact/"
-              color="blue.500"
-            >
-              contact us
-            </Link>{" "}
-            directly. If you are located in the European Economic Area and have
-            questions about your personal data or would like to request to
-            access, update, or delete it, you may contact our representative via
-            email at EUrepresentative.Wikimedia@twobirds.com, or via mail at:
+          <Text className='mw-text' mb={4}>
+            We're here to help! If you have questions, concerns, or suggestions 
+            about this Privacy Policy or how we handle your information, please 
+            reach out to us. We aim to respond to all inquiries within 30 days.
           </Text>
-          <List.Root mb={4} spaceY={1} listStyle="none">
-            <List.Item>Bird &amp; Bird GDPR Representative Ireland</List.Item>
-            <List.Item>29 Earlsfort Terrace</List.Item>
-            <List.Item>Dublin 2</List.Item>
-            <List.Item>D02 AY28</List.Item>
-            <List.Item>Ireland</List.Item>
+          
+          <Box className='mw-text' bg="green.50" p={5} borderRadius="md" mb={4}>
+            <Heading as="h4" size="sm" mb={3}>
+              📧 How to Reach Us
+            </Heading>
+            
+            <Text fontWeight="bold" mb={1}>Email:</Text>
+            <Link href="mailto:support@qamarlabsllc.com" color="blue.500" fontSize="lg" mb={3} display="block">
+              support@qamarlabsllc.com
+            </Link>
+            
+            
+            <Text fontWeight="bold" mb={1}>Website:</Text>
+            <Link href="https://www.qamarlabs.com/contact" color="blue.500" display="block" mb={2}>
+              https://qamarlabs.netlify.app/contact
+            </Link>
+          </Box>
+          
+          <Text mb={4}>
+            <Box as="span" fontWeight="bold">For data protection inquiries:</Box> If you are 
+            contacting us about a data protection or privacy matter, please include 
+            "Privacy Request" in the subject line to help us route your inquiry 
+            quickly to the right team.
+          </Text>
+          
+          <Text mb={4}>
+            Depending on your jurisdiction, you may have the right to lodge a complaint 
+            with a supervisory authority if you believe we have not adequately addressed 
+            your concern. We encourage you to contact us first so we can work to 
+            resolve any issues directly.
+          </Text>
+        </>
+      ),
+    },
+    {
+      id: "jurisdiction-specific",
+      title: "Additional Information for Specific Regions",
+      level: 3,
+      content: (
+        <>
+          <Text className='mw-text' mb={3} fontWeight="bold">European Economic Area (EEA) and United Kingdom</Text>
+          <Text className='mw-text' mb={3}>
+            If you are located in the European Economic Area or the United Kingdom, 
+            you have certain rights under the General Data Protection Regulation (GDPR) 
+            regarding your personal information.
+          </Text>
+          <List.Root className='mw-text' listStyle="disc" pl={6} mb={4}>
+            <ListItem>Right to access your personal information</ListItem>
+            <ListItem>Right to rectify inaccurate information</ListItem>
+            <ListItem>Right to erasure ("right to be forgotten")</ListItem>
+            <ListItem>Right to restrict processing</ListItem>
+            <ListItem>Right to data portability</ListItem>
+            <ListItem>Right to object to processing</ListItem>
           </List.Root>
-          <Text mb={4}>
-            If you are an individual located in the United Kingdom, and have
-            questions about your personal data or would like to request to
-            access, update, or delete it, you may contact our representative via
-            email at UKrepresentative.Wikimedia@twobirds.com, or via mail at:
+          <Text className='mw-text' mb={4}>
+            To exercise these rights, please contact us at{" "}
+            <Link href="mailto:privacy@qamarlabs.com" color="blue.500">
+              privacy@qamarlabs.com
+            </Link>
+            . We will respond within the timeframe required by applicable law.
           </Text>
-          <List.Root mb={4} spaceY={1} listStyle="none">
-            <List.Item>
-              Bird &amp; Bird GDPR Representative Services UK
-            </List.Item>
-            <List.Item>12 New Fetter Lane</List.Item>
-            <List.Item>London</List.Item>
-            <List.Item>EC4A 1JP</List.Item>
-            <List.Item>United Kingdom</List.Item>
-          </List.Root>
-          <Text mb={4}>
-            Our European Economic Area and United Kingdom Representative can
-            only be contacted for queries in relation to data protection.
+          
+          <Text className='mw-text' mb={3} fontWeight="bold">California Residents</Text>
+          <Text className='mw-text' mb={4}>
+            If you are a California resident, the California Consumer Privacy Act 
+            (CCPA) provides you with specific rights regarding your personal 
+            information. These include the right to know what personal information 
+            we collect, the right to delete personal information, and the right to 
+            opt out of the sale of personal information. We do not sell your personal 
+            information. To exercise your rights, please contact us at the email 
+            address above.
           </Text>
-          <Text mb={4}>
-            Depending on your jurisdiction, you also may have the right to lodge
-            a complaint with a supervisory authority competent for your country
-            or region.
-          </Text>
+          
+          <Box className='mw-text' bg="purple.50" p={4} borderRadius="md" mb={4}>
+            <Text fontWeight="bold" mb={2}>🌎 Other Regions:</Text>
+            <Text>
+              Regardless of where you are located, we are committed to protecting 
+              your privacy and handling your information responsibly. If your local 
+              laws provide additional privacy rights, we will respect them to the 
+              best of our ability.
+            </Text>
+          </Box>
         </>
       ),
     },
@@ -193,17 +238,31 @@ export function PrivacyPolicyImportantInfo() {
       level: 3,
       content: (
         <>
-          <Text mb={4}>
-            Thank you for reading our Privacy Policy. We hope you enjoy using
-            the Wikimedia Sites and appreciate your participation in creating,
-            maintaining, and constantly working to improve the largest
-            repository of free knowledge in the world.
+          <Text className='mw-text' mb={4} fontSize="lg">
+            Thank you for taking the time to read our Privacy Policy. We know it's 
+            not the most exciting reading, but we appreciate your attention to 
+            understanding how we protect your information.
           </Text>
-          <Text fontWeight="bold" mb={4}>
-            Please note that in the event of any differences in meaning or
-            interpretation between the original English version of this Privacy
-            Policy and a translation, the original English version takes
-            precedence.
+          
+          <Text className='mw-text' mb={4}>
+            At Qamar Labs, we're honored that you've chosen our mobile encyclopedia 
+            as a source of knowledge. We're committed to serving the Ummah with 
+            honest, quality applications that respect your privacy.
+          </Text>
+          
+          <Box className='mw-text' bg="yellow.50" p={5} borderRadius="md" mb={4} textAlign="center">
+            <Text fontSize="xl" mb={2} fontFamily="serif">
+              جزاك الله خير
+            </Text>
+            <Text fontStyle="italic">
+              Jazak Allah Khair — Thank you for your trust.
+            </Text>
+          </Box>
+          
+          <Text className='mw-text' fontWeight="bold" fontSize="sm" color="gray.600" mt={6}>
+            Please note that in the event of any differences in meaning or 
+            interpretation between the original English version of this Privacy 
+            Policy and a translation, the original English version takes precedence.
           </Text>
         </>
       ),
@@ -215,6 +274,7 @@ export function PrivacyPolicyImportantInfo() {
       case 2:
         return (
           <Heading
+            className='mw-text'
             as="h2"
             id={id}
             fontSize="xl"
@@ -224,20 +284,19 @@ export function PrivacyPolicyImportantInfo() {
           >
             {!isMobile && (
               <Image
-                src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/WMF_sign.png/60px-WMF_sign.png"
+                src="/flaticon-icons/importantinfo.svg"
                 alt="Important info icon"
                 width="60px"
                 height="60px"
                 mr={2}
-                srcSet="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/WMF_sign.png/90px-WMF_sign.png 1.5x, //upload.wikimedia.org/wikipedia/commons/9/92/WMF_sign.png 2x"
               />
             )}
-            {title}
+            Important Information
           </Heading>
         );
       case 3:
         return (
-          <Heading as="h3" id={id} fontSize="lg" mb={4}>
+          <Heading className='mw-text' as="h3" id={id} fontSize="lg" mb={4}>
             {title}
           </Heading>
         );
@@ -245,6 +304,33 @@ export function PrivacyPolicyImportantInfo() {
         return null;
     }
   };
+
+  // Summary section
+  const summarySection = (
+    <Box mt={8} p={5} bg="blue.50" borderRadius="md" borderLeft="4px solid" borderLeftColor="blue.500">
+      <Heading className='mw-text' as="h4" size="sm" mb={3}>
+        📋 Key Takeaways
+      </Heading>
+      
+      <List.Root className='mw-text' spaceY={2}>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ We're here to help</Box> — Contact us anytime with questions
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ We'll notify you of changes</Box> — Especially major updates
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ Your rights matter</Box> — We respect regional privacy laws
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ We don't track you</Box> — No marketing, no advertising, no selling data
+        </ListItem>
+        <ListItem>
+          <Box as="span" fontWeight="bold">✓ Thank you for your trust</Box> — We're honored to serve you
+        </ListItem>
+      </List.Root>
+    </Box>
+  );
 
   return (
     <Box>
@@ -254,7 +340,7 @@ export function PrivacyPolicyImportantInfo() {
           width={{ base: "100%", md: "100%" }}
           pl={{ base: 0, md: 8 }}
         >
-          {renderHeading(2, "Important info", "Important_info")}
+          {renderHeading(2, "Important Information", "Important_info")}
 
           {sections.map((section, index) => (
             <Box key={index} mb={8}>
@@ -272,7 +358,7 @@ export function PrivacyPolicyImportantInfo() {
                   <Link href="#top" color="blue.500" mr={2}>
                     Back to top
                   </Link>
-                  <Link href="/wiki/Privacy_policy#top" title="Privacy policy">
+                  <Link href="#top" title="Back to top">
                     <Image
                       src="//upload.wikimedia.org/wikipedia/commons/c/ce/WWC_arrow_up.png"
                       alt="Up arrow"
@@ -284,6 +370,25 @@ export function PrivacyPolicyImportantInfo() {
               )}
             </Box>
           ))}
+          
+          {/* Add summary section */}
+          {summarySection}
+          
+          {!isMobile && (
+            <Flex justify="flex-end" mt={4}>
+              <Link href="#top" color="blue.500" mr={2}>
+                Back to top
+              </Link>
+              <Link href="#top" title="Back to top">
+                <Image
+                  src="//upload.wikimedia.org/wikipedia/commons/c/ce/WWC_arrow_up.png"
+                  alt="Up arrow"
+                  width="11px"
+                  height="11px"
+                />
+              </Link>
+            </Flex>
+          )}
         </Box>
         <Box clear="both" />
       </VStack>
